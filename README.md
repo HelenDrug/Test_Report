@@ -5,3 +5,4 @@ Test report application made with React. Purpose of application is to show stati
 - to indicate which tests have been failed
 - to indicate which tests are been ignored and inconclusive
 - to filter tests (based on their status - passed, failed or ignored)
+Project was made using create-react-app, but due to clinet's request was trasferred to simple HTML page + styling with CSS file.
