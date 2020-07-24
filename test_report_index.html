@@ -1,0 +1,3100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="test_report.css" />
+    <title>Test Report</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/88335fd46d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const App = () => {
+        let testData = {
+          nodes: [
+            {
+              type: "TestSession",
+              time: 1592577119670,
+              phase: "Begin",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              minimalCommandLine: [],
+              artifacts: [
+                "/var/folders/8f/zfz56x4n7gqd4qbfmc994brm0000gp/T/vh6vhenq.57k/TestRunnerLog.txt",
+              ],
+              summary: {
+                success: false,
+                time: 0,
+                inconclusiveCount: 0,
+                testsCount: 56,
+                errorCount: 0,
+                ignoredCount: 0,
+                notRunCount: 0,
+                failedCount: 1,
+                skippedCount: 0,
+                successCount: 55,
+                suitesCount: 1,
+                compilationErrorsCount: 0,
+                otherErrorsCount: 0,
+                failureConclusion:
+                  "FAILURE REASON: One or more tests have failed.",
+                successConclusion: "",
+                instabilityCount: 0,
+                nonTestRelatedInstabilityCount: 0,
+                unstableTestNames: [],
+              },
+              buildOnly: false,
+              utrPrefix: "./utr.pl",
+              index: 0,
+              children: [
+                {
+                  index: 1,
+                },
+                {
+                  index: 2,
+                },
+                {
+                  index: 3,
+                },
+              ],
+            },
+            {
+              type: "ArtifactPublish",
+              time: 1592577119672,
+              phase: "Immediate",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              destination:
+                "/var/folders/8f/zfz56x4n7gqd4qbfmc994brm0000gp/T/vh6vhenq.57k/TestRunnerLog.txt",
+              index: 1,
+              children: [],
+            },
+            {
+              type: "TestPlan",
+              time: 1592577135764,
+              phase: "Immediate",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              tests: [
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingSingletonInstance_ThenSingletonIsReturned(Unity.TestRunner.Common.IGlobalOptions)",
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IGlobalOptions,Unity.UnifiedTestRunner.GlobalOptions)",
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IHoarderConfig,Unity.UnifiedTestRunner.GlobalOptions)",
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IExecutionContext,Unity.UnifiedTestRunner.GlobalOptions)",
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("Owner","owner","ownerName")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("Submitter","submitter","submitterName")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildConfigName","config","configName")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildConfigId","config-id","configId")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildNumber","build-number",123)',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("ZeroTestsAreOk","zero-tests-are-ok",True)',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("PartitionIndex","partition-index",123)',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("PartitionsId","partitions-id",321)',
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForTagsArgument",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_ProfileIsSpecified_InitializesTestTestProfileDataStructure",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_RelativeArtifactsPathIsSpecified_SetsArtifactsPathToAbsolutePath",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_UtrArgvSuitesAreIgnored",
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("Submitter","submitter","submitterName")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildConfigName","config","configName")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildConfigId","config-id","configId")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildNumber","build-number",123)',
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenDuplicateSuitesIsAdded_ThenSuiteIsOnlyAddedOnceAndInMaintainedOrder",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenDuplicateTagsIsAdded_ThenTagsIsOnlyAddedOnce",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecified_ThenTestListIsLoaded",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecifiedButFilesDoesNotExists_ThenFileNotFoundExceptionIsThrown",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecifiedButListIsEmpty_ThenInvalidDataExceptionIsThrown",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsUnspecified_ThenTestListIsNull",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsCorrectValue_WhenOptionNameIsInOptionSet",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenNoSuchOptionNameIsInOptionSet",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty(null)",
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty("")',
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsHasNoItems",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsIsNull",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_HoarderUrl_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_LegacyJsonReportIsSpecified_ThenSetsItToTrue",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ListSpecified_SetsListOnlyPropertyToTrue",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_MultipleSuitesSuiteAreSpecified_SetsSelectedSuites",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_OpenReportIsSpecified_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PartitionIdIsSpecified_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PartitionIndexIsSpecified_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PerformanceProjectIdIsSpecified_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PerformanceProjectVersionPath_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ReportPerformanceDataIsSpecified_ThenSetsIt",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_TagsAreSpecified_ThenStoreValuesInTagsArray",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_TestReportDataFileIsNotSpecified_ThenAssignsDefaultValue",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenArtifactsIsSpecified_ThenSetsItToSpecifiedValue",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenNonRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenNotStdOutForHumanLogIsSpecified_ThenSetsRedirectHumanLogToStdOutToFalse",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenOnlySuiteIsSpecified_ThenSetsValuesToDefault",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenPluginsSearchPathIsSpecified_ThenSetsItToSpecifiedValue",
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok=1")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok=true")',
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecifiedSetToFalse_ThenSetItToFalse("--zero-tests-are-ok=0")',
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests.Generate_CiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests.Generate_ComplexCiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+              ],
+              index: 2,
+              children: [],
+            },
+            {
+              type: "TestSuite",
+              time: 1592577160759,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [
+                "One or more child steps have failed",
+                "One or more child steps have failed",
+              ],
+              name: "nunit",
+              scope: "default",
+              platform: null,
+              supportsFilters: true,
+              minimalCommandLine: ["--suite=nunit"],
+              isRerun: false,
+              duration: 24992,
+              summary: {
+                failureReasons: [
+                  "One or more child steps have failed",
+                  "One or more child steps have failed",
+                  "FAILURE REASON: One or more tests have failed.",
+                ],
+                compilationErrorsCount: 0,
+                instabilityCount: 0,
+                time: 9700,
+                inconclusiveCount: 0,
+                testsCount: 56,
+                errorCount: 0,
+                ignoredCount: 0,
+                notRunCount: 0,
+                failedCount: 1,
+                skippedCount: 0,
+                successCount: 55,
+                result: 6,
+              },
+              index: 3,
+              children: [
+                {
+                  index: 4,
+                },
+                {
+                  index: 5,
+                },
+                {
+                  index: 6,
+                },
+                {
+                  index: 7,
+                },
+                {
+                  index: 8,
+                },
+                {
+                  index: 9,
+                },
+                {
+                  index: 10,
+                },
+                {
+                  index: 11,
+                },
+                {
+                  index: 12,
+                },
+                {
+                  index: 13,
+                },
+                {
+                  index: 14,
+                },
+                {
+                  index: 15,
+                },
+                {
+                  index: 16,
+                },
+                {
+                  index: 86,
+                },
+                {
+                  index: 87,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577136535,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Libraries/Unity.TestRunner.Common.UnitTests/bin/Debug/net471/Unity.TestRunner.Common.UnitTests.dll",
+              duration: 16,
+              index: 4,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577137087,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Libraries/Unity.CommonTools.VersionControl.UnitTests/bin/Debug/net471/Unity.CommonTools.VersionControl.UnitTests.dll",
+              duration: 17,
+              index: 5,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577137648,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Libraries/Mono.Options.UnitTests/bin/Debug/net471/Mono.Options.UnitTests.dll",
+              duration: 18,
+              index: 6,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577138823,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Libraries/Unity.TestRunner.Common.TestRunData.Tests/bin/Debug/net471/Unity.TestRunner.Common.TestRunData.UnitTests.dll",
+              duration: 17,
+              index: 7,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577140019,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Libraries/Unity.CommonTools.UnitTests/bin/Debug/net471/Unity.CommonTools.UnitTests.dll",
+              duration: 18,
+              index: 8,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577141198,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/TestRunners/Unity.NunitTestsRunner.UnitTests/bin/Debug/net471/Unity.NunitTestsRunner.UnitTests.dll",
+              duration: 15,
+              index: 9,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577142375,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.UnifiedTestRunner.Plugin.YamatoReporting.UnitTests/bin/Debug/net471/Unity.UnifiedTestRunner.Plugin.YamatoReporting.UnitTests.dll",
+              duration: 18,
+              index: 10,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577143545,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.UnifiedTestRunner.Plugin.TestReportBuilderV2.UnitTests/bin/Debug/net471/Unity.UnifiedTestRunner.Plugin.TestReportBuilderV2.UnitTests.dll",
+              duration: 17,
+              index: 11,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577144734,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.UnifiedTestRunner.Plugin.WatchmanSummaryBuilder.UnitTests/bin/Debug/net471/Unity.UnifiedTestRunner.Plugin.WatchmanSummaryBuilder.UnitTests.dll",
+              duration: 15,
+              index: 12,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577145916,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.TestRunner.Common.SmartTestSelect.UnitTests/bin/Debug/net471/Unity.TestRunner.Common.SmartTestSelect.UnitTests.dll",
+              duration: 18,
+              index: 13,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577147076,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.UnifiedTestRunner.Plugin.TestReportBuilder.UnitTests/bin/Debug/net471/Unity.UnifiedTestRunner.Plugin.TestReportBuilder.UnitTests.dll",
+              duration: 18,
+              index: 14,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577148262,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Extensions/Unity.UnifiedTestRunner.Plugin.LegacyTestReportBuilder.Tests/bin/Debug/net471/Unity.UnifiedTestRunner.Plugin.LegacyTestReportBuilder.UnitTests.dll",
+              duration: 21,
+              index: 15,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159283,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              name:
+                "/Users/yan/cds.test-platform/source/UnifiedTestRunner.UnitTests/bin/Debug/net471/UnifiedTestRunner.UnitTests.dll",
+              duration: 9754,
+              index: 16,
+              children: [
+                {
+                  index: 17,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159282,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              name: "Unity",
+              duration: 9747,
+              index: 17,
+              children: [
+                {
+                  index: 18,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159282,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              name: "Unity.UnifiedTestRunner",
+              duration: 9746,
+              index: 18,
+              children: [
+                {
+                  index: 19,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159281,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              name: "Unity.UnifiedTestRunner.UnitTests",
+              duration: 9745,
+              index: 19,
+              children: [
+                {
+                  index: 20,
+                },
+                {
+                  index: 27,
+                },
+                {
+                  index: 83,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577150976,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name: "Unity.UnifiedTestRunner.UnitTests.BootstrapTests",
+              duration: 1439,
+              index: 20,
+              children: [
+                {
+                  index: 21,
+                },
+                {
+                  index: 23,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577150096,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingSingletonInstance_ThenSingletonIsReturned",
+              duration: 558,
+              index: 21,
+              children: [
+                {
+                  index: 22,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577150094,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingSingletonInstance_ThenSingletonIsReturned(Unity.TestRunner.Common.IGlobalOptions)",
+              state: 4,
+              message:
+                "Yamato reporting server not available, Yamato reporting is disabled (YAMATO_REPORTING_SERVER environment variable was not set on the machine)\n",
+              duration: 530,
+              durationMicroseconds: 530459,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.BootstrapTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.BootstrapTests\\.BuildKernel_WhenGettingSingletonInstance_ThenSingletonIsReturned\\(Unity\\.TestRunner\\.Common\\.IGlobalOptions\\)"',
+              ],
+              index: 22,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577150975,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated",
+              duration: 878,
+              index: 23,
+              children: [
+                {
+                  index: 24,
+                },
+                {
+                  index: 25,
+                },
+                {
+                  index: 26,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577150377,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IGlobalOptions,Unity.UnifiedTestRunner.GlobalOptions)",
+              state: 4,
+              message:
+                "Yamato reporting server not available, Yamato reporting is disabled (YAMATO_REPORTING_SERVER environment variable was not set on the machine)\n",
+              duration: 302,
+              durationMicroseconds: 302484,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.BootstrapTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.BootstrapTests\\.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated\\(Unity\\.TestRunner\\.Common\\.IGlobalOptions,Unity\\.UnifiedTestRunner\\.GlobalOptions\\)"',
+              ],
+              index: 24,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577150675,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IHoarderConfig,Unity.UnifiedTestRunner.GlobalOptions)",
+              state: 4,
+              message:
+                "Yamato reporting server not available, Yamato reporting is disabled (YAMATO_REPORTING_SERVER environment variable was not set on the machine)\n",
+              duration: 297,
+              durationMicroseconds: 297721,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.BootstrapTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.BootstrapTests\\.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated\\(Unity\\.TestRunner\\.Common\\.IHoarderConfig,Unity\\.UnifiedTestRunner\\.GlobalOptions\\)"',
+              ],
+              index: 25,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577150974,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.BootstrapTests.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated(Unity.TestRunner.Common.IExecutionContext,Unity.UnifiedTestRunner.GlobalOptions)",
+              state: 4,
+              message:
+                "Yamato reporting server not available, Yamato reporting is disabled (YAMATO_REPORTING_SERVER environment variable was not set on the machine)\n",
+              duration: 298,
+              durationMicroseconds: 298938,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.BootstrapTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.BootstrapTests\\.BuildKernel_WhenGettingTypeFromKernel_ThenTypeIsCreated\\(Unity\\.TestRunner\\.Common\\.IExecutionContext,Unity\\.UnifiedTestRunner\\.GlobalOptions\\)"',
+              ],
+              index: 26,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577158946,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: ["One or more child steps have failed"],
+              name: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              duration: 7970,
+              index: 27,
+              children: [
+                {
+                  index: 28,
+                },
+                {
+                  index: 37,
+                },
+                {
+                  index: 38,
+                },
+                {
+                  index: 39,
+                },
+                {
+                  index: 40,
+                },
+                {
+                  index: 41,
+                },
+                {
+                  index: 46,
+                },
+                {
+                  index: 47,
+                },
+                {
+                  index: 48,
+                },
+                {
+                  index: 49,
+                },
+                {
+                  index: 50,
+                },
+                {
+                  index: 51,
+                },
+                {
+                  index: 52,
+                },
+                {
+                  index: 53,
+                },
+                {
+                  index: 54,
+                },
+                {
+                  index: 57,
+                },
+                {
+                  index: 58,
+                },
+                {
+                  index: 59,
+                },
+                {
+                  index: 60,
+                },
+                {
+                  index: 61,
+                },
+                {
+                  index: 62,
+                },
+                {
+                  index: 63,
+                },
+                {
+                  index: 64,
+                },
+                {
+                  index: 65,
+                },
+                {
+                  index: 66,
+                },
+                {
+                  index: 67,
+                },
+                {
+                  index: 68,
+                },
+                {
+                  index: 69,
+                },
+                {
+                  index: 70,
+                },
+                {
+                  index: 71,
+                },
+                {
+                  index: 72,
+                },
+                {
+                  index: 73,
+                },
+                {
+                  index: 74,
+                },
+                {
+                  index: 75,
+                },
+                {
+                  index: 76,
+                },
+                {
+                  index: 77,
+                },
+                {
+                  index: 81,
+                },
+              ],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577152399,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments",
+              duration: 1422,
+              index: 28,
+              children: [
+                {
+                  index: 29,
+                },
+                {
+                  index: 30,
+                },
+                {
+                  index: 31,
+                },
+                {
+                  index: 32,
+                },
+                {
+                  index: 33,
+                },
+                {
+                  index: 34,
+                },
+                {
+                  index: 35,
+                },
+                {
+                  index: 36,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577151304,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("Owner","owner","ownerName")',
+              state: 4,
+              message: "",
+              duration: 329,
+              durationMicroseconds: 329418,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"Owner\\",\\"owner\\",\\"ownerName\\"\\)"',
+              ],
+              index: 29,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577151460,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("Submitter","submitter","submitterName")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155497,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"Submitter\\",\\"submitter\\",\\"submitterName\\"\\)"',
+              ],
+              index: 30,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577151616,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildConfigName","config","configName")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155583,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"BuildConfigName\\",\\"config\\",\\"configName\\"\\)"',
+              ],
+              index: 31,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577151771,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildConfigId","config-id","configId")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155495,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"BuildConfigId\\",\\"config-id\\",\\"configId\\"\\)"',
+              ],
+              index: 32,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577151928,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("BuildNumber","build-number",123)',
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156957,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"BuildNumber\\",\\"build-number\\",123\\)"',
+              ],
+              index: 33,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152086,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("ZeroTestsAreOk","zero-tests-are-ok",True)',
+              state: 4,
+              message: "",
+              duration: 158,
+              durationMicroseconds: 158083,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"ZeroTestsAreOk\\",\\"zero-tests-are-ok\\",True\\)"',
+              ],
+              index: 34,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152243,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("PartitionIndex","partition-index",123)',
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156313,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"PartitionIndex\\",\\"partition-index\\",123\\)"',
+              ],
+              index: 35,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152398,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForSomeArguments("PartitionsId","partitions-id",321)',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155318,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForSomeArguments\\(\\"PartitionsId\\",\\"partitions-id\\",321\\)"',
+              ],
+              index: 36,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152554,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctor_FallbackToUtrArgvForTagsArgument",
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156294,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctor_FallbackToUtrArgvForTagsArgument",
+              ],
+              index: 37,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152739,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_ProfileIsSpecified_InitializesTestTestProfileDataStructure",
+              state: 4,
+              message: "",
+              duration: 184,
+              durationMicroseconds: 184771,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_ProfileIsSpecified_InitializesTestTestProfileDataStructure",
+              ],
+              index: 38,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577152898,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_RelativeArtifactsPathIsSpecified_SetsArtifactsPathToAbsolutePath",
+              state: 4,
+              message: "",
+              duration: 158,
+              durationMicroseconds: 158634,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_RelativeArtifactsPathIsSpecified_SetsArtifactsPathToAbsolutePath",
+              ],
+              index: 39,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153057,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_UtrArgvSuitesAreIgnored",
+              state: 4,
+              message: "",
+              duration: 158,
+              durationMicroseconds: 158724,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_UtrArgvSuitesAreIgnored",
+              ],
+              index: 40,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577153676,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned",
+              duration: 619,
+              index: 41,
+              children: [
+                {
+                  index: 42,
+                },
+                {
+                  index: 43,
+                },
+                {
+                  index: 44,
+                },
+                {
+                  index: 45,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153212,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("Submitter","submitter","submitterName")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155558,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned\\(\\"Submitter\\",\\"submitter\\",\\"submitterName\\"\\)"',
+              ],
+              index: 42,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153367,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildConfigName","config","configName")',
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154190,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned\\(\\"BuildConfigName\\",\\"config\\",\\"configName\\"\\)"',
+              ],
+              index: 43,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153522,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildConfigId","config-id","configId")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155280,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned\\(\\"BuildConfigId\\",\\"config-id\\",\\"configId\\"\\)"',
+              ],
+              index: 44,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153675,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned("BuildNumber","build-number",123)',
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153451,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenArgumentAreInUtrOptions_ThenOptionAreAssigned\\(\\"BuildNumber\\",\\"build-number\\",123\\)"',
+              ],
+              index: 45,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153831,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenDuplicateSuitesIsAdded_ThenSuiteIsOnlyAddedOnceAndInMaintainedOrder",
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155316,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenDuplicateSuitesIsAdded_ThenSuiteIsOnlyAddedOnceAndInMaintainedOrder",
+              ],
+              index: 46,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577153987,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenDuplicateTagsIsAdded_ThenTagsIsOnlyAddedOnce",
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155576,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenDuplicateTagsIsAdded_ThenTagsIsOnlyAddedOnce",
+              ],
+              index: 47,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154144,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecified_ThenTestListIsLoaded",
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156962,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenTestListIsSpecified_ThenTestListIsLoaded",
+              ],
+              index: 48,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154302,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecifiedButFilesDoesNotExists_ThenFileNotFoundExceptionIsThrown",
+              state: 4,
+              message: "",
+              duration: 158,
+              durationMicroseconds: 158495,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenTestListIsSpecifiedButFilesDoesNotExists_ThenFileNotFoundExceptionIsThrown",
+              ],
+              index: 49,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154460,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsSpecifiedButListIsEmpty_ThenInvalidDataExceptionIsThrown",
+              state: 4,
+              message: "",
+              duration: 157,
+              durationMicroseconds: 157459,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenTestListIsSpecifiedButListIsEmpty_ThenInvalidDataExceptionIsThrown",
+              ],
+              index: 50,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154614,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.Ctr_WhenTestListIsUnspecified_ThenTestListIsNull",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154737,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.Ctr_WhenTestListIsUnspecified_ThenTestListIsNull",
+              ],
+              index: 51,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154770,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsCorrectValue_WhenOptionNameIsInOptionSet",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154972,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsCorrectValue_WhenOptionNameIsInOptionSet",
+              ],
+              index: 52,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577154926,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenNoSuchOptionNameIsInOptionSet",
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156143,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsEmptyString_WhenNoSuchOptionNameIsInOptionSet",
+              ],
+              index: 53,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577155237,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty",
+              duration: 310,
+              index: 54,
+              children: [
+                {
+                  index: 55,
+                },
+                {
+                  index: 56,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155081,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty(null)",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154814,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty\\(null\\)"',
+              ],
+              index: 55,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155236,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty("")',
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155739,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsEmptyString_WhenOptionNameIsNullOrEmpty\\(\\"\\"\\)"',
+              ],
+              index: 56,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155391,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsHasNoItems",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154607,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsHasNoItems",
+              ],
+              index: 57,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155544,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsIsNull",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153193,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.GetUtrArgValue_ReturnsEmptyString_WhenPerlUtrArgsIsNull",
+              ],
+              index: 58,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155699,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_HoarderUrl_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154284,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_HoarderUrl_ThenSetsIt",
+              ],
+              index: 59,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577155853,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_LegacyJsonReportIsSpecified_ThenSetsItToTrue",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154349,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_LegacyJsonReportIsSpecified_ThenSetsItToTrue",
+              ],
+              index: 60,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156006,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ListSpecified_SetsListOnlyPropertyToTrue",
+              state: 4,
+              message: "",
+              duration: 152,
+              durationMicroseconds: 152740,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ListSpecified_SetsListOnlyPropertyToTrue",
+              ],
+              index: 61,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156160,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_MultipleSuitesSuiteAreSpecified_SetsSelectedSuites",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153416,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_MultipleSuitesSuiteAreSpecified_SetsSelectedSuites",
+              ],
+              index: 62,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156315,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_OpenReportIsSpecified_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154992,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_OpenReportIsSpecified_ThenSetsIt",
+              ],
+              index: 63,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156470,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PartitionIdIsSpecified_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 155,
+              durationMicroseconds: 155402,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_PartitionIdIsSpecified_ThenSetsIt",
+              ],
+              index: 64,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156624,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PartitionIndexIsSpecified_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153493,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_PartitionIndexIsSpecified_ThenSetsIt",
+              ],
+              index: 65,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156778,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PerformanceProjectIdIsSpecified_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154460,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_PerformanceProjectIdIsSpecified_ThenSetsIt",
+              ],
+              index: 66,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577156932,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_PerformanceProjectVersionPath_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153966,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_PerformanceProjectVersionPath_ThenSetsIt",
+              ],
+              index: 67,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157085,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ReportPerformanceDataIsSpecified_ThenSetsIt",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153199,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ReportPerformanceDataIsSpecified_ThenSetsIt",
+              ],
+              index: 68,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157238,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_TagsAreSpecified_ThenStoreValuesInTagsArray",
+              state: 4,
+              message: "",
+              duration: 152,
+              durationMicroseconds: 152776,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_TagsAreSpecified_ThenStoreValuesInTagsArray",
+              ],
+              index: 69,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157392,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_TestReportDataFileIsNotSpecified_ThenAssignsDefaultValue",
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153575,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_TestReportDataFileIsNotSpecified_ThenAssignsDefaultValue",
+              ],
+              index: 70,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157545,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenArtifactsIsSpecified_ThenSetsItToSpecifiedValue",
+              state: 4,
+              message: "",
+              duration: 152,
+              durationMicroseconds: 152853,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenArtifactsIsSpecified_ThenSetsItToSpecifiedValue",
+              ],
+              index: 71,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157699,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenNonRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154083,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenNonRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+              ],
+              index: 72,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577157853,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenNotStdOutForHumanLogIsSpecified_ThenSetsRedirectHumanLogToStdOutToFalse",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154468,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenNotStdOutForHumanLogIsSpecified_ThenSetsRedirectHumanLogToStdOutToFalse",
+              ],
+              index: 73,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158016,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenOnlySuiteIsSpecified_ThenSetsValuesToDefault",
+              state: 5,
+              message: "  Expected: False\n  But was:  True\n",
+              duration: 161,
+              durationMicroseconds: 161707,
+              "stack-trace":
+                "  at Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenOnlySuiteIsSpecified_ThenSetsValuesToDefault () [0x000e0] in <42138dd0ef7b4160890400048f624fe9>:0 \n",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace:
+                "  at Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenOnlySuiteIsSpecified_ThenSetsValuesToDefault () [0x000e0] in <42138dd0ef7b4160890400048f624fe9>:0 \n",
+              rootCause: true,
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenOnlySuiteIsSpecified_ThenSetsValuesToDefault",
+              ],
+              index: 74,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158172,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenPluginsSearchPathIsSpecified_ThenSetsItToSpecifiedValue",
+              state: 4,
+              message: "",
+              duration: 156,
+              durationMicroseconds: 156199,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenPluginsSearchPathIsSpecified_ThenSetsItToSpecifiedValue",
+              ],
+              index: 75,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158329,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_WhenRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+              state: 4,
+              message: "",
+              duration: 157,
+              durationMicroseconds: 157596,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_WhenRootedArtifactsPathIsSpecified_ThenCurrentDirectoryIsAddedAndDirectorySeparatorIsUnified",
+              ],
+              index: 76,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577158791,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue",
+              duration: 461,
+              index: 77,
+              children: [
+                {
+                  index: 78,
+                },
+                {
+                  index: 79,
+                },
+                {
+                  index: 80,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158483,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok")',
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153777,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue\\(\\"--zero-tests-are-ok\\"\\)"',
+              ],
+              index: 78,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158637,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok=1")',
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153115,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue\\(\\"--zero-tests-are-ok=1\\"\\)"',
+              ],
+              index: 79,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158791,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue("--zero-tests-are-ok=true")',
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153906,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ZeroTestsAreOkIsSpecified_ThenSetItToTrue\\(\\"--zero-tests-are-ok=true\\"\\)"',
+              ],
+              index: 80,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577158945,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecifiedSetToFalse_ThenSetItToFalse",
+              duration: 153,
+              index: 81,
+              children: [
+                {
+                  index: 82,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577158944,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                'Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests.ParseArguments_ZeroTestsAreOkIsSpecifiedSetToFalse_ThenSetItToFalse("--zero-tests-are-ok=0")',
+              state: 4,
+              message: "",
+              duration: 153,
+              durationMicroseconds: 153239,
+              "stack-trace": "",
+              classname: "Unity.UnifiedTestRunner.UnitTests.GlobalOptionsTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                '--testfilter="Unity\\.UnifiedTestRunner\\.UnitTests\\.GlobalOptionsTests\\.ParseArguments_ZeroTestsAreOkIsSpecifiedSetToFalse_ThenSetItToFalse\\(\\"--zero-tests-are-ok=0\\"\\)"',
+              ],
+              index: 82,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159280,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name: "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests",
+              duration: 334,
+              index: 83,
+              children: [
+                {
+                  index: 84,
+                },
+                {
+                  index: 85,
+                },
+              ],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577159125,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests.Generate_CiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+              state: 4,
+              message: "",
+              duration: 180,
+              durationMicroseconds: 180689,
+              "stack-trace": "",
+              classname:
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.TestReportDataTests\\.Generate_CiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+              ],
+              index: 84,
+              children: [],
+            },
+            {
+              type: "TestStatus",
+              time: 1592577159279,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests.Generate_ComplexCiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+              state: 4,
+              message: "",
+              duration: 154,
+              durationMicroseconds: 154409,
+              "stack-trace": "",
+              classname:
+                "Unity.UnifiedTestRunner.UnitTests.TestReportDataTests",
+              stackTrace: "",
+              minimalCommandLine: [
+                "--suite=nunit",
+                "--testfilter=Unity\\.UnifiedTestRunner\\.UnitTests\\.TestReportDataTests\\.Generate_ComplexCiInfoSpecifiedInGlobalOptions_SetsBuildUrl",
+              ],
+              index: 85,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577159928,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Automation/Unity.Automation.Logger.UnitTests/bin/Debug/net471/Unity.Automation.Logger.UnitTests.dll",
+              duration: 15,
+              index: 86,
+              children: [],
+            },
+            {
+              type: "TestGroup",
+              time: 1592577160485,
+              phase: "Complete",
+              version: 2,
+              processId: 7013,
+              errors: [],
+              name:
+                "/Users/yan/cds.test-platform/source/Automation/Unity.TestProtocol.UnitTests/bin/Debug/net471/Unity.TestProtocol.UnitTests.dll",
+              duration: 17,
+              index: 87,
+              children: [],
+            },
+          ],
+        };
+
+        const [state, setState] = React.useState({
+          selectedNodeToDisplay: {},
+        });
+        const [checkBoxes, setCheckBoxes] = React.useState([]);
+
+        const getSelectedNode = (childNode) => {
+          setState({ selectedNodeToDisplay: childNode });
+        };
+
+        const handleCheckBoxes = (boxes) => {
+          setCheckBoxes(boxes);
+        };
+        return (
+          <div className="App">
+            <header
+              className="test-report-header"
+              style={{ backgroundColor: !status ? "#d32626" : "green" }}
+            >
+              <h1>Test Session Report</h1>
+            </header>
+            <TestFilter getCheckBoxes={handleCheckBoxes} />
+            <div className="section-container">
+              <section className="content-section">
+                <div className="content-header">
+                  <span className="action">Action</span>
+                  <span>Duration</span>
+                  <span>Artifacts</span>
+                </div>
+                <div>
+                  <NodeTree
+                    testData={testData}
+                    getSelectedNode={getSelectedNode}
+                    filter={checkBoxes}
+                  />
+                </div>
+              </section>
+              <section className="display-section">
+                <DisplayTree
+                  selectedNodeToDisplay={state.selectedNodeToDisplay}
+                />
+              </section>
+            </div>
+          </div>
+        );
+      };
+
+      const TestFilter = (props) => {
+        const [checkBoxes, setCheckBoxes] = React.useState([
+          { value: "ignored", isChecked: false },
+          { value: "passed", isChecked: false },
+          { value: "failed", isChecked: true },
+        ]);
+
+        const handleClick = (event) => {
+          let boxes = [...checkBoxes];
+          boxes.forEach((box) => {
+            if (box.value === event.target.value) {
+              box.isChecked = event.target.checked;
+            }
+          });
+          setCheckBoxes(boxes);
+        };
+
+        const getCheckBoxValue = () => {
+          return props.getCheckBoxes(checkBoxes);
+        };
+
+        React.useEffect(() => {
+          return getCheckBoxValue(checkBoxes);
+        });
+
+        //componentDidMount(){};
+        return (
+          <div className="navigation">
+            <form className="test-filter">
+              <fieldset>
+                <legend>Test Status filter</legend>
+                <label htmlFor="ignored">Ignored</label>
+                <input
+                  type="checkbox"
+                  name="ignored"
+                  value={checkBoxes[0].value}
+                  checked={checkBoxes[0].isChecked}
+                  onChange={handleClick}
+                  onClick={getCheckBoxValue}
+                />
+                <label htmlFor="passed">Passed</label>
+                <input
+                  type="checkbox"
+                  name="passed"
+                  value={checkBoxes[1].value}
+                  checked={checkBoxes[1].isChecked}
+                  onChange={handleClick}
+                  onClick={getCheckBoxValue}
+                />
+                <label htmlFor="failed">Failed</label>
+                <input
+                  type="checkbox"
+                  name="failed"
+                  value={checkBoxes[2].value}
+                  checked={checkBoxes[2].isChecked}
+                  onChange={handleClick}
+                  onClick={getCheckBoxValue}
+                />
+              </fieldset>
+            </form>
+          </div>
+        );
+      };
+
+      const NodeTree = (props) => {
+        const { getSelectedNode, testData, filter } = props;
+
+        const [nodes, setNodes] = React.useState(testData.nodes);
+
+        const getChildNodes = (node) => {
+          return node.children.map((node) => nodes[node.index]);
+        };
+
+        const hasChildren = (node) => {
+          return node.children.length !== 0;
+        };
+
+        const onToggle = (node) => {
+          const newNodes = nodes.map((n) => {
+            if (n.index === node.index) {
+              return { ...n, isOpen: !node.isOpen };
+            }
+            return n;
+          });
+          setNodes(newNodes);
+        };
+        const firstLevelNode = nodes[0];
+
+        return (
+          <div>
+            <Node
+              key={firstLevelNode.index}
+              node={firstLevelNode}
+              getChildNodes={getChildNodes}
+              onToggle={onToggle}
+              hasChildren={hasChildren}
+              getSelectedNode={getSelectedNode}
+              filter={filter}
+            />
+          </div>
+        );
+      };
+
+      const Node = (props) => {
+        const {
+          node,
+          getChildNodes,
+          onToggle,
+          hasChildren,
+          getSelectedNode,
+          filter,
+        } = props;
+        const getCarretStyle = (node) => {
+          if (!hasChildren(node)) {
+            return "";
+          }
+          if (node.isOpen) {
+            return <i className="fas fa-minus"></i>;
+          } else {
+            return <i className="fas fa-plus"></i>;
+          }
+        };
+
+        const getNode = (node) => {
+          return getSelectedNode(node);
+        };
+
+        const showArtifacts = () => {
+          if (node.artifacts != null) {
+            return (
+              <span>
+                {node.artifacts.length}
+                <i className="fas fa-paperclip"></i>
+              </span>
+            );
+          }
+        };
+
+        const showNode = () => {
+          if (node.type === null) {
+            return;
+          }
+          switch (node.type) {
+            case "TestSession":
+              return <TestSessionNode node={node} />;
+            case "TestPlan":
+              return <TestPlanNode node={node} />;
+            case "TestSuite":
+              return <TestSuiteNode node={node} />;
+            case "TestStatus":
+              return <TestStatusNode node={node} />;
+            case "TestGroup":
+              return <TestGroupNode node={node} />;
+            default:
+          }
+        };
+
+        const durationToTimeStr = (time) => {
+          if (node.hasOwnProperty("duration")) {
+            const date = new Date(time);
+            const pad = (v, n = 2) => v.toString().padStart(n, "0");
+            return `${pad(date.getUTCHours())}:${pad(
+              date.getUTCMinutes()
+            )}:${pad(date.getUTCSeconds())}:${pad(date.getUTCMilliseconds())}`;
+          }
+        };
+
+        const shouldDisplayFailed = (filter) => {
+          for (let i = 0; i < filter.length; ++i) {
+            if (filter[i].value === "failed" && filter[i].isChecked === true) {
+              return true;
+            }
+          }
+          return false;
+        };
+
+        const shouldDisplayPassed = (filter) => {
+          for (let i = 0; i < filter.length; ++i) {
+            if (filter[i].value === "passed" && filter[i].isChecked === true) {
+              return true;
+            }
+          }
+          return false;
+        };
+
+        const shouldDisplayIgnored = (filter) => {
+          for (let i = 0; i < filter.length; ++i) {
+            if (filter[i].value === "ignored" && filter[i].isChecked === true) {
+              return true;
+            }
+          }
+          return false;
+        };
+
+        const isFailedTestStatus = (testStatusNode) => {
+          return (
+            testStatusNode.state === 0 ||
+            testStatusNode.state === 5 ||
+            testStatusNode.state === 6
+          );
+        };
+
+        const isPassedTestStatus = (testStatusNode) => {
+          return testStatusNode.state === 4;
+        };
+
+        const isIgnoredTestStatus = (testStatusNode) => {
+          return (
+            testStatusNode.state === 1 ||
+            testStatusNode.state === 2 ||
+            testStatusNode.state === 3 ||
+            testStatusNode.state === 7
+          );
+        };
+
+        const isFailedTestGroup = (testGroupNode) => {
+          return testGroupNode.errors.length !== 0 ? true : false;
+        };
+
+        const isPassedTestGroup = (testGroupNode) => {
+          return testGroupNode.errors.length == 0 ? true : false;
+        };
+
+        const displayTestStatusNode = (child, filter) => {
+          const shouldBeDisplayed =
+            (shouldDisplayFailed(filter) && isFailedTestStatus(child)) ||
+            (shouldDisplayPassed(filter) && isPassedTestStatus(child)) ||
+            (shouldDisplayIgnored(filter) && isIgnoredTestStatus(child));
+
+          if (shouldBeDisplayed) {
+            return (
+              <Node
+                node={child}
+                key={child.index}
+                getChildNodes={getChildNodes}
+                onToggle={onToggle}
+                hasChildren={hasChildren}
+                getSelectedNode={getNode}
+                filter={filter}
+              />
+            );
+          } else {
+            return null;
+          }
+        };
+
+        const displayTestGroupNode = (child, filter) => {
+          const shouldBeDisplayed =
+            (shouldDisplayFailed(filter) && isFailedTestGroup(child)) ||
+            (shouldDisplayPassed(filter) && isPassedTestGroup(child));
+
+          if (shouldBeDisplayed) {
+            return (
+              <Node
+                node={child}
+                key={child.index}
+                getChildNodes={getChildNodes}
+                onToggle={onToggle}
+                hasChildren={hasChildren}
+                getSelectedNode={getNode}
+                filter={filter}
+              />
+            );
+          } else {
+            return null;
+          }
+        };
+
+        return (
+          <>
+            <div className="node-container" onClick={() => onToggle(node)}>
+              <div
+                className="node-title list-class"
+                role="button"
+                onClick={() => getNode(node)}
+              >
+                <span>{getCarretStyle(node)}</span>
+                {showNode()}
+              </div>
+              <div className="duration">{durationToTimeStr(node.duration)}</div>
+              <div className="artifacts">{showArtifacts()}</div>
+            </div>
+            <div className="node-child">
+              {node.isOpen &&
+                getChildNodes(node).map((childNode) => {
+                  if (childNode.type === "ArtifactPublish") {
+                    return null;
+                  }
+                  if (childNode.type === "TestStatus") {
+                    return displayTestStatusNode(childNode, filter);
+                  }
+                  if (childNode.type === "TestGroup") {
+                    return displayTestGroupNode(childNode, filter);
+                  } else {
+                    return (
+                      <Node
+                        node={childNode}
+                        key={childNode.index}
+                        getChildNodes={getChildNodes}
+                        onToggle={onToggle}
+                        hasChildren={hasChildren}
+                        getSelectedNode={getNode}
+                        filter={filter}
+                      />
+                    );
+                  }
+                })}
+            </div>
+          </>
+        );
+      };
+
+      const DisplayTree = ({ selectedNodeToDisplay }) => {
+        const getComponentToDisplay = () => {
+          if (selectedNodeToDisplay.type === null) {
+            return;
+          }
+
+          switch (selectedNodeToDisplay.type) {
+            case "ProcessInfo":
+              return (
+                <ProcessInfo selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
+            case "TestSession":
+              return (
+                <TestSession selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
+            case "TestSuite":
+              return (
+                <TestSuite selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
+            case "TestPlan":
+              return <TestPlan selectedNodeToDisplay={selectedNodeToDisplay} />;
+            case "TestGroup":
+              return (
+                <TestGroup selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
+            case "TestStatus":
+              return (
+                <TestStatus selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
+            default:
+          }
+        };
+
+        return <div>{getComponentToDisplay()}</div>;
+      };
+
+      //components to display on NodeTree (left part)
+      const TestSessionNode = ({ node }) => {
+        return (
+          <>
+            {!node.summary.success ? <IconFail /> : <IconSuccess />}
+            <span>{node.type}</span>
+            {!node.summary.success ? (
+              <StatusFail status={"FAILED"} />
+            ) : (
+              <StatusSuccess status={"SUCCESS"} />
+            )}
+          </>
+        );
+      };
+
+      const TestPlanNode = ({ node }) => {
+        return (
+          <>
+            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
+            <span>
+              Ready to run <strong>{node.tests.length}</strong> test(s).
+            </span>
+            {node.errors.length !== 0 ? (
+              <StatusFail status={"Failed"} />
+            ) : (
+              <StatusSuccess status={"Success"} />
+            )}
+          </>
+        );
+      };
+
+      const TestSuiteNode = ({ node }) => {
+        return (
+          <>
+            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
+            <span>
+              Run <strong>{node.name}</strong> tests for{" "}
+              <strong>{node.scope}</strong>
+            </span>
+            {node.errors.length !== 0 ? (
+              <StatusFail status={"Failed"} />
+            ) : (
+              <StatusSuccess status={"Success"} />
+            )}
+          </>
+        );
+      };
+
+      const TestStatusNode = ({ node }) => {
+        const setIcon = () => {
+          switch (node.state) {
+            case 0:
+              return null;
+            case 1:
+            case 2:
+            case 3:
+            case 7:
+              return <IconIgnored />;
+            case 5:
+            case 6:
+              return <IconFail />;
+            case 4:
+              return <IconSuccess />;
+            default:
+              return null;
+          }
+        };
+
+        const setStatus = () => {
+          switch (node.state) {
+            case 0:
+              return <StatusInconclusive status={"Inconclusive"} />;
+            case 1:
+            case 2:
+            case 3:
+            case 7:
+              return <StatusIgnored status={"Ignored"} />;
+            case 4:
+              return <StatusSuccess status={"Success"} />;
+            case 5:
+            case 6:
+              return <StatusFail status={"Failed"} />;
+            default:
+              return null;
+          }
+        };
+
+        return (
+          <>
+            {setIcon()}
+            <span>{node.name}</span>
+            {setStatus()}
+          </>
+        );
+      };
+
+      const TestGroupNode = ({ node }) => {
+        const shortenPathName = (path) => {
+          const regex = /[\/\\]/;
+          const tokens = path.split(regex);
+          let fileName = tokens[tokens.length - 1];
+          return fileName;
+        };
+
+        return (
+          <>
+            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
+            <span>{shortenPathName(node.name)}</span>
+            {node.errors.length !== 0 ? (
+              <StatusFail status={"Failed"} />
+            ) : (
+              <StatusSuccess status={"Success"} />
+            )}
+          </>
+        );
+      };
+
+      //small components for NodeTree components composition
+
+      const IconFail = () => {
+        return (
+          <>
+            <span>
+              <i className="fas fa-ban" style={{ color: "red" }}></i>
+            </span>
+          </>
+        );
+      };
+
+      const IconSuccess = () => {
+        return (
+          <>
+            <span>
+              <i className="fas fa-check" style={{ color: "green" }}></i>
+            </span>
+          </>
+        );
+      };
+
+      const IconIgnored = () => {
+        return (
+          <>
+            <span>
+              <i className="fas fa-eye-slash" style={{ color: "grey" }}></i>
+            </span>
+          </>
+        );
+      };
+
+      const StatusFail = (props) => {
+        return (
+          <>
+            <span className="dark-red">{props.status}</span>
+          </>
+        );
+      };
+
+      const StatusSuccess = (props) => {
+        return (
+          <>
+            <span className="dark-green">{props.status}</span>
+          </>
+        );
+      };
+
+      const StatusIgnored = (props) => {
+        return (
+          <>
+            <span style={{ color: "orange" }}>{props.status}</span>
+          </>
+        );
+      };
+
+      const StatusInconclusive = (props) => {
+        return (
+          <>
+            <span style={{ color: "purple" }}>{props.status}</span>
+          </>
+        );
+      };
+
+      //components to display on DisplayTree (right part)
+      const ProcessInfo = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="process-info-container word-breaker">
+            <Path selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Arguments selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Artifacts selectedNodeToDisplay={selectedNodeToDisplay} />
+            <processId selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
+      const TestSession = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="test-session-container word-breaker">
+            <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
+            <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Suites selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Command selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Artifacts selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+            <ProcessId selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
+      const TestPlan = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="test-plan-container component-margin word-breaker">
+            <div className="blue">
+              Ready to run <strong>{selectedNodeToDisplay.tests.length}</strong>{" "}
+              test(s):
+            </div>
+            <ul className="list-class">
+              {selectedNodeToDisplay.tests.map((item) => (
+                <li className="selector" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      };
+
+      const TestSuite = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="test-suite-container word-breaker">
+            <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
+            <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Name selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Scope selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Platform selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Command selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Artifacts selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
+      const TestGroup = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="test-group-container word-breaker">
+            <Name selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
+      const TestStatus = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="test-status-container word-breaker">
+            <Name selectedNodeToDisplay={selectedNodeToDisplay} />
+            <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Message selectedNodeToDisplay={selectedNodeToDisplay} />
+            <StackTrace selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Command selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
+      //reusable components
+
+      const ProcessId = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <p>
+              <span className="blue">Process id:</span>{" "}
+              <strong>{selectedNodeToDisplay.processId}</strong>
+            </p>
+          </div>
+        );
+      };
+
+      const Name = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="name component-margin">
+            <span className="blue">Name:</span>{" "}
+            <strong>{selectedNodeToDisplay.name}</strong>
+          </div>
+        );
+      };
+
+      const Path = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="path-container">
+            <lebel for="btn-copy" className="blue">
+              Path:{" "}
+            </lebel>
+            <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
+            <p className="selector">{selectedNodeToDisplay.path}</p>
+          </div>
+        );
+      };
+
+      const Arguments = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="args-container component-margin">
+            <label for="btn-copy" className="blue">
+              Arguments:{" "}
+            </label>
+            <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
+            <p className="selector">{selectedNodeToDisplay.arguments}</p>
+          </div>
+        );
+      };
+
+      const Errors = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.errors.length !== 0) {
+          return (
+            <div className="error-container component-margin">
+              <span className="blue">
+                Errors ({selectedNodeToDisplay.errors.length})
+              </span>
+              {selectedNodeToDisplay.errors.map((error) => (
+                <div style={{ marginTop: "10px" }} key={error}>
+                  <CopyToClipboard getData={error} />
+                  <span className="pink selector">{error}</span>
+                </div>
+              ))}
+            </div>
+          );
+        }
+        return null;
+      };
+
+      const Artifacts = ({ selectedNodeToDisplay }) => {
+        if (
+          selectedNodeToDisplay.hasOwnProperty("artifacts") &&
+          selectedNodeToDisplay.artifacts.length !== 0
+        ) {
+          return (
+            <div className="artifact-container component-margin">
+              <span className="blue">
+                Artifacts ({selectedNodeToDisplay.artifacts.length})
+              </span>
+              <div className="artifact-div">
+                {selectedNodeToDisplay.artifacts.map((artifact) => (
+                  <div className="link-container" key={artifact}>
+                    <i className="fas fa-paperclip"></i>
+                    <a href={artifact} download>
+                      {artifact}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        return null;
+      };
+
+      const Summary = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin summary-container">
+            <div className="summary bgr-grey">
+              <div>
+                Run <strong>{selectedNodeToDisplay.summary.testsCount}</strong>{" "}
+                test(s).{" "}
+              </div>
+              <div>
+                Passed:{" "}
+                <strong>{selectedNodeToDisplay.summary.successCount}</strong>
+              </div>
+              <div>
+                Failed:{" "}
+                <strong>{selectedNodeToDisplay.summary.failedCount}</strong>
+              </div>
+              <div>
+                Inconclusive:{" "}
+                <strong>
+                  {selectedNodeToDisplay.summary.inconclusiveCount}
+                </strong>
+              </div>
+              <div>
+                Ignored:{" "}
+                <strong>{selectedNodeToDisplay.summary.ignoredCount}</strong>
+              </div>
+              <div>
+                Skipped:{" "}
+                <strong>{selectedNodeToDisplay.summary.skippedCount}</strong>
+              </div>
+              <div>
+                Not runnable:{" "}
+                <strong>{selectedNodeToDisplay.summary.notRunCount}</strong>
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      const OverallResult = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.type === "TestSession") {
+          return (
+            <div className="component-margin">
+              <span className="blue">Overall results:</span>{" "}
+              {selectedNodeToDisplay.summary.success ? (
+                <span className="dark-green">SUCCESS</span>
+              ) : (
+                <span className="dark-red">FAIL</span>
+              )}
+            </div>
+          );
+        } else if (selectedNodeToDisplay.type === "TestStatus") {
+          switch (selectedNodeToDisplay.state) {
+            case 0:
+              return (
+                <div className="component-margin">
+                  <span className="blue">Overall results:</span>{" "}
+                  <StatusInconclusive status={"Inconclusive"} />
+                </div>
+              );
+            case 1:
+            case 2:
+            case 3:
+            case 7:
+              return (
+                <div className="component-margin">
+                  <span className="blue">Overall results:</span>{" "}
+                  <StatusIgnored status={"Ignored"} />
+                </div>
+              );
+            case 4:
+              return (
+                <div className="component-margin">
+                  <span className="blue">Overall results:</span>{" "}
+                  <StatusSuccess status={"Success"} />
+                </div>
+              );
+            case 5:
+            case 6:
+              return (
+                <div className="component-margin">
+                  <span className="blue">Overall results:</span>{" "}
+                  <StatusFail status={"Failed"} />
+                </div>
+              );
+            default:
+              return null;
+          }
+        } else if (selectedNodeToDisplay.type === "TestSuite") {
+          return (
+            <div className="component-margin">
+              <span className="blue">Overall results:</span>{" "}
+              {selectedNodeToDisplay.errors.length === 0 ? (
+                <span className="dark-green">SUCCESS</span>
+              ) : (
+                <span className="dark-red">FAIL</span>
+              )}
+            </div>
+          );
+        }
+      };
+
+      const Conclusion = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.type === "TestSession") {
+          return (
+            <div className="component-margin">
+              <span className="blue">Conclusion:</span>{" "}
+              {!selectedNodeToDisplay.summary.success ? (
+                <span className="dark-red">
+                  {selectedNodeToDisplay.summary.failureConclusion}
+                </span>
+              ) : (
+                <span className="dark-green">SUCCESS</span>
+              )}
+            </div>
+          );
+        } else if (selectedNodeToDisplay.type === "TestSuite") {
+          return (
+            <div className="component-margin">
+              <span className="blue">Conclusion:</span>{" "}
+              {
+                <span className="dark-red">
+                  {selectedNodeToDisplay.summary.failureReasons[2]}
+                </span>
+              }
+            </div>
+          );
+        } else {
+          return null;
+        }
+      };
+
+      const Suites = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <span className="blue">Suites count:</span>{" "}
+            <strong>{selectedNodeToDisplay.summary.suitesCount}</strong>
+          </div>
+        );
+      };
+
+      const Command = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.minimalCommandLine.length !== 0) {
+          return (
+            <div className="command component-margin">
+              <div className="blue" style={{ marginBottom: 10 }}>
+                Command to run locally:{" "}
+              </div>
+              <CopyToClipboard
+                getData={selectedNodeToDisplay.minimalCommandLine}
+              />
+              <span className="green selector">
+                {selectedNodeToDisplay.minimalCommandLine}
+              </span>
+            </div>
+          );
+        }
+        return null;
+      };
+
+      const Scope = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <span className="blue">Scope:</span>{" "}
+            <strong>{selectedNodeToDisplay.scope}</strong>
+          </div>
+        );
+      };
+
+      const Platform = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.platform !== null) {
+          return (
+            <div className="component-margin">
+              <span className="blue">Platform:</span>{" "}
+              <strong>{selectedNodeToDisplay.platform}</strong>
+            </div>
+          );
+        }
+        return null;
+      };
+
+      const CopyToClipboard = ({ getData }) => {
+        const handleTextClick = () => {
+          navigator.clipboard.writeText(getData);
+        };
+
+        return (
+          <div className="copy-btn-container">
+            <button
+              className="btn-copy"
+              name="btn-copy"
+              onClick={handleTextClick}
+            >
+              Copy{" "}
+              <i className="fas fa-clipboard-check" style={{ size: 10 }}></i>
+            </button>
+          </div>
+        );
+      };
+
+      const Message = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.message.length !== 0) {
+          const message = selectedNodeToDisplay.message.split(/\r?\n/);
+          return (
+            <div className="component-margin selector">
+              <div className="blue">Message:</div>
+              {message.map((msg) => (
+                <div>{msg}</div>
+              ))}
+            </div>
+          );
+        }
+        return null;
+      };
+
+      const StackTrace = ({ selectedNodeToDisplay }) => {
+        if (selectedNodeToDisplay.stackTrace.length !== 0) {
+          return (
+            <div className="component-margin">
+              <div className="blue">Stack-trace:</div>
+              <div className="selector">{selectedNodeToDisplay.stackTrace}</div>
+            </div>
+          );
+        }
+        return null;
+      };
+
+      ReactDOM.render(<App></App>, document.getElementById("root"));
+    </script>
+  </body>
+</html>
