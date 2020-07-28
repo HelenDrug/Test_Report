@@ -24,8 +24,8 @@
     <div id="root"></div>
     <script type="text/babel">
       const App = () => {
-        let testData = {
-          nodes: [
+        let testData = 
+          [
             {
               type: "TestSession",
               time: 1592577119670,
@@ -2114,8 +2114,8 @@
               index: 87,
               children: [],
             },
-          ],
-        };
+          ];
+
 
         const [state, setState] = React.useState({
           selectedNodeToDisplay: {},
@@ -2230,7 +2230,7 @@
       const NodeTree = (props) => {
         const { getSelectedNode, testData, filter } = props;
 
-        const [nodes, setNodes] = React.useState(testData.nodes);
+        const [nodes, setNodes] = React.useState(testData);
 
         const getChildNodes = (node) => {
           return node.children.map((node) => nodes[node.index]);
