@@ -2187,7 +2187,6 @@
           return getCheckBoxValue(checkBoxes);
         });
 
-        //componentDidMount(){};
         return (
           <div className="navigation">
             <form className="test-filter">
@@ -2274,9 +2273,15 @@
           getSelectedNode,
           filter,
         } = props;
+
         const getCarretStyle = (node) => {
           if (!hasChildren(node)) {
-            return "";
+            return (
+              <span>
+                {" "}
+                <span></span>
+              </span>
+            );
           }
           if (node.isOpen) {
             return <i className="fas fa-minus"></i>;
@@ -2537,15 +2542,9 @@
       const TestPlanNode = ({ node }) => {
         return (
           <>
-            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
-            <span>
+            <span style={{ marginLeft: 3 }}>
               Ready to run <strong>{node.tests.length}</strong> test(s).
             </span>
-            {node.errors.length !== 0 ? (
-              <StatusFail status={"Failed"} />
-            ) : (
-              <StatusSuccess status={"Success"} />
-            )}
           </>
         );
       };
