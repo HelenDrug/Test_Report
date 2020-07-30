@@ -2382,12 +2382,20 @@
           );
         };
 
-        const isFailedTestGroup = (testGroupNode) => {
-          return testGroupNode.errors.length !== 0 ? true : false;
+        const isFailedTestGroup = (testNode) => {
+          return testNode.errors.length !== 0 ? true : false;
         };
 
-        const isPassedTestGroup = (testGroupNode) => {
-          return testGroupNode.errors.length == 0 ? true : false;
+        const isPassedTestGroup = (testNode) => {
+          return testNode.errors.length == 0 ? true : false;
+        };
+
+        const isFailedTestSuite = (testNode) => {
+          return testNode.errors.length !== 0 ? true : false;
+        };
+
+        const isPassedTestSuite = (testNode) => {
+          return testNode.errors.length == 0 ? true : false;
         };
 
         const displayTestStatusNode = (child, filter) => {
@@ -2435,6 +2443,28 @@
           }
         };
 
+        const displayTestSuiteNode = (child, filter) => {
+          const shouldBeDisplayed =
+            (shouldDisplayFailed(filter) && isFailedTestSuite(child)) ||
+            (shouldDisplayPassed(filter) && isPassedTestSuite(child));
+
+          if (shouldBeDisplayed) {
+            return (
+              <Node
+                node={child}
+                key={child.index}
+                getChildNodes={getChildNodes}
+                onToggle={onToggle}
+                hasChildren={hasChildren}
+                getSelectedNode={getNode}
+                filter={filter}
+              />
+            );
+          } else {
+            return null;
+          }
+        };
+
         return (
           <>
             <div className="node-container" onClick={() => onToggle(node)}>
@@ -2460,6 +2490,9 @@
                   }
                   if (childNode.type === "TestGroup") {
                     return displayTestGroupNode(childNode, filter);
+                  }
+                  if (childNode.type === "TestSuite") {
+                    return displayTestSuiteNode(childNode, filter);
                   } else {
                     return (
                       <Node
