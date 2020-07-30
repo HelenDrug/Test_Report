@@ -3121,11 +3121,13 @@
         if (selectedNodeToDisplay.message.length !== 0) {
           const message = selectedNodeToDisplay.message.split(/\r?\n/);
           return (
-            <div className="component-margin selector">
+            <div className="component-margin">
               <div className="blue">Message:</div>
-              {message.map((msg) => (
-                <div>{msg}</div>
-              ))}
+              <span className="selector">
+                {message.map((msg) => (
+                  <div>{msg}</div>
+                ))}
+              </span>
             </div>
           );
         }
