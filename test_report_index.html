@@ -2295,7 +2295,7 @@
         };
 
         const showArtifacts = () => {
-          if (node.artifacts != null) {
+          if (node.artifacts !== null) {
             return (
               <span>
                 {node.artifacts.length}
@@ -2321,6 +2321,7 @@
             case "TestGroup":
               return <TestGroupNode node={node} />;
             default:
+              return <DefaultNode node={node} />;
           }
         };
 
@@ -2659,6 +2660,20 @@
           <>
             {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
             <span>{shortenPathName(node.name)}</span>
+            {node.errors.length !== 0 ? (
+              <StatusFail status={"Failed"} />
+            ) : (
+              <StatusSuccess status={"Success"} />
+            )}
+          </>
+        );
+      };
+
+      const DefaultNode = () => {
+        return (
+          <>
+            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
+            <span>{node.name}</span>
             {node.errors.length !== 0 ? (
               <StatusFail status={"Failed"} />
             ) : (
