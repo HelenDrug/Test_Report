@@ -2320,6 +2320,8 @@
               return <TestStatusNode node={node} />;
             case "TestGroup":
               return <TestGroupNode node={node} />;
+            case "Assert":
+              return <AssertNode node={node} />;
             default:
               return <DefaultNode node={node} />;
           }
@@ -2665,6 +2667,16 @@
             ) : (
               <StatusSuccess status={"Success"} />
             )}
+          </>
+        );
+      };
+
+      const AssertNode = () => {
+        return (
+          <>
+            <IconFail />
+            <span>{node.name}</span>
+            <StatusFail status={"Failed"} />
           </>
         );
       };
