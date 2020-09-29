@@ -2295,7 +2295,7 @@
         };
 
         const showArtifacts = () => {
-          if (node.artifacts !== null) {
+          if (node.artifacts != null) {
             return (
               <span>
                 {node.artifacts.length}
@@ -2320,10 +2320,10 @@
               return <TestStatusNode node={node} />;
             case "TestGroup":
               return <TestGroupNode node={node} />;
-            case "Assert":
+            /* case "Assert":
               return <AssertNode node={node} />;
             default:
-              return <DefaultNode node={node} />;
+              return <DefaultNode node={node} />; */
           }
         };
 
@@ -2488,6 +2488,10 @@
                   if (childNode.type === "ArtifactPublish") {
                     return null;
                   }
+                  if (childNode.type === "Assert") {
+                    return displayAssertNode(childnode, filter);
+                  }
+
                   if (childNode.type === "TestStatus") {
                     return displayTestStatusNode(childNode, filter);
                   }
