@@ -991,6 +991,8 @@
               return <AssertNode node={node} />;
             case "ProcessInfo":
               return <ProcessInfoNode node={node} />;
+            case "Info":
+              return <InfoNode node={node} />;
             default:
               return <DefaultNode node={node} />;
           }
@@ -1362,6 +1364,14 @@
         );
       };
 
+      const InfoNode = ({ node }) => {
+        return (
+          <>
+            <span>{node.message}</span>
+          </>
+        );
+      };
+
       const DefaultNode = ({ node }) => {
         return (
           <>
@@ -1558,10 +1568,8 @@
 
       const Path = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="path-container">
-            <lebel for="btn-copy" className="blue">
-              Path:{" "}
-            </lebel>
+          <div className="path-container component-margin">
+            <span className="blue">Path: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
             <p className="selector">{selectedNodeToDisplay.path}</p>
           </div>
@@ -1571,9 +1579,7 @@
       const Arguments = ({ selectedNodeToDisplay }) => {
         return (
           <div className="args-container component-margin">
-            <label for="btn-copy" className="blue">
-              Arguments:{" "}
-            </label>
+            <span className="blue">Arguments: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
             <p className="selector">{selectedNodeToDisplay.arguments}</p>
           </div>
