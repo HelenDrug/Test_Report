@@ -993,6 +993,8 @@
               return <ProcessInfoNode node={node} />;
             case "Info":
               return <InfoNode node={node} />;
+            case "LogEntry":
+              return <LogEntryNode node={node} />;
             default:
               return <DefaultNode node={node} />;
           }
@@ -1365,6 +1367,14 @@
       };
 
       const InfoNode = ({ node }) => {
+        return (
+          <>
+            <span>{node.message}</span>
+          </>
+        );
+      };
+
+      const LogEntryNode = ({ node }) => {
         return (
           <>
             <span>{node.message}</span>
