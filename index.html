@@ -1226,6 +1226,10 @@
                   prefix={prefix}
                 />
               );
+            case "Info":
+              return <Info selectedNodeToDisplay={selectedNodeToDisplay} />;
+            case "LogEntry":
+              return <LogEntry selectedNodeToDisplay={selectedNodeToDisplay} />;
             default:
           }
         };
@@ -1375,8 +1379,22 @@
       };
 
       const LogEntryNode = ({ node }) => {
+        const setSeverity = () => {
+          switch (node.severity) {
+            case "Error":
+              return <IconFail />;
+            case "Warning":
+              return <IconWarn />;
+            case "Assert":
+              return <IconFail />;
+            default:
+              return null;
+          }
+        };
+
         return (
           <>
+            {setSeverity()}
             <span>{node.message}</span>
           </>
         );
@@ -1424,6 +1442,16 @@
           <>
             <span>
               <i className="fas fa-eye-slash" style={{ color: "grey" }}></i>
+            </span>
+          </>
+        );
+      };
+
+      const IconWarn = () => {
+        return (
+          <>
+            <span>
+              <i className="fa fa-exclamation"></i>
             </span>
           </>
         );
@@ -1550,6 +1578,14 @@
               selectedNodeToDisplay={selectedNodeToDisplay}
               prefix={prefix}
             />
+          </div>
+        );
+      };
+
+      const Info = ({ selectedNodeToDisplay }) => {
+        return (
+          <div>
+            <Message selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
         );
       };
