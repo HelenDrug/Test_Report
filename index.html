@@ -1590,6 +1590,20 @@
         );
       };
 
+      const LogEntry = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="word-breaker">
+            <Severity selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Message selectedNodeToDisplay={selectedNodeToDisplay} />
+            <StackTrace selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Line selectedNodeToDisplay={selectedNodeToDisplay} />
+            <File selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+            <ProcessId selectedNodeToDisplay={selectedNodeToDisplay} />
+          </div>
+        );
+      };
+
       //reusable components
 
       const ProcessId = ({ selectedNodeToDisplay }) => {
@@ -1896,7 +1910,17 @@
       };
 
       const StackTrace = ({ selectedNodeToDisplay }) => {
-        if (selectedNodeToDisplay.stackTrace.length !== 0) {
+        if (
+          selectedNodeToDisplay.type === "LogEntry" &&
+          selectedNodeToDisplay.stacktrace.length !== 0
+        ) {
+          return (
+            <div className="component-margin">
+              <div className="blue">Stack-trace:</div>
+              <div className="selector">{selectedNodeToDisplay.stacktrace}</div>
+            </div>
+          );
+        } else if (selectedNodeToDisplay.stackTrace.length !== 0) {
           return (
             <div className="component-margin">
               <div className="blue">Stack-trace:</div>
@@ -1905,6 +1929,33 @@
           );
         }
         return null;
+      };
+
+      const Severity = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <span className="blue">Severity: </span>
+            <span>{selectedNodeToDisplay.severity}</span>
+          </div>
+        );
+      };
+
+      const Line = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <span className="blue">Line:</span>
+            <span>{selectedNodeToDisplay.line}</span>
+          </div>
+        );
+      };
+
+      const File = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <div className="blue">File:</div>
+            <div className="selector green">{selectedNodeToDisplay.file}</div>
+          </div>
+        );
       };
 
       ReactDOM.render(<App></App>, document.getElementById("root"));
