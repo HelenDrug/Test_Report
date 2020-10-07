@@ -995,6 +995,8 @@
               return <InfoNode node={node} />;
             case "LogEntry":
               return <LogEntryNode node={node} />;
+            case "MemoryLeaks":
+              return <MemoryLeaksNode node={node} />;
             default:
               return <DefaultNode node={node} />;
           }
@@ -1230,6 +1232,10 @@
               return <Info selectedNodeToDisplay={selectedNodeToDisplay} />;
             case "LogEntry":
               return <LogEntry selectedNodeToDisplay={selectedNodeToDisplay} />;
+            case "MemoryLeaks":
+              return (
+                <MemoryLeaks selectedNodeToDisplay={selectedNodeToDisplay} />
+              );
             default:
           }
         };
@@ -1396,6 +1402,14 @@
           <>
             {setSeverity()}
             <span>{node.message}</span>
+          </>
+        );
+      };
+
+      const MemoryLeaksNode = ({ node }) => {
+        return (
+          <>
+            <span>Memory leaks</span>
           </>
         );
       };
