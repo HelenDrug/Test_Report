@@ -1618,6 +1618,17 @@
         );
       };
 
+      const MemoryLeaks = ({selectedNodeToDisplay}) =>{
+        return(
+          <div className="word-breaker">
+          <Phase selectedNodeToDisplay={selectedNodeToDisplay} />
+          <AllocatedMemory selectedNodeToDisplay={selectedNodeToDisplay} />
+          <MemoryLabels selectedNodeToDisplay={selectedNodeToDisplay} />
+            
+          </div>
+        )
+      }
+
       //reusable components
 
       const ProcessId = ({ selectedNodeToDisplay }) => {
