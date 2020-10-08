@@ -1997,7 +1997,13 @@
         return (
           <div className="component-margin">
             <div className="blue">Memory labels: </div>
-            <div>{selectedNodeToDisplay.memoryLabels}</div>
+            {selectedNodeToDisplay.memoryLabels.map((label) =>
+              Object.keys(label).map((key, i) => (
+                <div key={i}>
+                  <span>{key}</span> : <span>{label[key]}</span>
+                </div>
+              ))
+            )}
           </div>
         );
       };
