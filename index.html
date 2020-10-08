@@ -1618,16 +1618,17 @@
         );
       };
 
-      const MemoryLeaks = ({selectedNodeToDisplay}) =>{
-        return(
+      const MemoryLeaks = ({ selectedNodeToDisplay }) => {
+        return (
           <div className="word-breaker">
-          <Phase selectedNodeToDisplay={selectedNodeToDisplay} />
-          <AllocatedMemory selectedNodeToDisplay={selectedNodeToDisplay} />
-          <MemoryLabels selectedNodeToDisplay={selectedNodeToDisplay} />
-            
+            <Phase selectedNodeToDisplay={selectedNodeToDisplay} />
+            <MemoryLabels selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
+            <Artifacts selectedNodeToDisplay={selectedNodeToDisplay} />
+            <ProcessId selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
-        )
-      }
+        );
+      };
 
       //reusable components
 
@@ -1979,6 +1980,24 @@
           <div className="component-margin">
             <div className="blue">File:</div>
             <div className="selector green">{selectedNodeToDisplay.file}</div>
+          </div>
+        );
+      };
+
+      const Phase = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <span className="blue">Phase: </span>
+            <span>{selectedNodeToDisplay.phase}</span>
+          </div>
+        );
+      };
+
+      const MemoryLabels = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="component-margin">
+            <div className="blue">Memory labels: </div>
+            <div>{selectedNodeToDisplay.memoryLabels}</div>
           </div>
         );
       };
