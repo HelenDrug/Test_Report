@@ -23,6 +23,13 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      const truncateString = (str) => {
+        if (str.length <= 70) {
+          return str;
+        }
+        let newStr = str.slice(0, 40) + "..." + str.slice(-40, str.length);
+        return newStr;
+      };
       const App = () => {
         let testData = [
           {
@@ -1379,7 +1386,7 @@
       const InfoNode = ({ node }) => {
         return (
           <>
-            <span>{node.message}</span>
+            <span>{truncateString(node.message)}</span>
           </>
         );
       };
