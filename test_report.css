@@ -94,10 +94,10 @@
   border: 1px solid lightgray;
   border-radius: 5px;
 }
-.word-breaker {
-  border-radius: 5px;
+.formatter {
   padding: 5px 10px 5px 10px;
-  word-break: break-all;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 .selector {
   cursor: pointer;
@@ -114,8 +114,8 @@
   line-height: 25px;
 }
 .list-class {
-  word-break: break-all;
   list-style-type: none;
+  margin-left: 0em;
 }
 li {
   margin-top: 5px;
@@ -171,9 +171,7 @@ legend {
   font-weight: 700;
   margin-left: 1rem;
 }
-a {
-  word-break: break-all;
-}
+
 .summary {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -198,6 +196,6 @@ a {
   background: rgba(163, 177, 198, 0.3);
 }
 
-.formatter {
-  word-break: break-word;
+.bottom-space {
+  margin-bottom: 5px;
 }

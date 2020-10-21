@@ -1501,7 +1501,7 @@
       //components to display on DisplayTree (right part)
       const ProcessInfo = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="process-info-container word-breaker">
+          <div className="process-info-container formatter">
             <Path selectedNodeToDisplay={selectedNodeToDisplay} />
             <Arguments selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1513,7 +1513,7 @@
 
       const TestSession = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-session-container word-breaker">
+          <div className="test-session-container formatter">
             <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1531,25 +1531,23 @@
 
       const TestPlan = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="test-plan-container component-margin word-breaker">
+          <div className="component-margin formatter">
             <div className="blue">
               Ready to run <strong>{selectedNodeToDisplay.tests.length}</strong>{" "}
               test(s):
             </div>
-            <ul className="list-class">
-              {selectedNodeToDisplay.tests.map((item) => (
-                <li className="selector" key={item}>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {selectedNodeToDisplay.tests.map((item) => (
+              <p className="selector" key={item}>
+                {item}
+              </p>
+            ))}
           </div>
         );
       };
 
       const TestSuite = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-suite-container word-breaker">
+          <div className="test-suite-container formatter">
             <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1568,7 +1566,7 @@
 
       const TestGroup = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="test-group-container word-breaker">
+          <div className="test-group-container formatter">
             <Name selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
@@ -1577,7 +1575,7 @@
 
       const TestStatus = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-status-container word-breaker">
+          <div className="test-status-container formatter">
             <Name selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1593,7 +1591,7 @@
 
       const Info = ({ selectedNodeToDisplay }) => {
         return (
-          <div>
+          <div className="formatter">
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
         );
@@ -1601,7 +1599,7 @@
 
       const LogEntry = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="word-breaker">
+          <div className="formatter">
             <Severity selectedNodeToDisplay={selectedNodeToDisplay} />
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
             <StackTrace selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1615,7 +1613,7 @@
 
       const MemoryLeaks = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="word-breaker">
+          <div className="formatter">
             <Phase selectedNodeToDisplay={selectedNodeToDisplay} />
             <MemoryLabels selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1649,7 +1647,7 @@
 
       const Path = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="path-container component-margin">
+          <div className="component-margin">
             <span className="blue">Path: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
             <p className="selector">{selectedNodeToDisplay.path}</p>
@@ -1659,10 +1657,10 @@
 
       const Arguments = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="args-container component-margin">
+          <div className="component-margin">
             <span className="blue">Arguments: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
-            <p className="selector">{selectedNodeToDisplay.arguments}</p>
+            <div className="selector">{selectedNodeToDisplay.arguments}</div>
           </div>
         );
       };
@@ -1698,8 +1696,8 @@
               </span>
               <div className="artifact-div">
                 {selectedNodeToDisplay.artifacts.map((artifact) => (
-                  <div className="link-container" key={artifact}>
-                    <i className="fas fa-paperclip"></i>
+                  <div key={artifact}>
+                    <i className="fas fa-paperclip" />
                     <a href={artifact} target="_blank">
                       {artifact}
                     </a>
@@ -1918,10 +1916,10 @@
           const message = selectedNodeToDisplay.message.split(/\r?\n/);
           return (
             <div className="component-margin">
-              <div className="blue">Message:</div>
+              <div className="blue bottom-space">Message:</div>
               <span className="selector">
                 {message.map((msg) => (
-                  <div className="formatter">{msg}</div>
+                  <div>{msg}</div>
                 ))}
               </span>
             </div>
