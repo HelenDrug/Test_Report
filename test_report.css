@@ -197,3 +197,7 @@ a {
 .btn-copy:hover {
   background: rgba(163, 177, 198, 0.3);
 }
+
+.formatter {
+  word-break: break-word;
+}

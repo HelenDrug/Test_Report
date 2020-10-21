@@ -23,13 +23,13 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const truncateString = (str) => {
+      const truncateString = (str, number) => {
         if (str.length <= 70) {
           return str;
         }
-        let newStr = str.slice(0, 40) + "..." + str.slice(-40, str.length);
-        return newStr;
+        return `${str.slice(0, number)} ... ${str.slice(-number, str.length)}`;
       };
+
       const App = () => {
         let testData = [
           {
@@ -1283,11 +1283,6 @@
               Run <strong>{node.name}</strong> tests for{" "}
               <strong>{node.scope}</strong>
             </span>
-            {node.errors.length !== 0 ? (
-              <StatusFail status={"Failed"} />
-            ) : (
-              <StatusSuccess status={"Success"} />
-            )}
           </>
         );
       };
@@ -1335,7 +1330,6 @@
           <>
             {setIcon()}
             <span>{node.name}</span>
-            {setStatus()}
           </>
         );
       };
@@ -1352,11 +1346,6 @@
           <>
             {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
             <span>{shortenPathName(node.name)}</span>
-            {node.errors.length !== 0 ? (
-              <StatusFail status={"Failed"} />
-            ) : (
-              <StatusSuccess status={"Success"} />
-            )}
           </>
         );
       };
@@ -1366,7 +1355,6 @@
           <>
             <IconFail />
             <span>{node.name}</span>
-            <StatusFail status={"Failed"} />
           </>
         );
       };
@@ -1386,7 +1374,7 @@
       const InfoNode = ({ node }) => {
         return (
           <>
-            <span>{truncateString(node.message)}</span>
+            <span>{truncateString(node.message, 40)}</span>
           </>
         );
       };
@@ -1933,7 +1921,7 @@
               <div className="blue">Message:</div>
               <span className="selector">
                 {message.map((msg) => (
-                  <div>{msg}</div>
+                  <div className="formatter">{msg}</div>
                 ))}
               </span>
             </div>
