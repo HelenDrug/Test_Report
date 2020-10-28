@@ -32,12 +32,32 @@
   width: 100%;
 }
 
-.content-section {
+.content-section,
+.display-section {
   width: 100%;
   padding: 1rem;
   height: 100%;
   overflow: scroll;
   overflow-x: hidden;
+}
+
+.display-section {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.content-header {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  font-size: 10px;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.content-header > span {
+  background-color: white;
+  margin: 1px;
+  padding: 0.3rem;
 }
 
 .bgr-grey {
