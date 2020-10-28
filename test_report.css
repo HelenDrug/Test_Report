@@ -10,6 +10,7 @@
   font-size: 12px;
 }
 
+/*APP HEADING */
 .test-report-header {
   background-color: #282c34;
   width: 100%;
@@ -19,12 +20,7 @@
   padding: 0.5rem 0rem 0.5rem 1.2rem;
 }
 
-.section-container {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 50% 50%;
-}
-
+/* NAVIGATION BAR WITH FILTER*/
 .navigation {
   display: flex;
   padding: 0.4rem 0.4rem 0.4rem 1rem;
@@ -32,6 +28,36 @@
   width: 100%;
 }
 
+.test-filter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+fieldset {
+  border: transparent;
+}
+legend {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.filter-item {
+  margin-right: 1rem;
+}
+
+input {
+  position: relative;
+  top: 1px;
+  margin-left: 0.1rem;
+}
+
+/* MAIN APP CONTAINER WITH 2 SECTIONS */
+.section-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+}
+
+/* SECTIONS */
 .content-section,
 .display-section {
   width: 100%;
@@ -46,6 +72,7 @@
   min-height: 100vh;
 }
 
+/* CONTENT SECTION ELEMENTS (LEFT PART) */
 .content-header {
   display: grid;
   grid-template-columns: 6fr 1fr 1fr;

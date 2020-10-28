@@ -866,33 +866,45 @@
             <form className="test-filter">
               <fieldset>
                 <legend>Test Status filter</legend>
-                <label htmlFor="ignored">Ignored</label>
-                <input
-                  type="checkbox"
-                  name="ignored"
-                  value={checkBoxes[0].value}
-                  checked={checkBoxes[0].isChecked}
-                  onChange={handleClick}
-                  onClick={getCheckBoxValue}
-                />
-                <label htmlFor="passed">Passed</label>
-                <input
-                  type="checkbox"
-                  name="passed"
-                  value={checkBoxes[1].value}
-                  checked={checkBoxes[1].isChecked}
-                  onChange={handleClick}
-                  onClick={getCheckBoxValue}
-                />
-                <label htmlFor="failed">Failed</label>
-                <input
-                  type="checkbox"
-                  name="failed"
-                  value={checkBoxes[2].value}
-                  checked={checkBoxes[2].isChecked}
-                  onChange={handleClick}
-                  onClick={getCheckBoxValue}
-                />
+                <span className="filter-item">
+                  <label className="checkbox">
+                    Ignored
+                    <input
+                      type="checkbox"
+                      name="ignored"
+                      value={checkBoxes[0].value}
+                      checked={checkBoxes[0].isChecked}
+                      onChange={handleClick}
+                      onClick={getCheckBoxValue}
+                    />
+                  </label>
+                </span>
+                <span className="filter-item">
+                  <label className="checkbox">
+                    Passed
+                    <input
+                      type="checkbox"
+                      name="passed"
+                      value={checkBoxes[1].value}
+                      checked={checkBoxes[1].isChecked}
+                      onChange={handleClick}
+                      onClick={getCheckBoxValue}
+                    />
+                  </label>
+                </span>
+                <span className="filter-item">
+                  <label className="checkbox">
+                    Failed
+                    <input
+                      type="checkbox"
+                      name="failed"
+                      value={checkBoxes[2].value}
+                      checked={checkBoxes[2].isChecked}
+                      onChange={handleClick}
+                      onClick={getCheckBoxValue}
+                    />
+                  </label>
+                </span>
               </fieldset>
             </form>
           </div>
