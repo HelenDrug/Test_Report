@@ -1280,7 +1280,7 @@
       const TestPlanNode = ({ node }) => {
         return (
           <>
-            <span style={{ marginLeft: 3 }}>
+            <span>
               Ready to run <strong>{node.tests.length}</strong> test(s).
             </span>
           </>
@@ -1375,7 +1375,7 @@
         return (
           <>
             {node.exitCode !== 0 ? (
-              <span style={{ color: "red" }}>{node.path}</span>
+              <span className="statusFail">{node.path}</span>
             ) : (
               <span>{node.path}</span>
             )}
@@ -1513,7 +1513,7 @@
       //components to display on DisplayTree (right part)
       const ProcessInfo = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="process-info-container formatter">
+          <div className="process-info-container">
             <Path selectedNodeToDisplay={selectedNodeToDisplay} />
             <Arguments selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1525,7 +1525,7 @@
 
       const TestSession = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-session-container formatter">
+          <div className="test-session-container">
             <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1543,7 +1543,7 @@
 
       const TestPlan = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin formatter">
+          <div className="display-margin">
             <div className="blue">
               Ready to run <strong>{selectedNodeToDisplay.tests.length}</strong>{" "}
               test(s):
@@ -1559,7 +1559,7 @@
 
       const TestSuite = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-suite-container formatter">
+          <div className="test-suite-container">
             <Summary selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Conclusion selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1578,7 +1578,7 @@
 
       const TestGroup = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="test-group-container formatter">
+          <div className="test-group-container">
             <Name selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
@@ -1587,7 +1587,7 @@
 
       const TestStatus = ({ selectedNodeToDisplay, prefix }) => {
         return (
-          <div className="test-status-container formatter">
+          <div className="test-status-container">
             <Name selectedNodeToDisplay={selectedNodeToDisplay} />
             <OverallResult selectedNodeToDisplay={selectedNodeToDisplay} />
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1603,7 +1603,7 @@
 
       const Info = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="formatter">
+          <div>
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
         );
@@ -1611,7 +1611,7 @@
 
       const LogEntry = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="formatter">
+          <div>
             <Severity selectedNodeToDisplay={selectedNodeToDisplay} />
             <Message selectedNodeToDisplay={selectedNodeToDisplay} />
             <StackTrace selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1625,7 +1625,7 @@
 
       const MemoryLeaks = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="formatter">
+          <div>
             <Phase selectedNodeToDisplay={selectedNodeToDisplay} />
             <MemoryLabels selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1639,7 +1639,7 @@
 
       const ProcessId = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <p>
               <span className="blue">Process id:</span>{" "}
               <strong>{selectedNodeToDisplay.processId}</strong>
@@ -1650,7 +1650,7 @@
 
       const Name = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="name component-margin">
+          <div className="name display-margin">
             <span className="blue">Name:</span>{" "}
             <strong className="selector">{selectedNodeToDisplay.name}</strong>
           </div>
@@ -1659,7 +1659,7 @@
 
       const Path = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Path: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
             <p className="selector">{selectedNodeToDisplay.path}</p>
@@ -1669,7 +1669,7 @@
 
       const Arguments = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Arguments: </span>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
             <div className="selector">{selectedNodeToDisplay.arguments}</div>
@@ -1680,7 +1680,7 @@
       const Errors = ({ selectedNodeToDisplay }) => {
         if (selectedNodeToDisplay.errors.length !== 0) {
           return (
-            <div className="error-container component-margin">
+            <div className="error-container display-margin">
               <span className="blue">
                 Errors ({selectedNodeToDisplay.errors.length})
               </span>
@@ -1702,7 +1702,7 @@
           selectedNodeToDisplay.artifacts.length !== 0
         ) {
           return (
-            <div className="artifact-container component-margin">
+            <div className="artifact-container display-margin">
               <span className="blue">
                 Artifacts ({selectedNodeToDisplay.artifacts.length})
               </span>
@@ -1724,38 +1724,34 @@
 
       const Summary = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin summary-container">
-            <div className="summary bgr-grey">
-              <div>
-                Run <strong>{selectedNodeToDisplay.summary.testsCount}</strong>{" "}
-                test(s).{" "}
-              </div>
-              <div>
-                Passed:{" "}
-                <strong>{selectedNodeToDisplay.summary.successCount}</strong>
-              </div>
-              <div>
-                Failed:{" "}
-                <strong>{selectedNodeToDisplay.summary.failedCount}</strong>
-              </div>
-              <div>
-                Inconclusive:{" "}
-                <strong>
-                  {selectedNodeToDisplay.summary.inconclusiveCount}
-                </strong>
-              </div>
-              <div>
-                Ignored:{" "}
-                <strong>{selectedNodeToDisplay.summary.ignoredCount}</strong>
-              </div>
-              <div>
-                Skipped:{" "}
-                <strong>{selectedNodeToDisplay.summary.skippedCount}</strong>
-              </div>
-              <div>
-                Not runnable:{" "}
-                <strong>{selectedNodeToDisplay.summary.notRunCount}</strong>
-              </div>
+          <div className="summary-container display-margin ">
+            <div>
+              Run <strong>{selectedNodeToDisplay.summary.testsCount}</strong>{" "}
+              test(s).{" "}
+            </div>
+            <div>
+              Passed:{" "}
+              <strong>{selectedNodeToDisplay.summary.successCount}</strong>
+            </div>
+            <div>
+              Failed:{" "}
+              <strong>{selectedNodeToDisplay.summary.failedCount}</strong>
+            </div>
+            <div>
+              Inconclusive:{" "}
+              <strong>{selectedNodeToDisplay.summary.inconclusiveCount}</strong>
+            </div>
+            <div>
+              Ignored:{" "}
+              <strong>{selectedNodeToDisplay.summary.ignoredCount}</strong>
+            </div>
+            <div>
+              Skipped:{" "}
+              <strong>{selectedNodeToDisplay.summary.skippedCount}</strong>
+            </div>
+            <div>
+              Not runnable:{" "}
+              <strong>{selectedNodeToDisplay.summary.notRunCount}</strong>
             </div>
           </div>
         );
@@ -1764,7 +1760,7 @@
       const OverallResult = ({ selectedNodeToDisplay }) => {
         if (selectedNodeToDisplay.type === "TestSession") {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
               {selectedNodeToDisplay.summary.success ? (
                 <span className="dark-green">SUCCESS</span>
@@ -1777,7 +1773,7 @@
           switch (selectedNodeToDisplay.state) {
             case 0:
               return (
-                <div className="component-margin">
+                <div className="display-margin">
                   <span className="blue">Overall results:</span>{" "}
                   <StatusInconclusive status={"Inconclusive"} />
                 </div>
@@ -1787,14 +1783,14 @@
             case 3:
             case 7:
               return (
-                <div className="component-margin">
+                <div className="display-margin">
                   <span className="blue">Overall results:</span>{" "}
                   <StatusIgnored status={"Ignored"} />
                 </div>
               );
             case 4:
               return (
-                <div className="component-margin">
+                <div className="display-margin">
                   <span className="blue">Overall results:</span>{" "}
                   <StatusSuccess status={"Success"} />
                 </div>
@@ -1802,7 +1798,7 @@
             case 5:
             case 6:
               return (
-                <div className="component-margin">
+                <div className="display-margin">
                   <span className="blue">Overall results:</span>{" "}
                   <StatusFail status={"Failed"} />
                 </div>
@@ -1812,7 +1808,7 @@
           }
         } else if (selectedNodeToDisplay.type === "TestSuite") {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
               {selectedNodeToDisplay.errors.length === 0 ? (
                 <span className="dark-green">SUCCESS</span>
@@ -1827,7 +1823,7 @@
       const Conclusion = ({ selectedNodeToDisplay }) => {
         if (selectedNodeToDisplay.type === "TestSession") {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
               {!selectedNodeToDisplay.summary.success ? (
                 <span className="dark-red">
@@ -1840,7 +1836,7 @@
           );
         } else if (selectedNodeToDisplay.type === "TestSuite") {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
               {
                 <span className="dark-red">
@@ -1856,7 +1852,7 @@
 
       const Suites = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Suites count:</span>{" "}
             <strong>{selectedNodeToDisplay.summary.suitesCount}</strong>
           </div>
@@ -1866,7 +1862,7 @@
       const Command = ({ selectedNodeToDisplay, prefix }) => {
         if (selectedNodeToDisplay.minimalCommandLine.length !== 0) {
           return (
-            <div className="command component-margin">
+            <div className="command display-margin">
               <div className="blue" style={{ marginBottom: 10 }}>
                 Command to run locally:{" "}
               </div>
@@ -1885,7 +1881,7 @@
 
       const Scope = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Scope:</span>{" "}
             <strong>{selectedNodeToDisplay.scope}</strong>
           </div>
@@ -1895,7 +1891,7 @@
       const Platform = ({ selectedNodeToDisplay }) => {
         if (selectedNodeToDisplay.platform !== null) {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <span className="blue">Platform:</span>{" "}
               <strong>{selectedNodeToDisplay.platform}</strong>
             </div>
@@ -1927,7 +1923,7 @@
         if (selectedNodeToDisplay.message.length !== 0) {
           const message = selectedNodeToDisplay.message.split(/\r?\n/);
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <div className="blue bottom-space">Message:</div>
               <span className="selector">
                 {message.map((msg) => (
@@ -1946,14 +1942,14 @@
           selectedNodeToDisplay.stacktrace.length !== 0
         ) {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <div className="blue">Stack-trace:</div>
               <div className="selector">{selectedNodeToDisplay.stacktrace}</div>
             </div>
           );
         } else if (selectedNodeToDisplay.stackTrace.length !== 0) {
           return (
-            <div className="component-margin">
+            <div className="display-margin">
               <div className="blue">Stack-trace:</div>
               <div className="selector">{selectedNodeToDisplay.stackTrace}</div>
             </div>
@@ -1964,7 +1960,7 @@
 
       const Severity = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Severity: </span>
             <span>{selectedNodeToDisplay.severity}</span>
           </div>
@@ -1973,7 +1969,7 @@
 
       const Line = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Line:</span>
             <span>{selectedNodeToDisplay.line}</span>
           </div>
@@ -1982,7 +1978,7 @@
 
       const File = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <div className="blue">File:</div>
             <div className="selector green">{selectedNodeToDisplay.file}</div>
           </div>
@@ -1991,7 +1987,7 @@
 
       const Phase = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <span className="blue">Phase: </span>
             <span>{selectedNodeToDisplay.phase}</span>
           </div>
@@ -2000,7 +1996,7 @@
 
       const MemoryLabels = ({ selectedNodeToDisplay }) => {
         return (
-          <div className="component-margin">
+          <div className="display-margin">
             <div className="blue">Memory labels: </div>
             {selectedNodeToDisplay.memoryLabels.map((label) =>
               Object.keys(label).map((key, i) => (
