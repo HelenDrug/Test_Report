@@ -1166,7 +1166,7 @@
           <>
             <div className="node-container" onClick={() => onToggle(node)}>
               <div
-                className="node-title list-class"
+                className="node-title"
                 role="button"
                 onClick={() => getNode(node)}
               >
@@ -1386,7 +1386,7 @@
       const InfoNode = ({ node }) => {
         return (
           <>
-            <span>{truncateString(node.message, 40)}</span>
+            <span>{node.message}</span>
           </>
         );
       };
@@ -1442,7 +1442,7 @@
         return (
           <>
             <span>
-              <i className="fas fa-ban" style={{ color: "red" }}></i>
+              <i className="fas fa-ban iconFail"></i>
             </span>
           </>
         );
@@ -1452,7 +1452,7 @@
         return (
           <>
             <span>
-              <i className="fas fa-check" style={{ color: "green" }}></i>
+              <i className="fas fa-check iconSuccess"></i>
             </span>
           </>
         );
@@ -1462,7 +1462,7 @@
         return (
           <>
             <span>
-              <i className="fas fa-eye-slash" style={{ color: "grey" }}></i>
+              <i className="fas fa-eye-slash iconIgnored" ></i>
             </span>
           </>
         );

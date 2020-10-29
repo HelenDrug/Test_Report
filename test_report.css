@@ -75,7 +75,7 @@ input {
 /* CONTENT SECTION ELEMENTS (LEFT PART) */
 .content-header {
   display: grid;
-  grid-template-columns: 6fr 1fr 1fr;
+  grid-template-columns: 75% 1fr 1fr;
   font-size: 10px;
   text-align: center;
   background-color: lightgray;
@@ -87,6 +87,50 @@ input {
   padding: 0.3rem;
 }
 
+.node-container {
+  display: grid;
+  grid-template-columns: 75% 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-items: center;
+  justify-items: center;
+}
+
+.node-container:hover {
+  background-color: #e1e8ed;
+}
+
+.node-title {
+  padding: 3px 0px 3px 0px;
+  width: 100%;
+  word-break: break-all;
+}
+
+.node-child {
+  margin-left: 15px;
+}
+.duration {
+}
+
+.iconFail {
+  color: red;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.iconSuccess {
+  color: green;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.iconIgnored {
+  color: grey;
+  margin-left: 3px;
+  margin-right: 3px;
+}
 .bgr-grey {
   border-radius: 5px;
   background: rgba(163, 177, 198, 0.1);
