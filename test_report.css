@@ -75,7 +75,7 @@ input {
 /* CONTENT SECTION ELEMENTS (LEFT PART) */
 .content-header {
   display: grid;
-  grid-template-columns: 6fr 50px 50px;
+  grid-template-columns: 6fr 60px 50px;
   font-size: 10px;
   text-align: center;
   background-color: lightgray;
@@ -89,7 +89,7 @@ input {
 
 .node-container {
   display: grid;
-  grid-template-columns: 6fr 50px 50px;
+  grid-template-columns: 6fr 60px 50px;
   margin-bottom: 2px;
   cursor: pointer;
   border-radius: 5px;
@@ -115,8 +115,6 @@ input {
   text-align: center;
 }
 
-
-
 .iconFail {
   color: red;
   margin-left: 3px;
@@ -134,6 +132,31 @@ input {
   margin-left: 3px;
   margin-right: 3px;
 }
+
+.statusFail {
+  color: #9a1f40;
+  font-weight: 900;
+  margin-left: 3px;
+}
+
+.statusSuccess {
+  color: #3a9679;
+  font-weight: 900;
+  margin-left: 3px;
+}
+
+.statusIgnored {
+  color: orange;
+  font-weight: 900;
+  margin-left: 3px;
+}
+
+.statusInconclusive {
+  color: purple;
+  font-weight: 900;
+  margin-left: 3px;
+}
+
 .bgr-grey {
   border-radius: 5px;
   background: rgba(163, 177, 198, 0.1);

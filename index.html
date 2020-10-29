@@ -1481,7 +1481,7 @@
       const StatusFail = (props) => {
         return (
           <>
-            <span className="dark-red">{props.status}</span>
+            <span className="statusFail">{props.status}</span>
           </>
         );
       };
@@ -1489,7 +1489,7 @@
       const StatusSuccess = (props) => {
         return (
           <>
-            <span className="dark-green">{props.status}</span>
+            <span className="statusSuccess">{props.status}</span>
           </>
         );
       };
@@ -1497,7 +1497,7 @@
       const StatusIgnored = (props) => {
         return (
           <>
-            <span style={{ color: "orange" }}>{props.status}</span>
+            <span className="statusIgnored">{props.status}</span>
           </>
         );
       };
@@ -1505,7 +1505,7 @@
       const StatusInconclusive = (props) => {
         return (
           <>
-            <span style={{ color: "purple" }}>{props.status}</span>
+            <span className="statusInconclusive">{props.status}</span>
           </>
         );
       };
