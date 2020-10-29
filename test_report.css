@@ -75,7 +75,7 @@ input {
 /* CONTENT SECTION ELEMENTS (LEFT PART) */
 .content-header {
   display: grid;
-  grid-template-columns: 75% 1fr 1fr;
+  grid-template-columns: 6fr 50px 50px;
   font-size: 10px;
   text-align: center;
   background-color: lightgray;
@@ -89,13 +89,11 @@ input {
 
 .node-container {
   display: grid;
-  grid-template-columns: 75% 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 6fr 50px 50px;
   margin-bottom: 2px;
   cursor: pointer;
   border-radius: 5px;
-  align-items: center;
-  justify-items: center;
+  place-items: center;
 }
 
 .node-container:hover {
@@ -112,7 +110,12 @@ input {
   margin-left: 15px;
 }
 .duration {
+  font-size: 8px;
+  width: 100%;
+  text-align: center;
 }
+
+
 
 .iconFail {
   color: red;
