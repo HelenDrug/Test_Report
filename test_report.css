@@ -161,7 +161,7 @@ input {
   margin-left: 3px;
 }
 
-/* DISPLAY SECTION ELEMENTS (LEFT PART) */
+/* DISPLAY SECTION ELEMENTS (RIGHT PART) */
 
 .summary-container {
   line-height: 25px;
@@ -178,4 +178,45 @@ input {
 
 .display-margin {
   margin: 0px 10px 10px 10px;
+}
+
+.blue {
+  color: #4e89ae;
+  font-weight: 600;
+}
+
+.copy-btn-container {
+  margin-top: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.btn-copy {
+  cursor: pointer;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.btn-copy:hover {
+  background: rgba(163, 177, 198, 0.3);
+}
+
+.selector {
+  cursor: pointer;
+  user-select: all;
+}
+::selection {
+  background-color: rgba(163, 177, 198, 0.3);
+}
+
+.artifact-div {
+  margin-top: 5px;
+}
+.artifact-div a {
+  text-decoration: none;
+}
+
+.bottom-space {
+  margin-bottom: 3px;
 }

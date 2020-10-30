@@ -1544,7 +1544,7 @@
       const TestPlan = ({ selectedNodeToDisplay }) => {
         return (
           <div className="display-margin">
-            <div className="blue">
+            <div className="blue bottom-space">
               Ready to run <strong>{selectedNodeToDisplay.tests.length}</strong>{" "}
               test(s):
             </div>
@@ -1660,9 +1660,9 @@
       const Path = ({ selectedNodeToDisplay }) => {
         return (
           <div className="display-margin">
-            <span className="blue">Path: </span>
+            <div className="blue">Path: </div>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
-            <p className="selector">{selectedNodeToDisplay.path}</p>
+            <span className="selector">{selectedNodeToDisplay.path}</span>
           </div>
         );
       };
@@ -1670,9 +1670,9 @@
       const Arguments = ({ selectedNodeToDisplay }) => {
         return (
           <div className="display-margin">
-            <span className="blue">Arguments: </span>
+            <div className="blue">Arguments: </div>
             <CopyToClipboard selectedNodeToDisplay={selectedNodeToDisplay} />
-            <div className="selector">{selectedNodeToDisplay.arguments}</div>
+            <span className="selector">{selectedNodeToDisplay.arguments}</span>
           </div>
         );
       };
@@ -1680,14 +1680,16 @@
       const Errors = ({ selectedNodeToDisplay }) => {
         if (selectedNodeToDisplay.errors.length !== 0) {
           return (
-            <div className="error-container display-margin">
-              <span className="blue">
+            <div className="display-margin">
+              <div className="blue">
                 Errors ({selectedNodeToDisplay.errors.length})
-              </span>
+              </div>
               {selectedNodeToDisplay.errors.map((error) => (
-                <div style={{ marginTop: "10px" }} key={error}>
+                <div>
                   <CopyToClipboard getData={error} />
-                  <span className="pink selector">{error}</span>
+                  <span key={error} className="statusFail selector">
+                    {error}
+                  </span>
                 </div>
               ))}
             </div>
@@ -1702,7 +1704,7 @@
           selectedNodeToDisplay.artifacts.length !== 0
         ) {
           return (
-            <div className="artifact-container display-margin">
+            <div className="display-margin">
               <span className="blue">
                 Artifacts ({selectedNodeToDisplay.artifacts.length})
               </span>
@@ -1763,9 +1765,9 @@
             <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
               {selectedNodeToDisplay.summary.success ? (
-                <span className="dark-green">SUCCESS</span>
+                <span className="statusSuccess">SUCCESS</span>
               ) : (
-                <span className="dark-red">FAIL</span>
+                <span className="statusFail">FAIL</span>
               )}
             </div>
           );
@@ -1811,9 +1813,9 @@
             <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
               {selectedNodeToDisplay.errors.length === 0 ? (
-                <span className="dark-green">SUCCESS</span>
+                <span className="statusSuccess">SUCCESS</span>
               ) : (
-                <span className="dark-red">FAIL</span>
+                <span className="statusFail">FAIL</span>
               )}
             </div>
           );
@@ -1826,11 +1828,11 @@
             <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
               {!selectedNodeToDisplay.summary.success ? (
-                <span className="dark-red">
+                <span className="statusFail">
                   {selectedNodeToDisplay.summary.failureConclusion}
                 </span>
               ) : (
-                <span className="dark-green">SUCCESS</span>
+                <span className="statusSuccess">SUCCESS</span>
               )}
             </div>
           );
@@ -1839,7 +1841,7 @@
             <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
               {
-                <span className="dark-red">
+                <span className="statusFail">
                   {selectedNodeToDisplay.summary.failureReasons[2]}
                 </span>
               }
@@ -1862,14 +1864,12 @@
       const Command = ({ selectedNodeToDisplay, prefix }) => {
         if (selectedNodeToDisplay.minimalCommandLine.length !== 0) {
           return (
-            <div className="command display-margin">
-              <div className="blue" style={{ marginBottom: 10 }}>
-                Command to run locally:{" "}
-              </div>
+            <div className="display-margin">
+              <div className="blue">Command to run locally: </div>
               <CopyToClipboard
                 getData={selectedNodeToDisplay.minimalCommandLine}
               />
-              <span className="green selector">
+              <span className="selector">
                 {prefix}
                 {selectedNodeToDisplay.minimalCommandLine}
               </span>
@@ -1943,14 +1943,14 @@
         ) {
           return (
             <div className="display-margin">
-              <div className="blue">Stack-trace:</div>
+              <div className="blue bottom-space">Stack-trace:</div>
               <div className="selector">{selectedNodeToDisplay.stacktrace}</div>
             </div>
           );
         } else if (selectedNodeToDisplay.stackTrace.length !== 0) {
           return (
             <div className="display-margin">
-              <div className="blue">Stack-trace:</div>
+              <div className="blue bottom-space">Stack-trace:</div>
               <div className="selector">{selectedNodeToDisplay.stackTrace}</div>
             </div>
           );
@@ -1980,7 +1980,7 @@
         return (
           <div className="display-margin">
             <div className="blue">File:</div>
-            <div className="selector green">{selectedNodeToDisplay.file}</div>
+            <div className="selector">{selectedNodeToDisplay.file}</div>
           </div>
         );
       };
