@@ -24,7 +24,7 @@
     <div id="root"></div>
     <script type="text/babel">
       const truncateString = (str, number) => {
-        if (str.length <= 70) {
+        if (str.length <= 60) {
           return str;
         }
         return `${str.slice(0, number)} ... ${str.slice(-number, str.length)}`;
@@ -804,8 +804,9 @@
         return (
           <div className="App">
             <header
-              className="test-report-header"
-              style={{ backgroundColor: !status ? "#d32626" : "green" }}
+              className={`test-report-header ${
+                !status ? `bgFail` : `bgSuccess`
+              }`}
             >
               <h1>Test Session Report</h1>
             </header>
@@ -1375,9 +1376,11 @@
         return (
           <>
             {node.exitCode !== 0 ? (
-              <span className="statusFail">{node.path}</span>
+              <span className="statusFail">
+                {truncateString(node.path, 30)}
+              </span>
             ) : (
-              <span>{node.path}</span>
+              <span>{truncateString(node.path, 30)}</span>
             )}
           </>
         );
@@ -1386,7 +1389,7 @@
       const InfoNode = ({ node }) => {
         return (
           <>
-            <span>{node.message}</span>
+            <span>{truncateString(node.message, 30)}</span>
           </>
         );
       };

@@ -161,6 +161,14 @@ input {
   margin-left: 3px;
 }
 
+.bgFail {
+  background-color: #9a1f40;
+}
+
+.bgSuccess {
+  background-color: #3a9679;
+}
+
 /* DISPLAY SECTION ELEMENTS (RIGHT PART) */
 
 .summary-container {
