@@ -1163,6 +1163,29 @@
           }
         };
 
+        const displayInfoNode = (child, filter) => {
+          for (let i = 0; i < filter.length; ++i) {
+            if (filter[i].value === "failed" && filter[i].isChecked === true) {
+              return null;
+            } else if (
+              filter[i].value === "passed" &&
+              filter[i].isChecked === true
+            ) {
+              return (
+                <Node
+                  node={child}
+                  key={child.index}
+                  getChildNodes={getChildNodes}
+                  onToggle={onToggle}
+                  hasChildren={hasChildren}
+                  getSelectedNode={getNode}
+                  filter={filter}
+                />
+              );
+            }
+          }
+        };
+
         return (
           <>
             <div className="node-container" onClick={() => onToggle(node)}>
@@ -1191,6 +1214,9 @@
                   }
                   if (childNode.type === "TestSuite") {
                     return displayTestSuiteNode(childNode, filter);
+                  }
+                  if (childNode.type === "Info") {
+                    return displayInfoNode(childNode, filter);
                   } else {
                     return (
                       <Node
@@ -1481,34 +1507,34 @@
         );
       };
 
-      const StatusFail = (props) => {
+      const StatusFail = ({ status }) => {
         return (
           <>
-            <span className="statusFail">{props.status}</span>
+            <span className="statusFail">{status}</span>
           </>
         );
       };
 
-      const StatusSuccess = (props) => {
+      const StatusSuccess = ({ status }) => {
         return (
           <>
-            <span className="statusSuccess">{props.status}</span>
+            <span className="statusSuccess">{status}</span>
           </>
         );
       };
 
-      const StatusIgnored = (props) => {
+      const StatusIgnored = ({ status }) => {
         return (
           <>
-            <span className="statusIgnored">{props.status}</span>
+            <span className="statusIgnored">{status}</span>
           </>
         );
       };
 
-      const StatusInconclusive = (props) => {
+      const StatusInconclusive = ({ status }) => {
         return (
           <>
-            <span className="statusInconclusive">{props.status}</span>
+            <span className="statusInconclusive">{status}</span>
           </>
         );
       };
