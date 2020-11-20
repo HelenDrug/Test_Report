@@ -1898,10 +1898,12 @@
               <CopyToClipboard
                 getData={selectedNodeToDisplay.minimalCommandLine}
               />
-              <span className="selector">
+              <div className="selector">
                 {prefix}
-                {selectedNodeToDisplay.minimalCommandLine}
-              </span>
+                {selectedNodeToDisplay.minimalCommandLine.map((command) => (
+                  <div key={command}>{command}</div>
+                ))}
+              </div>
             </div>
           );
         }
