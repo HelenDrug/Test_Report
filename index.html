@@ -1404,6 +1404,7 @@
       const ProcessInfoNode = ({ node }) => {
         return (
           <>
+            <span>Start process:</span>
             {node.exitCode !== 0 ? (
               <span className="statusFail">
                 {truncateString(node.path, 30)}
