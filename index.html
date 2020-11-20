@@ -1018,7 +1018,8 @@
             case "MemoryLeaks":
               return <MemoryLeaksNode node={node} />;
             default:
-              return <DefaultNode node={node} />;
+              //return <DefaultNode node={node} />;
+              return null;
           }
         };
 
@@ -1186,6 +1187,7 @@
           }
         };
 
+        // Ask Yan how to refactor this IF statements to switch correctly
         return (
           <>
             <div className="node-container" onClick={() => onToggle(node)}>
@@ -1200,10 +1202,14 @@
               <div className="duration">{durationToTimeStr(node.duration)}</div>
               <div className="artifacts">{showArtifacts()}</div>
             </div>
+
             <div className="node-child">
               {node.isOpen &&
                 getChildNodes(node).map((childNode) => {
                   if (childNode.type === "ArtifactPublish") {
+                    return null;
+                  }
+                  if (childNode.type === "Info") {
                     return null;
                   }
                   if (childNode.type === "TestStatus") {
@@ -1214,9 +1220,6 @@
                   }
                   if (childNode.type === "TestSuite") {
                     return displayTestSuiteNode(childNode, filter);
-                  }
-                  if (childNode.type === "Info") {
-                    return displayInfoNode(childNode, filter);
                   } else {
                     return (
                       <Node
