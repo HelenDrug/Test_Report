@@ -2052,24 +2052,36 @@
       const ImageComparison = ({ selectedNodeToDisplay }) => {
         const images = selectedNodeToDisplay.artifacts;
 
+        const [header, setHeader] = React.useState({
+          rendered: "Rendered",
+          expected: "Expected",
+          diff: "Difference",
+        });
+
         return (
           <div className="display-margin">
             <div className="blue">Images Comparison:</div>
             <div className="comparison-container">
-              <h4>Rendered</h4>
-              <div className="image-display">
-                {images.map((img) => (
-                  <div className="image">
-                    <div>{img}</div>
-                    <img src={img} />
-                  </div>
-                ))}
-              </div>
+              <ImageHeader headerText={header.rendered} />
+              <ImageDisplay image={images[0]} />
               <div className="buttons">
                 <button>Expected</button>
                 <button>Diff</button>
               </div>
             </div>
+          </div>
+        );
+      };
+
+      const ImageHeader = ({ headerText }) => {
+        return <h4 className="header">{headerText}</h4>;
+      };
+
+      const ImageDisplay = ({ image }) => {
+        return (
+          <div className="image">
+            <div>{image}</div>
+            <img src={image} />
           </div>
         );
       };
