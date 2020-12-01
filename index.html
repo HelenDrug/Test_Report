@@ -434,7 +434,11 @@
             durationMicroseconds: 111433,
             stackTrace:
               "at OcclusioncullingTests.RemoveCacheFolder_ShouldDelete_OcclusionFolder () [0x00034] in /Users/yan/unity/unity/Tests/EditModeAndPlayModeTests/Camera/Assets/Editor/OcclusionCullingTests.cs:27\n",
-            artifacts: [],
+            artifacts: [
+              "https://www.vhv.rs/dpng/d/3-31864_nature-hd-background-images-for-photoshop-hd-png.png",
+              "https://banner2.cleanpng.com/20190601/lrv/kisspng-desktop-wallpaper-image-photograph-display-resolut-tubes-fond-2-page-3-5cf318daa9a176.1509646415594354826948.jpg",
+              "https://www.pngkit.com/png/full/366-3668832_nature-background.png",
+            ],
             rootCause: true,
             minimalCommandLine: [
               "--suite=editor",
@@ -1629,6 +1633,7 @@
               selectedNodeToDisplay={selectedNodeToDisplay}
               prefix={prefix}
             />
+            <ImageComparison selectedNodeToDisplay={selectedNodeToDisplay} />
           </div>
         );
       };
@@ -2039,6 +2044,32 @@
                 </div>
               ))
             )}
+          </div>
+        );
+      };
+
+      // Image Comparison tool
+      const ImageComparison = ({ selectedNodeToDisplay }) => {
+        const images = selectedNodeToDisplay.artifacts;
+
+        return (
+          <div className="display-margin">
+            <div className="blue">Images Comparison:</div>
+            <div className="comparison-container">
+              <h4>Rendered</h4>
+              <div className="image-display">
+                {images.map((img) => (
+                  <div className="image">
+                    <div>{img}</div>
+                    <img src={img} />
+                  </div>
+                ))}
+              </div>
+              <div className="buttons">
+                <button>Expected</button>
+                <button>Diff</button>
+              </div>
+            </div>
           </div>
         );
       };

@@ -228,3 +228,16 @@ input {
 .bottom-space {
   margin-bottom: 3px;
 }
+.image-display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.image {
+  flex-basis: 33%;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+}
