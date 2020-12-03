@@ -435,9 +435,9 @@
             stackTrace:
               "at OcclusioncullingTests.RemoveCacheFolder_ShouldDelete_OcclusionFolder () [0x00034] in /Users/yan/unity/unity/Tests/EditModeAndPlayModeTests/Camera/Assets/Editor/OcclusionCullingTests.cs:27\n",
             artifacts: [
-              "https://www.vhv.rs/dpng/d/3-31864_nature-hd-background-images-for-photoshop-hd-png.png",
-              "https://banner2.cleanpng.com/20190601/lrv/kisspng-desktop-wallpaper-image-photograph-display-resolut-tubes-fond-2-page-3-5cf318daa9a176.1509646415594354826948.jpg",
-              "https://www.pngkit.com/png/full/366-3668832_nature-background.png",
+              "images/nature1.jpg",
+              "images/nature2.jpg",
+              "images/nature3.jpeg",
             ],
             rootCause: true,
             minimalCommandLine: [
@@ -2050,27 +2050,57 @@
 
       // Image Comparison tool
       const ImageComparison = ({ selectedNodeToDisplay }) => {
-        const images = selectedNodeToDisplay.artifacts;
+        if (selectedNodeToDisplay.artifacts.length > 0) {
+          const images = selectedNodeToDisplay.artifacts;
+          const [header, setHeader] = React.useState({
+            index: 0,
+            headersList: ["Rendered", "Expected", "Difference"],
+          });
+          const [image, setImage] = React.useState({
+            index: 0,
+            imageList: images,
+          });
 
-        const [header, setHeader] = React.useState({
-          rendered: "Rendered",
-          expected: "Expected",
-          diff: "Difference",
-        });
+          const loadExpectedImage = () => {
+            let newHeader = { ...header };
+            newHeader.index = 1;
+            setHeader(newHeader);
 
-        return (
-          <div className="display-margin">
-            <div className="blue">Images Comparison:</div>
-            <div className="comparison-container">
-              <ImageHeader headerText={header.rendered} />
-              <ImageDisplay image={images[0]} />
-              <div className="buttons">
-                <button>Expected</button>
-                <button>Diff</button>
-              </div>
+            let newImage = { ...image };
+            newImage.index = 1;
+            setImage(newImage);
+          };
+
+          const loadDiffImage = () => {
+            let newHeader = { ...header };
+            newHeader.index = 2;
+            setHeader(newHeader);
+
+            let newImage = { ...image };
+            newImage.index = 2;
+            setImage(newImage);
+          };
+
+          return (
+            <div className="display-margin">
+              <div className="blue">Images Comparison:</div>
+              <ImageContainer>
+                <ImageHeader headerText={header.headersList[header.index]} />
+                <ImageDisplay image={image.imageList[image.index]} />
+                <Buttons>
+                  <Button onClick={loadExpectedImage}>Expected</Button>
+                  <Button onClick={loadDiffImage}>Difference</Button>
+                </Buttons>
+              </ImageContainer>
             </div>
-          </div>
-        );
+          );
+        }
+
+        return null;
+      };
+
+      const ImageContainer = ({ children }) => {
+        return <div className="comparison-container">{children}</div>;
       };
 
       const ImageHeader = ({ headerText }) => {
@@ -2080,11 +2110,21 @@
       const ImageDisplay = ({ image }) => {
         return (
           <div className="image">
-            <div>{image}</div>
+            <div className="imagePath">Path: {image}</div>
             <img src={image} />
           </div>
         );
       };
+
+      const Buttons = ({ children }) => {
+        return <div className="buttons">{children}</div>;
+      };
+
+      const Button = ({ onClick, children }) => (
+        <button className="btn" onClick={onClick}>
+          {children}
+        </button>
+      );
 
       ReactDOM.render(<App></App>, document.getElementById("root"));
     </script>

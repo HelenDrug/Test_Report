@@ -228,16 +228,40 @@ input {
 .bottom-space {
   margin-bottom: 3px;
 }
-.image-display {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.image {
-  flex-basis: 33%;
+.comparison-container {
+  margin-top: 0.5rem;
+  box-shadow: 0px 0px 8px #ccc;
+  padding: 0.5rem;
 }
 .image img {
   width: 100%;
-  height: 100%;
+  height: 400px;
+}
+.imagePath {
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem;
+}
+.btn {
+  margin-right: 2rem;
+  padding: 0.7rem;
+  border: none;
+  width: 150px;
+  background-color: #e1e8ed;
+  box-shadow: 0px 0px 8px #ccc;
+  border-radius: 5%;
+}
+.btn:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+.btn:focus {
+  background-color: #4e89ae;
+  color: white;
+  outline: none;
 }
