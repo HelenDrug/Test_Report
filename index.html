@@ -2061,7 +2061,18 @@
             imageList: images,
           });
 
+          const loadRenderedImage = () => {
+            let newHeader = { ...header };
+            newHeader.index = 0;
+            setHeader(newHeader);
+
+            let newImage = { ...image };
+            newImage.index = 0;
+            setImage(newImage);
+          };
+
           const loadExpectedImage = () => {
+            console.log("mouse down");
             let newHeader = { ...header };
             newHeader.index = 1;
             setHeader(newHeader);
@@ -2088,8 +2099,18 @@
                 <ImageHeader headerText={header.headersList[header.index]} />
                 <ImageDisplay image={image.imageList[image.index]} />
                 <Buttons>
-                  <Button onClick={loadExpectedImage}>Expected</Button>
-                  <Button onClick={loadDiffImage}>Difference</Button>
+                  <Button
+                    onMouseDown={loadExpectedImage}
+                    onMouseUp={loadRenderedImage}
+                  >
+                    Expected
+                  </Button>
+                  <Button
+                    onMouseDown={loadDiffImage}
+                    onMouseUp={loadRenderedImage}
+                  >
+                    Difference
+                  </Button>
                 </Buttons>
               </ImageContainer>
             </div>
@@ -2116,12 +2137,12 @@
         );
       };
 
-      const Buttons = ({ children }) => {
+      const Buttons = ({ children, onMouseDown }) => {
         return <div className="buttons">{children}</div>;
       };
 
-      const Button = ({ onClick, children }) => (
-        <button className="btn" onClick={onClick}>
+      const Button = ({ onMouseDown, onMouseUp, children }) => (
+        <button className="btn" onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
           {children}
         </button>
       );
