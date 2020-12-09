@@ -816,7 +816,7 @@
             </header>
             <TestFilter getCheckBoxes={handleCheckBoxes} />
             <SplitPane>
-              <section className="content-section">
+              <SplitPane.Left>
                 <div className="content-header">
                   <span>Action</span>
                   <span>Duration</span>
@@ -829,13 +829,13 @@
                     filter={checkBoxes}
                   />
                 </div>
-              </section>
-              <section className="display-section">
+              </SplitPane.Left>
+              <SplitPane.Right>
                 <DisplayTree
                   selectedNodeToDisplay={state.selectedNodeToDisplay}
                   prefix={prefix}
                 />
-              </section>
+              </SplitPane.Right>
             </SplitPane>
           </div>
         );
@@ -2149,7 +2149,11 @@
 
       //Resizable SplitPane component
 
+      const splitPaneContext = React.createContext();
+
       const SplitPane = ({ children, ...props }) => {
+
+        const [leftWidth, setLeftWidth] = React.useState();
         return (
           <div {...props} className="split-pane">
             {children[0]}
@@ -2159,11 +2163,11 @@
         );
       };
 
-      SplitPane.Left = function SplitPaneTop(props) {
+      SplitPane.Left = function SplitPaneLeft(props) {
         return <div {...props} className="split-pane-left" />;
       };
 
-      SplitPane.Right = function SplitPaneBottom(props) {
+      SplitPane.Right = function SplitPaneRight(props) {
         return <div {...props} className="split-pane-right" />;
       };
 
