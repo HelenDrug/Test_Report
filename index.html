@@ -815,7 +815,7 @@
               <h1>Test Session Report</h1>
             </header>
             <TestFilter getCheckBoxes={handleCheckBoxes} />
-            <div className="section-container">
+            <SplitPane>
               <section className="content-section">
                 <div className="content-header">
                   <span>Action</span>
@@ -836,7 +836,7 @@
                   prefix={prefix}
                 />
               </section>
-            </div>
+            </SplitPane>
           </div>
         );
       };
@@ -2146,6 +2146,26 @@
           {children}
         </button>
       );
+
+      //Resizable SplitPane component
+
+      const SplitPane = ({ children, ...props }) => {
+        return (
+          <div {...props} className="split-pane">
+            {children[0]}
+            <div className="separator" />
+            {children[1]}
+          </div>
+        );
+      };
+
+      SplitPane.Left = function SplitPaneTop(props) {
+        return <div {...props} className="split-pane-left" />;
+      };
+
+      SplitPane.Right = function SplitPaneBottom(props) {
+        return <div {...props} className="split-pane-right" />;
+      };
 
       ReactDOM.render(<App></App>, document.getElementById("root"));
     </script>

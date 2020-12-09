@@ -51,10 +51,15 @@ input {
 }
 
 /* MAIN APP CONTAINER WITH 2 SECTIONS */
-.section-container {
-  display: grid;
+
+.split-pane {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  grid-template-columns: 50% 50%;
+}
+.separator {
+  border: 0.5px solid rgb(209, 207, 207);
+  cursor: col-resize;
 }
 
 /* SECTIONS */
@@ -264,4 +269,10 @@ input {
   background-color: #4e89ae;
   color: white;
   outline: none;
+}
+
+.split-pane-left,
+.split-pane-right {
+  flex: 1;
+  overflow: hidden;
 }
