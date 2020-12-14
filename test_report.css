@@ -103,6 +103,7 @@ input {
   cursor: pointer;
   border-radius: 5px;
   place-items: center;
+  padding-left: 5px;
 }
 
 .node-container:hover {
@@ -129,19 +130,16 @@ input {
 
 .iconFail {
   color: red;
-  margin-left: 3px;
   margin-right: 3px;
 }
 
 .iconSuccess {
   color: green;
-  margin-left: 3px;
   margin-right: 3px;
 }
 
 .iconIgnored {
   color: grey;
-  margin-left: 3px;
   margin-right: 3px;
 }
 
@@ -175,6 +173,10 @@ input {
 
 .bgSuccess {
   background-color: #3a9679;
+}
+
+.toggle {
+  margin-right: 3px;
 }
 
 /* DISPLAY SECTION ELEMENTS (RIGHT PART) */

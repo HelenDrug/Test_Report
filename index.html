@@ -1194,13 +1194,15 @@
         // Ask Yan how to refactor this IF statements to switch correctly
         return (
           <>
-            <div className="node-container" onClick={() => onToggle(node)}>
+            <div className="node-container">
               <div
                 className="node-title"
                 role="button"
                 onClick={() => getNode(node)}
               >
-                <span>{getCarretStyle(node)}</span>
+                <span className="toggle" onClick={() => onToggle(node)}>
+                  {getCarretStyle(node)}
+                </span>
                 {showNode()}
               </div>
               <div className="duration">{durationToTimeStr(node.duration)}</div>
@@ -2152,7 +2154,6 @@
       const splitPaneContext = React.createContext();
 
       const SplitPane = ({ children, ...props }) => {
-
         const [leftWidth, setLeftWidth] = React.useState();
         return (
           <div {...props} className="split-pane">
