@@ -2163,11 +2163,36 @@
           separatorXPosition.current = e.clientX;
         };
 
+        const onMouseMove = (e) => {
+          if (!separatorXPosition.current) {
+            return;
+          }
+
+          const newLeftWidth =
+            leftWidth + e.clientX - separatorXPosition.current;
+          separatorXPosition.current = e.clientX;
+          setLeftWidth(newLeftWidth);
+        };
+
+        const onMouseUp = () => {
+          separatorXPosition.current = null;
+        };
+
+        React.useEffect(() => {
+          document.addEventListener("mousemove", onMouseMove);
+          document.addEventListener("mouseup", onMouseUp);
+
+          return () => {
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+          };
+        });
+
         return (
           <div {...props} className="split-pane" ref={splitPaneRef}>
             <splitPaneContext.Provider value={{ leftWidth, setLeftWidth }}>
               {children[0]}
-              <div className="separator" />
+              <div className="separator" onMouseDown={onMouseDown} />
               {children[1]}
             </splitPaneContext.Provider>
           </div>
@@ -2175,20 +2200,19 @@
       };
 
       SplitPane.Left = function SplitPaneLeft(props) {
-        const leftPanelRef = React.createRef();
+        const leftRef = React.createRef();
         const { leftWidth, setLeftWidth } = React.useContext(splitPaneContext);
         React.useEffect(() => {
           if (!leftWidth) {
-            setLeftWidth(leftPanelRef.current.clientWidth);
+            setLeftWidth(leftRef.current.clientWidth);
+            leftRef.current.style.flex = "none";
             return;
           }
-          leftPanelRef.current.style.width = `${leftWidth}px`;
+          leftRef.current.style.width = `${leftWidth}px`;
         }, [leftWidth]);
 
         console.log(leftWidth);
-        return (
-          <div {...props} className="split-pane-left" ref={leftPanelRef} />
-        );
+        return <div {...props} className="split-pane-left" ref={leftRef} />;
       };
 
       SplitPane.Right = function SplitPaneRight(props) {

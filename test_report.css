@@ -60,7 +60,7 @@ input {
 }
 
 .separator {
-  border: 0.5px solid rgb(179, 176, 176);
+  border: 2px solid rgb(179, 176, 176);
   cursor: col-resize;
   height: 90vh;
 }
