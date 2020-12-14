@@ -2164,6 +2164,7 @@
         };
 
         const onMouseMove = (e) => {
+          e.preventDefault();
           if (!separatorXPosition.current) {
             return;
           }

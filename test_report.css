@@ -219,15 +219,14 @@ input {
 .btn-copy:hover {
   background: rgba(163, 177, 198, 0.3);
 }
-
 .selector {
   cursor: pointer;
   user-select: all;
 }
+
 ::selection {
   background-color: rgba(163, 177, 198, 0.3);
 }
-
 .artifact-div {
   margin-top: 5px;
 }
