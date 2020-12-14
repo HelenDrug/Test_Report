@@ -2154,18 +2154,41 @@
       const splitPaneContext = React.createContext();
 
       const SplitPane = ({ children, ...props }) => {
-        const [leftWidth, setLeftWidth] = React.useState();
+        const [leftWidth, setLeftWidth] = React.useState(null);
+
+        const separatorXPosition = React.useRef(null);
+        const splitPaneRef = React.createRef();
+
+        const onMouseDown = (e) => {
+          separatorXPosition.current = e.clientX;
+        };
+
         return (
-          <div {...props} className="split-pane">
-            {children[0]}
-            <div className="separator" />
-            {children[1]}
+          <div {...props} className="split-pane" ref={splitPaneRef}>
+            <splitPaneContext.Provider value={{ leftWidth, setLeftWidth }}>
+              {children[0]}
+              <div className="separator" />
+              {children[1]}
+            </splitPaneContext.Provider>
           </div>
         );
       };
 
       SplitPane.Left = function SplitPaneLeft(props) {
-        return <div {...props} className="split-pane-left" />;
+        const leftPanelRef = React.createRef();
+        const { leftWidth, setLeftWidth } = React.useContext(splitPaneContext);
+        React.useEffect(() => {
+          if (!leftWidth) {
+            setLeftWidth(leftPanelRef.current.clientWidth);
+            return;
+          }
+          leftPanelRef.current.style.width = `${leftWidth}px`;
+        }, [leftWidth]);
+
+        console.log(leftWidth);
+        return (
+          <div {...props} className="split-pane-left" ref={leftPanelRef} />
+        );
       };
 
       SplitPane.Right = function SplitPaneRight(props) {
