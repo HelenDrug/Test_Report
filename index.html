@@ -2160,6 +2160,7 @@
         const splitPaneRef = React.createRef();
 
         const onMouseDown = (e) => {
+          e.preventDefault();
           separatorXPosition.current = e.clientX;
         };
 
