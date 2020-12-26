@@ -269,7 +269,7 @@ input {
   background-color: #ccc;
   cursor: pointer;
 }
-.btn:focus {
+.btn:active:hover {
   background-color: #4e89ae;
   color: white;
   outline: none;
