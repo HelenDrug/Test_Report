@@ -62,7 +62,7 @@ input {
 .separator {
   border: 2px solid rgb(179, 176, 176);
   cursor: col-resize;
-  height: 90vh;
+  min-height: 90vh;
 }
 
 /* SECTIONS */
