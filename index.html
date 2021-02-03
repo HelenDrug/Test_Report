@@ -432,7 +432,6 @@
           }
         };
 
-        // Ask Yan how to refactor this IF statements to switch correctly
         return (
           <>
             <div className="node-container">
@@ -813,6 +812,7 @@
               selectedNodeToDisplay={selectedNodeToDisplay}
               prefix={prefix}
             />
+            <BuildUrl selectedNodeToDisplay={selectedNodeToDisplay} />
             <Artifacts selectedNodeToDisplay={selectedNodeToDisplay} />
             <Errors selectedNodeToDisplay={selectedNodeToDisplay} />
             <ProcessId selectedNodeToDisplay={selectedNodeToDisplay} />
@@ -1287,6 +1287,18 @@
                 </div>
               ))
             )}
+          </div>
+        );
+      };
+
+      const BuildUrl = ({ selectedNodeToDisplay }) => {
+        return (
+          <div className="display-margin">
+            <div className="blue">Build URL: </div>
+            <i className="fas fa-paperclip" />
+            <a href={selectedNodeToDisplay.buildUrl} target="_blank">
+              {selectedNodeToDisplay.buildUrl}
+            </a>
           </div>
         );
       };

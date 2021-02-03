@@ -233,6 +233,9 @@ input {
 .artifact-div a {
   text-decoration: none;
 }
+a {
+  margin-left: 0.5rem;
+}
 
 .bottom-space {
   margin-bottom: 3px;

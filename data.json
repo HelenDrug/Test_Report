@@ -35,6 +35,7 @@ let testData =
       },
       buildOnly: false,
       utrPrefix: "./utr.pl",
+      buildUrl: "https://myCI.cds.internal.unity3d.com/job/123",
       index: 0,
       children: [
         {
