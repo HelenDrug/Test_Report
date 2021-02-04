@@ -31,7 +31,12 @@
         return `${str.slice(0, number)} ... ${str.slice(-number, str.length)}`;
       };
 
+      // https://github.com/airbnb/javascript#functions
+      // applies to all functions
       const App = () => {
+        // can be simplified by moving the name into hook itself and the value is the node
+        // and name could be less verbose
+        // const [selectedNode, setSelectedNode] = React.useState({})
         const [state, setState] = React.useState({
           selectedNodeToDisplay: {},
         });
@@ -39,13 +44,19 @@
 
         const prefix = testData[0].utrPrefix;
 
+        // name implies we get the node while in reality it is setting the node
+        // in future this could be renamed to setSelectedNode
+        // can be removed as it is not needed due to earlier suggested refactor
+        // setSelectedNode would be equal to this function
         const getSelectedNode = (childNode) => {
           setState({ selectedNodeToDisplay: childNode });
         };
 
+        // this method is redundant and setCheckBoxes can be passed directly
         const handleCheckBoxes = (boxes) => {
           setCheckBoxes(boxes);
         };
+
         return (
           <div className="App">
             <header
@@ -83,6 +94,9 @@
       };
 
       const TestFilter = (props) => {
+        // would recommend splitting into three different useState variables
+        // const [ ignored, setIgnored ] = React.useState(false)
+        // etc...
         const [checkBoxes, setCheckBoxes] = React.useState([
           { value: "ignored", isChecked: false },
           { value: "passed", isChecked: false },
@@ -118,6 +132,11 @@
                     <input
                       type="checkbox"
                       name="ignored"
+                        /* 
+                        refactor to state could then simplify these 4 methods 
+                        both onChange and onClick looks a little odd on an input
+                        may be possible refactor 
+                        */
                       value={checkBoxes[0].value}
                       checked={checkBoxes[0].isChecked}
                       onChange={handleClick}
@@ -208,6 +227,8 @@
 
         const getCarretStyle = (node) => {
           if (!hasChildren(node)) {
+            // is this return to display nothing?
+            // slightly confused, if it is nothing could use React.Fragment
             return (
               <span>
                 {" "}
@@ -215,6 +236,9 @@
               </span>
             );
           }
+          // the following line could replace this if statement
+          // also tags without content could end with />
+          // return <i className={$`fas fa-${node.isOpen ? "minus" : "plus"}`} />;
           if (node.isOpen) {
             return <i className="fas fa-minus"></i>;
           } else {
@@ -222,11 +246,15 @@
           }
         };
 
+        // unnecessary method wrap
         const getNode = (node) => {
           return getSelectedNode(node);
         };
 
         const showArtifacts = () => {
+          // conditional if, while javascript makes it work
+          // it is generally discouraged and most linters will be unhappy :)
+          // add a default return which could return React.Fragment
           if (node.artifacts.length != 0) {
             return (
               <span>
@@ -264,6 +292,9 @@
               return <MemoryLeaksNode node={node} />;
             default:
               //return <DefaultNode node={node} />;
+              // in case we should never end up under other nodes
+              // logging an error/warning on the severity or displaying
+              // it to user could save future issues
               return null;
           }
         };
@@ -279,6 +310,7 @@
         };
 
         const shouldDisplayFailed = (filter) => {
+          // https://github.com/airbnb/javascript#variables--unary-increment-decrement
           for (let i = 0; i < filter.length; ++i) {
             if (filter[i].value === "failed" && filter[i].isChecked === true) {
               return true;
