@@ -1220,6 +1220,23 @@
 
       const StackTrace = ({ selectedNodeToDisplay }) => {
         if (
+          selectedNodeToDisplay.hasOwnProperty("stackTrace2") &&
+          selectedNodeToDisplay.stackTrace2.length !== 0
+        ) {
+          return (
+            <div className="display-margin">
+              <div className="blue bottom-space">Stack-trace:</div>
+              {selectedNodeToDisplay.stackTrace2.map((item) => (
+                <div>
+                  At {item.method} in
+                  <a href={item.ref} target="_blank">
+                    {item.file}:{item.line}
+                  </a>
+                </div>
+              ))}
+            </div>
+          );
+        } else if (
           selectedNodeToDisplay.type === "LogEntry" &&
           selectedNodeToDisplay.stacktrace.length !== 0
         ) {

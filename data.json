@@ -401,6 +401,13 @@ let testData =
         "  RemoveCacheFolder doesn't delete the Occlusion folder from library.\n  Expected: False\n  But was:  True\n",
       duration: 111,
       durationMicroseconds: 111433,
+      stackTrace2: [{
+        method: "MethodName",
+        line: 12,
+        file: "myfile.cs",
+        ref: "https://github.com/HelenDrug/Test_Report/blob/master/index.html#L35",
+        frameString: "at"
+      }],
       stackTrace:
         "at OcclusioncullingTests.RemoveCacheFolder_ShouldDelete_OcclusionFolder () [0x00034] in /Users/yan/unity/unity/Tests/EditModeAndPlayModeTests/Camera/Assets/Editor/OcclusionCullingTests.cs:27\n",
       artifacts: [
