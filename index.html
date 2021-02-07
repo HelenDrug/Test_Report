@@ -37,7 +37,7 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const getSelectedNode = (childNode) => {
+        const updateSelecteNode = (childNode) => {
           setSelectedNode({ ...childNode });
         };
 
@@ -64,7 +64,7 @@
                 <div>
                   <NodeTree
                     testData={testData}
-                    getSelectedNode={getSelectedNode}
+                    updateSelecteNode={updateSelecteNode}
                     filter={checkBoxes}
                   />
                 </div>
@@ -78,6 +78,10 @@
       };
 
       const TestFilter = (props) => {
+        const [ignored, setIgnored] = React.useState(false);
+        const [passed, setPassed] = React.useState(false);
+        const [failed, setFailed] = React.useState(true);
+
         const [checkBoxes, setCheckBoxes] = React.useState([
           { value: "ignored", isChecked: false },
           { value: "passed", isChecked: false },
@@ -153,7 +157,7 @@
       };
 
       const NodeTree = (props) => {
-        const { getSelectedNode, testData, filter } = props;
+        const { updateSelecteNode, testData, filter } = props;
 
         const [nodes, setNodes] = React.useState(testData);
 
@@ -184,7 +188,7 @@
               getChildNodes={getChildNodes}
               onToggle={onToggle}
               hasChildren={hasChildren}
-              getSelectedNode={getSelectedNode}
+              updateSelecteNode={updateSelecteNode}
               filter={filter}
             />
           </div>
@@ -197,28 +201,16 @@
           getChildNodes,
           onToggle,
           hasChildren,
-          getSelectedNode,
+          updateSelecteNode,
           filter,
         } = props;
 
         const getCarretStyle = (node) => {
           if (!hasChildren(node)) {
-            return (
-              <span>
-                {" "}
-                <span></span>
-              </span>
-            );
+            return <></>;
           }
-          if (node.isOpen) {
-            return <i className="fas fa-minus"></i>;
-          } else {
-            return <i className="fas fa-plus"></i>;
-          }
-        };
 
-        const getNode = (node) => {
-          return getSelectedNode(node);
+          return <i className={`fas fa-${node.isOpen ? "minus" : "plus"}`} />;
         };
 
         const showArtifacts = () => {
@@ -351,7 +343,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                getSelectedNode={getNode}
+                updateSelecteNode={updateSelecteNode}
                 filter={filter}
               />
             );
@@ -373,7 +365,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                getSelectedNode={getNode}
+                updateSelecteNode={updateSelecteNode}
                 filter={filter}
               />
             );
@@ -395,7 +387,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                getSelectedNode={getNode}
+                updateSelecteNode={updateSelecteNode}
                 filter={filter}
               />
             );
@@ -419,7 +411,7 @@
                   getChildNodes={getChildNodes}
                   onToggle={onToggle}
                   hasChildren={hasChildren}
-                  getSelectedNode={getNode}
+                  updateSelecteNode={updateSelecteNode}
                   filter={filter}
                 />
               );
@@ -433,7 +425,7 @@
               <div
                 className="node-title"
                 role="button"
-                onClick={() => getNode(node)}
+                onClick={() => updateSelecteNode(node)}
               >
                 <span className="toggle" onClick={() => onToggle(node)}>
                   {getCarretStyle(node)}
@@ -469,7 +461,7 @@
                         getChildNodes={getChildNodes}
                         onToggle={onToggle}
                         hasChildren={hasChildren}
-                        getSelectedNode={getNode}
+                        updateSelecteNode={updateSelecteNode}
                         filter={filter}
                       />
                     );
@@ -929,12 +921,10 @@
           return (
             <div className="display-margin">
               <div className="blue">Errors ({selectedNode.errors.length})</div>
-              {selectedNode.errors.map((error) => (
-                <div>
+              {selectedNode.errors.map((error, idx) => (
+                <div key={idx}>
                   <CopyToClipboard getData={error} />
-                  <span key={error} className="statusFail selector">
-                    {error}
-                  </span>
+                  <span className="statusFail selector">{error}</span>
                 </div>
               ))}
             </div>
@@ -1165,8 +1155,8 @@
             <div className="display-margin">
               <div className="blue bottom-space">Message:</div>
               <span className="selector">
-                {message.map((msg) => (
-                  <div>{msg}</div>
+                {message.map((msg, idx) => (
+                  <div key={idx}>{msg}</div>
                 ))}
               </span>
             </div>
@@ -1183,8 +1173,8 @@
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Stack-trace:</div>
-              {selectedNode.stackTrace2.map((item) => (
-                <div>
+              {selectedNode.stackTrace2.map((item, idx) => (
+                <div key={idx}>
                   At {item.method} in
                   <a href={item.ref} target="_blank">
                     {item.file}:{item.line}
