@@ -78,10 +78,6 @@
       };
 
       const TestFilter = (props) => {
-        const [ignored, setIgnored] = React.useState(false);
-        const [passed, setPassed] = React.useState(false);
-        const [failed, setFailed] = React.useState(true);
-
         const [checkBoxes, setCheckBoxes] = React.useState([
           { value: "ignored", isChecked: false },
           { value: "passed", isChecked: false },
