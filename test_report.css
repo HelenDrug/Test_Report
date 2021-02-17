@@ -87,13 +87,14 @@ input {
   grid-template-columns: 6fr 60px 50px;
   font-size: 10px;
   text-align: center;
-  background-color: lightgray;
+  border-radius: 10px;
 }
 
 .content-header > span {
   background-color: white;
   margin: 1px;
   padding: 0.3rem;
+  box-shadow: 0px 0px 2px grey;
 }
 
 .node-container {
