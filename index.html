@@ -469,7 +469,6 @@
       };
 
       const DisplayTree = ({ selectedNode, prefix }) => {
-        console.log({ selectedNode });
         const getComponentToDisplay = () => {
           if (selectedNode.type === null) {
             return;
@@ -1169,14 +1168,21 @@
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Stack-trace:</div>
-              {selectedNode.stackTrace2.map((item, idx) => (
-                <div key={idx}>
-                  At {item.method} in{" "}
-                  <a href={item.ref} target="_blank">
-                    {item.file}:{item.line}
-                  </a>
-                </div>
-              ))}
+
+              {selectedNode.stackTrace2.map((item, idx) => {
+                if (item.hasOwnProperty("parsed") && item.parsed === false) {
+                  return <div key={idx}>{item.rawFrameString}</div>;
+                } else {
+                  return (
+                    <div key={idx}>
+                      At {item.method} in{" "}
+                      <a href={item.ref} target="_blank">
+                        {item.file}:{item.line}
+                      </a>
+                    </div>
+                  );
+                }
+              })}
             </div>
           );
         } else if (
@@ -1287,7 +1293,6 @@
           };
 
           const loadExpectedImage = () => {
-            console.log("mouse down");
             let newHeader = { ...header };
             newHeader.index = 1;
             setHeader(newHeader);
@@ -1426,7 +1431,6 @@
           leftRef.current.style.width = `${leftWidth}px`;
         }, [leftWidth]);
 
-        console.log(leftWidth);
         return <div {...props} className="split-pane-left" ref={leftRef} />;
       };
 

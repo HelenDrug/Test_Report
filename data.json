@@ -402,11 +402,17 @@ let testData =
       duration: 111,
       durationMicroseconds: 111433,
       stackTrace2: [{
-        method: "MethodName",
+        parsed: false,
+        method: null,
+        line: 0,
+        file: null,
+        ref: null,
+        rawFrameString: "at OcclusioncullingTests.RemoveCacheFolder_ShouldDelete_OcclusionFolder () [0x00034] in /Users/yan/unity/lane1/Tests/EditModeAndPlayModeTests/Camera/Assets/Editor/OcclusionCullingTests.cs:27"
+        /*method: "MethodName",
         line: 12,
         file: "myfile.cs",
         ref: "https://github.com/HelenDrug/Test_Report/blob/master/index.html#L35",
-        frameString: "at"
+        frameString: "at"*/
       }],
       stackTrace:
         "at OcclusioncullingTests.RemoveCacheFolder_ShouldDelete_OcclusionFolder () [0x00034] in /Users/yan/unity/unity/Tests/EditModeAndPlayModeTests/Camera/Assets/Editor/OcclusionCullingTests.cs:27\n",
