@@ -99,6 +99,7 @@ input {
 .node-container {
   display: grid;
   grid-template-columns: 6fr 60px 50px;
+  grid-gap: 3px;
   margin-bottom: 2px;
   cursor: pointer;
   border-radius: 5px;

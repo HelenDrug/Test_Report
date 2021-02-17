@@ -1171,7 +1171,7 @@
               <div className="blue bottom-space">Stack-trace:</div>
               {selectedNode.stackTrace2.map((item, idx) => (
                 <div key={idx}>
-                  At {item.method} in
+                  At {item.method} in{" "}
                   <a href={item.ref} target="_blank">
                     {item.file}:{item.line}
                   </a>
