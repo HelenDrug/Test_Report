@@ -1125,8 +1125,9 @@
       };
 
       const CopyToClipboard = ({ getData }) => {
+        console.log(getData);
         const handleTextClick = () => {
-          navigator.clipboard.writeText(getData);
+          navigator.clipboard.writeText(getData.join(""));
         };
 
         return (

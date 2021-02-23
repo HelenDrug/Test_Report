@@ -228,6 +228,7 @@ input {
 
 ::selection {
   background-color: rgba(163, 177, 198, 0.3);
+  padding: 0;
 }
 .artifact-div {
   margin-top: 5px;
