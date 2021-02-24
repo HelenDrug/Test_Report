@@ -956,28 +956,31 @@
 
       const Summary = ({ selectedNode }) => {
         return (
-          <div className="summary-container display-margin ">
+          <div className="display-margin summary-container  ">
             <div>
               Run <strong>{selectedNode.summary.testsCount}</strong> test(s).{" "}
             </div>
-            <div>
-              Passed: <strong>{selectedNode.summary.successCount}</strong>
-            </div>
-            <div>
-              Failed: <strong>{selectedNode.summary.failedCount}</strong>
-            </div>
-            <div>
-              Inconclusive:{" "}
-              <strong>{selectedNode.summary.inconclusiveCount}</strong>
-            </div>
-            <div>
-              Ignored: <strong>{selectedNode.summary.ignoredCount}</strong>
-            </div>
-            <div>
-              Skipped: <strong>{selectedNode.summary.skippedCount}</strong>
-            </div>
-            <div>
-              Not runnable: <strong>{selectedNode.summary.notRunCount}</strong>
+            <div className="summary-results-container">
+              <div>
+                Passed: <strong>{selectedNode.summary.successCount}</strong>
+              </div>
+              <div>
+                Failed: <strong>{selectedNode.summary.failedCount}</strong>
+              </div>
+              <div>
+                Inconclusive:{" "}
+                <strong>{selectedNode.summary.inconclusiveCount}</strong>
+              </div>
+              <div>
+                Ignored: <strong>{selectedNode.summary.ignoredCount}</strong>
+              </div>
+              <div>
+                Skipped: <strong>{selectedNode.summary.skippedCount}</strong>
+              </div>
+              <div>
+                Not runnable:{" "}
+                <strong>{selectedNode.summary.notRunCount}</strong>
+              </div>
             </div>
           </div>
         );

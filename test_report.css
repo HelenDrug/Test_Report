@@ -188,16 +188,21 @@ input {
   border-radius: 5px;
   background: rgba(163, 177, 198, 0.1);
   box-shadow: 0px 0px 5px grey;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  padding: 5px;
-  font-size: 12px;
-  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 0.7rem;
 }
 
+.summary-results-container {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 900px) {
+  .summary-results-container {
+    flex-direction: column;
+  }
+}
 .display-margin {
-  margin: 0px 10px 10px 10px;
+  margin: 0px 15px 10px 10px;
 }
 
 .blue {
