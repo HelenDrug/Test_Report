@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="test_report.css" />
+    <link rel="stylesheet" href="TestResults.css" />
     <script type="text/javascript" src="data.json"></script>
     <title>Test Report</title>
     <script
@@ -81,8 +81,8 @@
         );
       };
 
-      const TestFilter = ({filters, onFilterChange}) => {
-        const handleFilterChange = ({name, label, checked}) => {
+      const TestFilter = ({ filters, onFilterChange }) => {
+        const handleFilterChange = ({ name, label, checked }) => {
           const temp = [...filters];
           temp.forEach((filter) => {
             if (filter.value === name) {
@@ -97,33 +97,40 @@
             <form className="test-filter">
               <fieldset>
                 <legend>Test Status filter</legend>
-                      {filters.map((filter) => (
-                              <Checkbox key={filter.value} label={filter.label} name={filter.value} checked={filter.isChecked} onChange={handleFilterChange} className="filter-item"/>
-                      ))}
-                    </fieldset>
-                  </form>
-                </div>
+                {filters.map((filter) => (
+                  <Checkbox
+                    key={filter.value}
+                    label={filter.label}
+                    name={filter.value}
+                    checked={filter.isChecked}
+                    onChange={handleFilterChange}
+                    className="filter-item"
+                  />
+                ))}
+              </fieldset>
+            </form>
+          </div>
         );
       };
 
-      const Checkbox = ({label, name, checked, onChange, className}) => {
+      const Checkbox = ({ label, name, checked, onChange, className }) => {
         const handleOnChange = (e) => {
-          onChange({checked: e.target.checked, name, label});
+          onChange({ checked: e.target.checked, name, label });
         };
 
         return (
-                <span className={className}>
-                  <label>
-                    {label}
-                    <input
-                      type="checkbox"
-                      name={name}
-                      value={name}
-                      checked={checked}
-                      onChange={handleOnChange}
-                    />
-                  </label>
-                </span>
+          <span className={className}>
+            <label>
+              {label}
+              <input
+                type="checkbox"
+                name={name}
+                value={name}
+                checked={checked}
+                onChange={handleOnChange}
+              />
+            </label>
+          </span>
         );
       };
 
@@ -1104,19 +1111,18 @@
 
       const CopyToClipboard = ({ content, onCopied }) => {
         const serializeBeforeCopy = (obj) => {
-          if(typeof(obj) === 'string' ) {
+          if (typeof obj === "string") {
             return obj;
           }
-          if(Array.isArray(obj)){
-            return obj.join(' ');
+          if (Array.isArray(obj)) {
+            return obj.join(" ");
           }
           throw `Cannot copy ${obj} to the clipboard, it's neither a string nor an array`;
         };
 
         const handleTextClick = () => {
           navigator.clipboard.writeText(serializeBeforeCopy(content));
-          if(onCopied)
-            onCopied(content);
+          if (onCopied) onCopied(content);
         };
 
         return (
