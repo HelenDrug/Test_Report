@@ -33,7 +33,11 @@
 
       const App = () => {
         const [selectedNode, setSelectedNode] = React.useState({});
-        const [checkBoxes, setCheckBoxes] = React.useState([]);
+        const [filters, setFilters] = React.useState([
+          { label: "Ignored", value: "ignored", isChecked: false },
+          { label: "Passed", value: "passed", isChecked: false },
+          { label: "Failed", value: "failed", isChecked: true },
+        ]);
 
         const prefix = testData[0].utrPrefix + " ";
 
@@ -41,8 +45,8 @@
           setSelectedNode({ ...childNode });
         };
 
-        const handleCheckBoxes = (boxes) => {
-          setCheckBoxes(boxes);
+        const handleFilterChange = (boxes) => {
+          setFilters(boxes);
         };
         return (
           <div className="App">
@@ -53,7 +57,7 @@
             >
               <h1>Test Session Report</h1>
             </header>
-            <TestFilter getCheckBoxes={handleCheckBoxes} />
+            <TestFilter filters={filters} onFilterChange={handleFilterChange} />
             <SplitPane>
               <SplitPane.Left>
                 <div className="content-header">
@@ -65,7 +69,7 @@
                   <NodeTree
                     testData={testData}
                     updateSelecteNode={updateSelecteNode}
-                    filter={checkBoxes}
+                    filter={filters}
                   />
                 </div>
               </SplitPane.Left>
@@ -77,78 +81,49 @@
         );
       };
 
-      const TestFilter = (props) => {
-        const [checkBoxes, setCheckBoxes] = React.useState([
-          { value: "ignored", isChecked: false },
-          { value: "passed", isChecked: false },
-          { value: "failed", isChecked: true },
-        ]);
-
-        const handleClick = (event) => {
-          let boxes = [...checkBoxes];
-          boxes.forEach((box) => {
-            if (box.value === event.target.value) {
-              box.isChecked = event.target.checked;
+      const TestFilter = ({filters, onFilterChange}) => {
+        const handleFilterChange = ({name, label, checked}) => {
+          const temp = [...filters];
+          temp.forEach((filter) => {
+            if (filter.value === name) {
+              filter.isChecked = checked;
             }
           });
-          setCheckBoxes(boxes);
+          onFilterChange(temp);
         };
-
-        const getCheckBoxValue = () => {
-          return props.getCheckBoxes(checkBoxes);
-        };
-
-        React.useEffect(() => {
-          return getCheckBoxValue(checkBoxes);
-        });
 
         return (
           <div className="navigation">
             <form className="test-filter">
               <fieldset>
                 <legend>Test Status filter</legend>
-                <span className="filter-item">
-                  <label className="checkbox">
-                    Ignored
+                      {filters.map((filter) => (
+                              <Checkbox key={filter.value} label={filter.label} name={filter.value} checked={filter.isChecked} onChange={handleFilterChange} className="filter-item"/>
+                      ))}
+                    </fieldset>
+                  </form>
+                </div>
+        );
+      };
+
+      const Checkbox = ({label, name, checked, onChange, className}) => {
+        const handleOnChange = (e) => {
+          onChange({checked: e.target.checked, name, label});
+        };
+
+        return (
+                <span className={className}>
+                  <label>
+                    {label}
                     <input
                       type="checkbox"
-                      name="ignored"
-                      value={checkBoxes[0].value}
-                      checked={checkBoxes[0].isChecked}
-                      onChange={handleClick}
-                      onClick={getCheckBoxValue}
+                      name={name}
+                      value={name}
+                      checked={checked}
+                      onChange={handleOnChange}
                     />
                   </label>
                 </span>
-                <span className="filter-item">
-                  <label className="checkbox">
-                    Passed
-                    <input
-                      type="checkbox"
-                      name="passed"
-                      value={checkBoxes[1].value}
-                      checked={checkBoxes[1].isChecked}
-                      onChange={handleClick}
-                      onClick={getCheckBoxValue}
-                    />
-                  </label>
-                </span>
-                <span className="filter-item">
-                  <label className="checkbox">
-                    Failed
-                    <input
-                      type="checkbox"
-                      name="failed"
-                      value={checkBoxes[2].value}
-                      checked={checkBoxes[2].isChecked}
-                      onChange={handleClick}
-                      onClick={getCheckBoxValue}
-                    />
-                  </label>
-                </span>
-              </fieldset>
-            </form>
-          </div>
         );
       };
 
@@ -895,7 +870,7 @@
         return (
           <div className="display-margin">
             <div className="blue">Path: </div>
-            <CopyToClipboard selectedNode={selectedNode} />
+            <CopyToClipboard content={selectedNode.path} />
             <span className="selector">{selectedNode.path}</span>
           </div>
         );
@@ -905,7 +880,7 @@
         return (
           <div className="display-margin">
             <div className="blue">Arguments: </div>
-            <CopyToClipboard selectedNode={selectedNode} />
+            <CopyToClipboard content={selectedNode.arguments} />
             <span className="selector">{selectedNode.arguments}</span>
           </div>
         );
@@ -918,7 +893,7 @@
               <div className="blue">Errors ({selectedNode.errors.length})</div>
               {selectedNode.errors.map((error, idx) => (
                 <div key={idx}>
-                  <CopyToClipboard getData={error} />
+                  <CopyToClipboard content={error} />
                   <span className="statusFail selector">{error}</span>
                 </div>
               ))}
@@ -1093,7 +1068,7 @@
           return (
             <div className="display-margin">
               <div className="blue">Command to run locally: </div>
-              <CopyToClipboard getData={selectedNode.minimalCommandLine} />
+              <CopyToClipboard content={selectedNode.minimalCommandLine} />
               <span className="selector">
                 {prefix}
                 {selectedNode.minimalCommandLine.map((command) => (
@@ -1127,10 +1102,21 @@
         return null;
       };
 
-      const CopyToClipboard = ({ getData }) => {
-        console.log(getData);
+      const CopyToClipboard = ({ content, onCopied }) => {
+        const serializeBeforeCopy = (obj) => {
+          if(typeof(obj) === 'string' ) {
+            return obj;
+          }
+          if(Array.isArray(obj)){
+            return obj.join(' ');
+          }
+          throw `Cannot copy ${obj} to the clipboard, it's neither a string nor an array`;
+        };
+
         const handleTextClick = () => {
-          navigator.clipboard.writeText(getData.join(""));
+          navigator.clipboard.writeText(serializeBeforeCopy(content));
+          if(onCopied)
+            onCopied(content);
         };
 
         return (
