@@ -228,8 +228,7 @@
             case "MemoryLeaks":
               return <MemoryLeaksNode node={node} />;
             default:
-              //return <DefaultNode node={node} />;
-              return null;
+              return <DefaultNode node={node} />;
           }
         };
 
@@ -1075,13 +1074,15 @@
           return (
             <div className="display-margin">
               <div className="blue">Command to run locally: </div>
-              <CopyToClipboard content={selectedNode.minimalCommandLine} />
-              <span className="selector">
-                {prefix}
-                {selectedNode.minimalCommandLine.map((command) => (
-                  <span key={command}>{command} </span>
-                ))}
-              </span>
+              {selectedNode.minimalCommandLine.map((command) => (
+                <div>
+                  <CopyToClipboard content={prefix + command} />
+                  <span key={command} className="selector">
+                    {prefix}
+                    {command}
+                  </span>
+                </div>
+              ))}
             </div>
           );
         }

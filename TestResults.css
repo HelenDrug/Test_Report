@@ -228,12 +228,12 @@ input {
 }
 .selector {
   cursor: pointer;
+  margin: 0;
   user-select: all;
 }
 
 ::selection {
   background-color: rgba(163, 177, 198, 0.3);
-  padding: 0;
 }
 .artifact-div {
   margin-top: 5px;
@@ -243,6 +243,7 @@ input {
 }
 a {
   margin-left: 0.5rem;
+  text-decoration: none;
 }
 
 .bottom-space {
