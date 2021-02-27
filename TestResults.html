@@ -32,7 +32,7 @@
       };
 
       const App = () => {
-        const [selectedNode, setSelectedNode] = React.useState({});
+        const [selectedNode, setSelectedNode] = React.useState(testData[0]);
         const [filters, setFilters] = React.useState([
           { label: "Ignored", value: "ignored", isChecked: false },
           { label: "Passed", value: "passed", isChecked: false },
@@ -41,7 +41,7 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const updateSelecteNode = (childNode) => {
+        const updateSelectedNode = (childNode) => {
           setSelectedNode({ ...childNode });
         };
 
@@ -68,7 +68,7 @@
                 <div>
                   <NodeTree
                     testData={testData}
-                    updateSelecteNode={updateSelecteNode}
+                    updateSelectedNode={updateSelectedNode}
                     filter={filters}
                   />
                 </div>
@@ -135,7 +135,7 @@
       };
 
       const NodeTree = (props) => {
-        const { updateSelecteNode, testData, filter } = props;
+        const { updateSelectedNode, testData, filter } = props;
 
         const [nodes, setNodes] = React.useState(testData);
 
@@ -166,7 +166,7 @@
               getChildNodes={getChildNodes}
               onToggle={onToggle}
               hasChildren={hasChildren}
-              updateSelecteNode={updateSelecteNode}
+              updateSelectedNode={updateSelectedNode}
               filter={filter}
             />
           </div>
@@ -179,7 +179,7 @@
           getChildNodes,
           onToggle,
           hasChildren,
-          updateSelecteNode,
+          updateSelectedNode,
           filter,
         } = props;
 
@@ -320,7 +320,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelecteNode={updateSelecteNode}
+                updateSelectedNode={updateSelectedNode}
                 filter={filter}
               />
             );
@@ -342,7 +342,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelecteNode={updateSelecteNode}
+                updateSelectedNode={updateSelectedNode}
                 filter={filter}
               />
             );
@@ -364,7 +364,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelecteNode={updateSelecteNode}
+                updateSelectedNode={updateSelectedNode}
                 filter={filter}
               />
             );
@@ -388,7 +388,7 @@
                   getChildNodes={getChildNodes}
                   onToggle={onToggle}
                   hasChildren={hasChildren}
-                  updateSelecteNode={updateSelecteNode}
+                  updateSelectedNode={updateSelectedNode}
                   filter={filter}
                 />
               );
@@ -402,7 +402,7 @@
               <div
                 className="node-title"
                 role="button"
-                onClick={() => updateSelecteNode(node)}
+                onClick={() => updateSelectedNode(node)}
               >
                 <span className="toggle" onClick={() => onToggle(node)}>
                   {getCarretStyle(node)}
@@ -438,7 +438,7 @@
                         getChildNodes={getChildNodes}
                         onToggle={onToggle}
                         hasChildren={hasChildren}
-                        updateSelecteNode={updateSelecteNode}
+                        updateSelectedNode={updateSelectedNode}
                         filter={filter}
                       />
                     );
@@ -1074,10 +1074,10 @@
           return (
             <div className="display-margin">
               <div className="blue">Command to run locally: </div>
-              {selectedNode.minimalCommandLine.map((command) => (
-                <div>
+              {selectedNode.minimalCommandLine.map((command, idx) => (
+                <div key={idx}>
                   <CopyToClipboard content={prefix + command} />
-                  <span key={command} className="selector">
+                  <span className="selector">
                     {prefix}
                     {command}
                   </span>
