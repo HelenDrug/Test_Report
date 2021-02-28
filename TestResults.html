@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="TestResults.css" />
-    <script type="text/javascript" src="data1.json"></script>
+    <script type="text/javascript" src="data.json"></script>
     <title>Test Report</title>
     <script
       crossorigin
@@ -1282,14 +1282,17 @@
       };
 
       const BuildUrl = ({ selectedNode }) => {
-        return (
-          <div className="display-margin">
-            <span className="blue">Build URL:</span>
-            <a href={selectedNode.buildUrl} target="_blank">
-              {selectedNode.buildUrl}
-            </a>
-          </div>
-        );
+        if (selectedNode.buildUrl.length !== 0) {
+          return (
+            <div className="display-margin">
+              <span className="blue">Build URL:</span>
+              <a href={selectedNode.buildUrl} target="_blank">
+                {selectedNode.buildUrl}
+              </a>
+            </div>
+          );
+        }
+        return null;
       };
 
       const Type = ({ selectedNode }) => {
