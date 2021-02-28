@@ -740,6 +740,11 @@
       const ProcessInfo = ({ selectedNode }) => {
         return (
           <div className="process-info-container">
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Path selectedNode={selectedNode} />
             <Arguments selectedNode={selectedNode} />
             <Errors selectedNode={selectedNode} />
@@ -755,6 +760,11 @@
             <Summary selectedNode={selectedNode} />
             <OverallResult selectedNode={selectedNode} />
             <Conclusion selectedNode={selectedNode} />
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Command selectedNode={selectedNode} prefix={prefix} />
             <BuildUrl selectedNode={selectedNode} />
             <Artifacts selectedNode={selectedNode} />
@@ -786,6 +796,11 @@
             <OverallResult selectedNode={selectedNode} />
             <Conclusion selectedNode={selectedNode} />
             <Name selectedNode={selectedNode} />
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Scope selectedNode={selectedNode} />
             <Platform selectedNode={selectedNode} />
             <Command selectedNode={selectedNode} prefix={prefix} />
@@ -799,6 +814,11 @@
         return (
           <div className="test-group-container">
             <Name selectedNode={selectedNode} />
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Errors selectedNode={selectedNode} />
           </div>
         );
@@ -809,6 +829,11 @@
           <div className="test-status-container">
             <Name selectedNode={selectedNode} />
             <OverallResult selectedNode={selectedNode} />
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Message selectedNode={selectedNode} />
             <StackTrace selectedNode={selectedNode} />
             <Errors selectedNode={selectedNode} />
@@ -829,6 +854,11 @@
       const LogEntry = ({ selectedNode }) => {
         return (
           <div>
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <Severity selectedNode={selectedNode} />
             <Message selectedNode={selectedNode} />
             <StackTrace selectedNode={selectedNode} />
@@ -844,6 +874,11 @@
         return (
           <div>
             <Phase selectedNode={selectedNode} />
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
+            ) : null}
             <MemoryLabels selectedNode={selectedNode} />
             <Errors selectedNode={selectedNode} />
             <Artifacts selectedNode={selectedNode} />
@@ -860,6 +895,11 @@
             ) : null}
             {selectedNode.hasOwnProperty("type") ? (
               <Type selectedNode={selectedNode} />
+            ) : null}
+            {selectedNode.hasOwnProperty("duration") ? (
+              selectedNode.duration.length != 0 ? (
+                <Duration selectedNode={selectedNode} />
+              ) : null
             ) : null}
             {selectedNode.hasOwnProperty("artifacts") &&
             selectedNode.artifacts.length !== 0 ? (
@@ -1300,6 +1340,24 @@
           <div className="display-margin">
             <span className="blue">Type: </span>
             <span>{selectedNode.type} </span>
+          </div>
+        );
+      };
+
+      const Duration = ({ selectedNode }) => {
+        const durationToTimeStr = (time) => {
+          if (selectedNode.hasOwnProperty("duration")) {
+            const date = new Date(time);
+            const pad = (v, n = 2) => v.toString().padStart(n, "0");
+            return `${pad(date.getUTCHours())}:${pad(
+              date.getUTCMinutes()
+            )}:${pad(date.getUTCSeconds())}:${pad(date.getUTCMilliseconds())}`;
+          }
+        };
+        return (
+          <div className="display-margin">
+            <span className="blue">Duration: </span>
+            <span>{durationToTimeStr(selectedNode.duration)} </span>
           </div>
         );
       };
