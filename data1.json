@@ -1,0 +1,781 @@
+
+let testData = [
+  {
+    "type": "TestSession",
+    "time": 1614196541985,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "spanId": "e8269595-ed90-4e10-bd01-8ee5ed56cf93",
+    "minimalCommandLine": [],
+    "duration": 286890,
+    "artifacts": [
+      "TestRunnerLog.txt",
+      "PerformanceTestReport.html"
+    ],
+    "buildUrl": "https://yamato.cds.internal.unity3d.com/job/5502005",
+    "summary": {
+      "success": true,
+      "time": 0,
+      "inconclusiveCount": 0,
+      "testsCount": 3,
+      "errorCount": 0,
+      "ignoredCount": 0,
+      "notRunCount": 0,
+      "failedCount": 0,
+      "skippedCount": 0,
+      "successCount": 3,
+      "suitesCount": 1,
+      "compilationErrorsCount": 0,
+      "assertionFailuresCount": 0,
+      "otherErrorsCount": 0,
+      "failureConclusion": "",
+      "successConclusion": "All tests have completed successfully",
+      "instabilityCount": 0,
+      "nonTestRelatedInstabilityCount": 0,
+      "unstableTestNames": []
+    },
+    "buildOnly": false,
+    "utrPrefix": "./utr",
+    "index": 0,
+    "children": [
+      {
+        "index": 1
+      },
+      {
+        "index": 2
+      },
+      {
+        "index": 3
+      },
+      {
+        "index": 35
+      },
+      {
+        "index": 36
+      }
+    ]
+  },
+  {
+    "type": "ArtifactPublish",
+    "time": 1614196255139,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "destination": "TestRunnerLog.txt",
+    "artifacts": [],
+    "index": 1,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255182,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Editor log reading timeout is set to 0:10:00",
+    "artifacts": [],
+    "index": 2,
+    "children": []
+  },
+  {
+    "type": "TestSuite",
+    "time": 1614196541671,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "name": "playmode",
+    "scope": "UTRStandaloneTests",
+    "platform": "StandaloneLinux64",
+    "supportsFilters": true,
+    "minimalCommandLine": [
+      "--suite=playmode",
+      "--platform=StandaloneLinux64",
+      "--editor-location=/home/bokken/code/unity/build/LinuxEditor",
+      "--testproject=UTRStandaloneTests"
+    ],
+    "isRerun": false,
+    "projectPath": "tests/unitytestprojects/UTRStandaloneTests",
+    "duration": 286304,
+    "artifacts": [
+      "playmode/UTRStandaloneTests/UnityLog.txt",
+      "playmode/UTRStandaloneTests/UpmLog.txt",
+      "playmode/UTRStandaloneTests/PlayerLog.txt"
+    ],
+    "summary": {
+      "failureReasons": [],
+      "compilationErrorsCount": 0,
+      "instabilityCount": 0,
+      "time": 202,
+      "inconclusiveCount": 0,
+      "testsCount": 3,
+      "errorCount": 0,
+      "ignoredCount": 0,
+      "notRunCount": 0,
+      "failedCount": 0,
+      "skippedCount": 0,
+      "successCount": 3,
+      "result": 4
+    },
+    "index": 3,
+    "children": [
+      {
+        "index": 4
+      },
+      {
+        "index": 5
+      },
+      {
+        "index": 6
+      },
+      {
+        "index": 7
+      },
+      {
+        "index": 8
+      },
+      {
+        "index": 9
+      },
+      {
+        "index": 10
+      },
+      {
+        "index": 11
+      },
+      {
+        "index": 12
+      },
+      {
+        "index": 13
+      },
+      {
+        "index": 14
+      },
+      {
+        "index": 32
+      },
+      {
+        "index": 33
+      },
+      {
+        "index": 34
+      }
+    ]
+  },
+  {
+    "type": "Warning",
+    "time": 1614196255372,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Project settings file 'tests/unitytestprojects/UTRStandaloneTests/ProjectSettings/ProjectSettings.asset' not found. Default player log location will be used: /home/bokken/.config/unity3d/DefaultCompany/UnityTestFramework/Player.log",
+    "artifacts": [],
+    "index": 4,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255388,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Launching executable, Debugging Time 19:50:55.3875900",
+    "artifacts": [],
+    "index": 5,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255389,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Launching executable: /home/bokken/code/unity/build/LinuxEditor/Unity",
+    "artifacts": [],
+    "index": 6,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255392,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Ensuring no Unity processes are already running.",
+    "artifacts": [],
+    "index": 7,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255396,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Executing /bin/ps axc -o pid,state,command",
+    "artifacts": [],
+    "index": 8,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255423,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "'/bin/ps axc -o pid,state,command' (13486) has exited with code 0.",
+    "artifacts": [],
+    "index": 9,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255428,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Successfully started MacroClientServer on port 9001",
+    "artifacts": [],
+    "index": 10,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255437,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Starting editor at: /home/bokken/code/unity/build/LinuxEditor/Unity",
+    "artifacts": [],
+    "index": 11,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255441,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "With arguments: -projectPath tests/unitytestprojects/UTRStandaloneTests -batchmode -logFile /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/UnityLog.txt -testPlatform StandaloneLinux64 -testResults /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/TestResults.xml -deviceLogs /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests -testSettingsFile /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/TestSettings.json -buildTarget StandaloneLinux64 -forgetProjectPath -automated \"-forceFullStacktrace Assert\" -api-profile NET_Standard_2_0 -crash-report-folder /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/CrashArtifacts -runTests -automated -accept-apiupdate",
+    "artifacts": [],
+    "index": 12,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196255446,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Started Unity.Automation.UnityEditorProcess with processid: 13488",
+    "artifacts": [],
+    "index": 13,
+    "children": []
+  },
+  {
+    "type": "ProcessInfo",
+    "time": 1614196541645,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "id": 13488,
+    "path": "/home/bokken/code/unity/build/LinuxEditor/Unity",
+    "arguments": "-projectPath tests/unitytestprojects/UTRStandaloneTests -batchmode -logFile /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/UnityLog.txt -testPlatform StandaloneLinux64 -testResults /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/TestResults.xml -deviceLogs /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests -testSettingsFile /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/TestSettings.json -buildTarget StandaloneLinux64 -forgetProjectPath -automated \"-forceFullStacktrace Assert\" -api-profile NET_Standard_2_0 -crash-report-folder /tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/CrashArtifacts -runTests -automated -accept-apiupdate",
+    "logs": [
+      "/tmp/UtrSystemTests957d52d1545c47e19d6c8642401095f4/playmode/UTRStandaloneTests/UnityLog.txt"
+    ],
+    "exitCode": 0,
+    "duration": 286197,
+    "artifacts": [],
+    "index": 14,
+    "children": [
+      {
+        "index": 15
+      },
+      {
+        "index": 27
+      },
+      {
+        "index": 28
+      },
+      {
+        "index": 29
+      },
+      {
+        "index": 30
+      },
+      {
+        "index": 31
+      }
+    ]
+  },
+  {
+    "type": "Action",
+    "time": 1614196528870,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Build player",
+    "duration": 93166,
+    "artifacts": [],
+    "index": 15,
+    "children": [
+      {
+        "index": 16
+      },
+      {
+        "index": 17
+      },
+      {
+        "index": 18
+      },
+      {
+        "index": 20
+      },
+      {
+        "index": 21
+      },
+      {
+        "index": 25
+      },
+      {
+        "index": 26
+      }
+    ]
+  },
+  {
+    "type": "Action",
+    "time": 1614196504217,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Compile scripts",
+    "duration": 67585,
+    "artifacts": [],
+    "index": 16,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196505545,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Prepare assets for target platform",
+    "duration": 96,
+    "artifacts": [],
+    "index": 17,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196505688,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Building scenes",
+    "duration": 118,
+    "artifacts": [],
+    "index": 18,
+    "children": [
+      {
+        "index": 19
+      }
+    ]
+  },
+  {
+    "type": "Action",
+    "time": 1614196505688,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Building scene Assets/InitTestScene637497932335665770.unity",
+    "duration": 117,
+    "artifacts": [],
+    "index": 19,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196508696,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Build GlobalGameManagers file",
+    "duration": 1599,
+    "artifacts": [],
+    "index": 20,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196509293,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Writing asset files",
+    "duration": 532,
+    "artifacts": [],
+    "index": 21,
+    "children": [
+      {
+        "index": 22
+      },
+      {
+        "index": 23
+      },
+      {
+        "index": 24
+      }
+    ]
+  },
+  {
+    "type": "Action",
+    "time": 1614196508767,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Packaging assets - globalgamemanagers.assets",
+    "duration": 6,
+    "artifacts": [],
+    "index": 22,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196508769,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Packaging assets - resources.assets",
+    "duration": 2,
+    "artifacts": [],
+    "index": 23,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196509287,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Packaging assets - sharedassets0.assets = additional assets for scene 0: Assets/InitTestScene637497932335665770.unity",
+    "duration": 517,
+    "artifacts": [],
+    "index": 24,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196526255,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Building Resources/unity_builtin_extra",
+    "duration": 16961,
+    "artifacts": [],
+    "index": 25,
+    "children": []
+  },
+  {
+    "type": "Action",
+    "time": 1614196528800,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "buildPipelineEvt",
+    "description": "Postprocess built player",
+    "duration": 2377,
+    "artifacts": [],
+    "index": 26,
+    "children": []
+  },
+  {
+    "type": "TestPlan",
+    "time": 1614196531007,
+    "version": 2,
+    "phase": "Immediate",
+    "processId": 13488,
+    "tests": [
+      "Tests.PlaymodePerformanceTests.PlaymodePerformanceTestMethod",
+      "Tests.PlaymodeTests.PlaymodeTest1",
+      "Tests.PlaymodeTests.PlaymodeTest2"
+    ],
+    "errors": [],
+    "artifacts": [],
+    "index": 27,
+    "children": []
+  },
+  {
+    "type": "TestStatus",
+    "time": 1614196531579,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "Tests.PlaymodePerformanceTests.PlaymodePerformanceTestMethod",
+    "state": 4,
+    "fixture": null,
+    "message": "",
+    "duration": 186,
+    "durationMicroseconds": 185836,
+    "stackTrace": "",
+    "artifacts": [],
+    "minimalCommandLine": [
+      "--suite=playmode",
+      "--platform=StandaloneLinux64",
+      "--editor-location=/home/bokken/code/unity/build/LinuxEditor",
+      "--testproject=UTRStandaloneTests",
+      "--testfilter=Tests\\.PlaymodePerformanceTests\\.PlaymodePerformanceTestMethod"
+    ],
+    "index": 28,
+    "children": []
+  },
+  {
+    "type": "TestStatus",
+    "time": 1614196533833,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "Tests.PlaymodeTests.PlaymodeTest1",
+    "state": 4,
+    "fixture": null,
+    "message": "",
+    "duration": 1,
+    "durationMicroseconds": 1106,
+    "stackTrace": "",
+    "artifacts": [],
+    "minimalCommandLine": [
+      "--suite=playmode",
+      "--platform=StandaloneLinux64",
+      "--editor-location=/home/bokken/code/unity/build/LinuxEditor",
+      "--testproject=UTRStandaloneTests",
+      "--testfilter=Tests\\.PlaymodeTests\\.PlaymodeTest1"
+    ],
+    "index": 29,
+    "children": []
+  },
+  {
+    "type": "TestStatus",
+    "time": 1614196533933,
+    "phase": "Complete",
+    "version": 2,
+    "processId": 13488,
+    "errors": [],
+    "name": "Tests.PlaymodeTests.PlaymodeTest2",
+    "state": 4,
+    "fixture": null,
+    "message": "",
+    "duration": 16,
+    "durationMicroseconds": 16384,
+    "stackTrace": "",
+    "artifacts": [],
+    "minimalCommandLine": [
+      "--suite=playmode",
+      "--platform=StandaloneLinux64",
+      "--editor-location=/home/bokken/code/unity/build/LinuxEditor",
+      "--testproject=UTRStandaloneTests",
+      "--testfilter=Tests\\.PlaymodeTests\\.PlaymodeTest2"
+    ],
+    "index": 30,
+    "children": []
+  },
+  {
+    "type": "MemoryLeaks",
+    "time": 1614196539422,
+    "version": 2,
+    "phase": "Immediate",
+    "processId": 13488,
+    "allocatedMemory": 591695,
+    "memoryLabels": [
+      {
+        "Default": 260
+      },
+      {
+        "Thread": 184
+      },
+      {
+        "Manager": 2072
+      },
+      {
+        "Geometry": -56
+      },
+      {
+        "Texture": 144
+      },
+      {
+        "Shader": 312
+      },
+      {
+        "GfxDevice": 144
+      },
+      {
+        "Physics": 1
+      },
+      {
+        "Serialization": 496
+      },
+      {
+        "BaseObject": -312
+      },
+      {
+        "File": 431502
+      },
+      {
+        "String": 13245
+      },
+      {
+        "DynamicArray": 67872
+      },
+      {
+        "HashMap": 7163
+      },
+      {
+        "Utility": 640
+      },
+      {
+        "Curl": 1112
+      },
+      {
+        "PoolAlloc": 120
+      },
+      {
+        "Sprites": 8
+      },
+      {
+        "GI": 608
+      },
+      {
+        "VR": 1696
+      },
+      {
+        "Secure": 10382
+      },
+      {
+        "Image": 16384
+      },
+      {
+        "Subsystems": 96
+      },
+      {
+        "EditorUtility": 2064
+      },
+      {
+        "AssetDatabase": 6070
+      },
+      {
+        "RestService": 72
+      },
+      {
+        "UnityConnect": 28608
+      },
+      {
+        "Collab": 808
+      }
+    ],
+    "errors": [],
+    "artifacts": [],
+    "index": 31,
+    "children": []
+  },
+  {
+    "type": "ArtifactPublish",
+    "time": 1614196541653,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "destination": "playmode/UTRStandaloneTests/UnityLog.txt",
+    "artifacts": [],
+    "index": 32,
+    "children": []
+  },
+  {
+    "type": "ArtifactPublish",
+    "time": 1614196541656,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "destination": "playmode/UTRStandaloneTests/UpmLog.txt",
+    "artifacts": [],
+    "index": 33,
+    "children": []
+  },
+  {
+    "type": "ArtifactPublish",
+    "time": 1614196541664,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "destination": "playmode/UTRStandaloneTests/PlayerLog.txt",
+    "artifacts": [],
+    "index": 34,
+    "children": []
+  },
+  {
+    "type": "Info",
+    "time": 1614196541811,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "message": "Parsing performance test data",
+    "artifacts": [],
+    "index": 35,
+    "children": []
+  },
+  {
+    "type": "ArtifactPublish",
+    "time": 1614196541820,
+    "phase": "Immediate",
+    "version": 2,
+    "processId": 13470,
+    "errors": [],
+    "destination": "PerformanceTestReport.html",
+    "artifacts": [],
+    "index": 36,
+    "children": []
+  }
+];

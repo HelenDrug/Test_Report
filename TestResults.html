@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="TestResults.css" />
-    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="data1.json"></script>
     <title>Test Report</title>
     <script
       crossorigin
@@ -154,6 +154,7 @@
             }
             return n;
           });
+
           setNodes(newNodes);
         };
         const firstLevelNode = nodes[0];
@@ -355,7 +356,6 @@
           const shouldBeDisplayed =
             (shouldDisplayFailed(filter) && isFailedTestSuite(child)) ||
             (shouldDisplayPassed(filter) && isPassedTestSuite(child));
-
           if (shouldBeDisplayed) {
             return (
               <Node
@@ -477,6 +477,7 @@
             case "MemoryLeaks":
               return <MemoryLeaks selectedNode={selectedNode} />;
             default:
+              return <Default selectedNode={selectedNode} />;
           }
         };
 
@@ -648,6 +649,7 @@
       const DefaultNode = ({ node }) => {
         return (
           <>
+            {node.errors.length !== 0 ? <IconFail /> : <IconSuccess />}
             {node.name != 0 ? (
               <span>
                 {node.type}
@@ -845,6 +847,31 @@
             <MemoryLabels selectedNode={selectedNode} />
             <Errors selectedNode={selectedNode} />
             <Artifacts selectedNode={selectedNode} />
+            <ProcessId selectedNode={selectedNode} />
+          </div>
+        );
+      };
+
+      const Default = ({ selectedNode }) => {
+        return (
+          <div>
+            {selectedNode.hasOwnProperty("name") ? (
+              <Name selectedNode={selectedNode} />
+            ) : null}
+            {selectedNode.hasOwnProperty("type") ? (
+              <Type selectedNode={selectedNode} />
+            ) : null}
+            {selectedNode.hasOwnProperty("artifacts") &&
+            selectedNode.artifacts.length !== 0 ? (
+              <Artifacts selectedNode={selectedNode} />
+            ) : null}
+            {selectedNode.hasOwnProperty("errors") &&
+            selectedNode.errors.length !== 0 ? (
+              <Error selectedNode={selectedNode} />
+            ) : null}
+            {selectedNode.hasOwnProperty("message") ? (
+              <Message selectedNode={selectedNode} />
+            ) : null}
             <ProcessId selectedNode={selectedNode} />
           </div>
         );
@@ -1257,11 +1284,19 @@
       const BuildUrl = ({ selectedNode }) => {
         return (
           <div className="display-margin">
-            <div className="blue">Build URL: </div>
-            <i className="fas fa-paperclip" />
+            <span className="blue">Build URL:</span>
             <a href={selectedNode.buildUrl} target="_blank">
               {selectedNode.buildUrl}
             </a>
+          </div>
+        );
+      };
+
+      const Type = ({ selectedNode }) => {
+        return (
+          <div className="display-margin">
+            <span className="blue">Type: </span>
+            <span>{selectedNode.type} </span>
           </div>
         );
       };
