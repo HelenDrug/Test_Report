@@ -1141,15 +1141,10 @@
           return (
             <div className="display-margin">
               <div className="blue">Command to run locally: </div>
-              {selectedNode.minimalCommandLine.map((command, idx) => (
-                <div key={idx}>
-                  <CopyToClipboard content={prefix + command} />
+                  <CopyToClipboard content={prefix + selectedNode.minimalCommandLine.join(' ')} />
                   <span className="selector">
-                    {prefix}
-                    {command}
+                    {prefix + selectedNode.minimalCommandLine.join(' ')}
                   </span>
-                </div>
-              ))}
             </div>
           );
         }
