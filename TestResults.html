@@ -32,7 +32,7 @@
       };
 
       const App = () => {
-        const [selectedNode, setSelectedNode] = React.useState(testData[0]);
+        const [action, setAction] = React.useState(testData[0]);
         const [filters, setFilters] = React.useState([
           { label: "Ignored", value: "ignored", isChecked: false },
           { label: "Passed", value: "passed", isChecked: false },
@@ -41,12 +41,12 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const updateSelectedNode = (childNode) => {
-          setSelectedNode({ ...childNode });
+        const updateAction = (childAction) => {
+          setAction({ ...childAction });
         };
 
-        const handleFilterChange = (boxes) => {
-          setFilters(boxes);
+        const handleFilterChange = (newFilters) => {
+          setFilters(newFilters);
         };
         return (
           <div className="App">
@@ -66,15 +66,15 @@
                   <span>Artifacts</span>
                 </div>
                 <div>
-                  <NodeTree
+                  <ActionsTree
                     testData={testData}
-                    updateSelectedNode={updateSelectedNode}
+                    updateAction={updateAction}
                     filter={filters}
                   />
                 </div>
               </SplitPane.Left>
               <SplitPane.Right>
-                <DisplayTree selectedNode={selectedNode} prefix={prefix} />
+                <DisplayActionsTree action={action} prefix={prefix} />
               </SplitPane.Right>
             </SplitPane>
           </div>
@@ -134,9 +134,7 @@
         );
       };
 
-      const NodeTree = (props) => {
-        const { updateSelectedNode, testData, filter } = props;
-
+      const ActionsTree = ({ updateAction, testData, filter }) => {
         const [nodes, setNodes] = React.useState(testData);
 
         const getChildNodes = (node) => {
@@ -167,23 +165,21 @@
               getChildNodes={getChildNodes}
               onToggle={onToggle}
               hasChildren={hasChildren}
-              updateSelectedNode={updateSelectedNode}
+              updateAction={updateAction}
               filter={filter}
             />
           </div>
         );
       };
 
-      const Node = (props) => {
-        const {
-          node,
-          getChildNodes,
-          onToggle,
-          hasChildren,
-          updateSelectedNode,
-          filter,
-        } = props;
-
+      const Node = ({
+        node,
+        getChildNodes,
+        onToggle,
+        hasChildren,
+        updateAction,
+        filter,
+      }) => {
         const getCarretStyle = (node) => {
           if (!hasChildren(node)) {
             return <></>;
@@ -321,7 +317,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelectedNode={updateSelectedNode}
+                updateAction={updateAction}
                 filter={filter}
               />
             );
@@ -343,7 +339,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelectedNode={updateSelectedNode}
+                updateAction={updateAction}
                 filter={filter}
               />
             );
@@ -364,7 +360,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateSelectedNode={updateSelectedNode}
+                updateAction={updateAction}
                 filter={filter}
               />
             );
@@ -388,7 +384,7 @@
                   getChildNodes={getChildNodes}
                   onToggle={onToggle}
                   hasChildren={hasChildren}
-                  updateSelectedNode={updateSelectedNode}
+                  updateAction={updateAction}
                   filter={filter}
                 />
               );
@@ -402,7 +398,7 @@
               <div
                 className="node-title"
                 role="button"
-                onClick={() => updateSelectedNode(node)}
+                onClick={() => updateAction(node)}
               >
                 <span className="toggle" onClick={() => onToggle(node)}>
                   {getCarretStyle(node)}
@@ -438,7 +434,7 @@
                         getChildNodes={getChildNodes}
                         onToggle={onToggle}
                         hasChildren={hasChildren}
-                        updateSelectedNode={updateSelectedNode}
+                        updateAction={updateAction}
                         filter={filter}
                       />
                     );
@@ -449,42 +445,41 @@
         );
       };
 
-      const DisplayTree = ({ selectedNode, prefix }) => {
+      const DisplayActionsTree = ({ action, prefix }) => {
+        console.log(action);
         const getComponentToDisplay = () => {
-          if (selectedNode.type === null) {
+          if (action.type === null) {
             return;
           }
 
-          switch (selectedNode.type) {
+          switch (action.type) {
             case "ProcessInfo":
-              return <ProcessInfo selectedNode={selectedNode} />;
+              return <ProcessInfo action={action} />;
             case "TestSession":
-              return (
-                <TestSession selectedNode={selectedNode} prefix={prefix} />
-              );
+              return <TestSession action={action} prefix={prefix} />;
             case "TestSuite":
-              return <TestSuite selectedNode={selectedNode} prefix={prefix} />;
+              return <TestSuite action={action} prefix={prefix} />;
             case "TestPlan":
-              return <TestPlan selectedNode={selectedNode} />;
+              return <TestPlan action={action} />;
             case "TestGroup":
-              return <TestGroup selectedNode={selectedNode} />;
+              return <TestGroup action={action} />;
             case "TestStatus":
-              return <TestStatus selectedNode={selectedNode} prefix={prefix} />;
+              return <TestStatus action={action} prefix={prefix} />;
             case "Info":
-              return <Info selectedNode={selectedNode} />;
+              return <Info action={action} />;
             case "LogEntry":
-              return <LogEntry selectedNode={selectedNode} />;
+              return <LogEntry action={action} />;
             case "MemoryLeaks":
-              return <MemoryLeaks selectedNode={selectedNode} />;
+              return <MemoryLeaks action={action} />;
             default:
-              return <Default selectedNode={selectedNode} />;
+              return <Default action={action} />;
           }
         };
 
         return <div>{getComponentToDisplay()}</div>;
       };
 
-      //components to display on NodeTree (left part)
+      //components to display on ActionsTree (left part)
       const TestSessionNode = ({ node }) => {
         return (
           <>
@@ -736,51 +731,51 @@
         );
       };
 
-      //components to display on DisplayTree (right part)
-      const ProcessInfo = ({ selectedNode }) => {
+      //components to display on DisplayActionsTree (right part)
+      const ProcessInfo = ({ action }) => {
         return (
           <div className="process-info-container">
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Path selectedNode={selectedNode} />
-            <Arguments selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
-            <Artifacts selectedNode={selectedNode} />
-            <ProcessId selectedNode={selectedNode} />
+            <Path action={action} />
+            <Arguments action={action} />
+            <Errors action={action} />
+            <Artifacts action={action} />
+            <ProcessId action={action} />
           </div>
         );
       };
 
-      const TestSession = ({ selectedNode, prefix }) => {
+      const TestSession = ({ action, prefix }) => {
         return (
           <div className="test-session-container">
-            <Summary selectedNode={selectedNode} />
-            <OverallResult selectedNode={selectedNode} />
-            <Conclusion selectedNode={selectedNode} />
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            <Summary action={action} />
+            <OverallResult action={action} />
+            <Conclusion action={action} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Command selectedNode={selectedNode} prefix={prefix} />
-            <BuildUrl selectedNode={selectedNode} />
-            <Artifacts selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
-            <ProcessId selectedNode={selectedNode} />
+            <Command action={action} prefix={prefix} />
+            <BuildUrl action={action} />
+            <Artifacts action={action} />
+            <Errors action={action} />
+            <ProcessId action={action} />
           </div>
         );
       };
 
-      const TestPlan = ({ selectedNode }) => {
+      const TestPlan = ({ action }) => {
         return (
           <div className="display-margin">
             <div className="blue bottom-space">
-              Ready to run <strong>{selectedNode.tests.length}</strong> test(s):
+              Ready to run <strong>{action.tests.length}</strong> test(s):
             </div>
-            {selectedNode.tests.map((item) => (
+            {action.tests.map((item) => (
               <p className="selector" key={item}>
                 {item}
               </p>
@@ -789,182 +784,177 @@
         );
       };
 
-      const TestSuite = ({ selectedNode, prefix }) => {
+      const TestSuite = ({ action, prefix }) => {
         return (
           <div className="test-suite-container">
-            <Summary selectedNode={selectedNode} />
-            <OverallResult selectedNode={selectedNode} />
-            <Conclusion selectedNode={selectedNode} />
-            <Name selectedNode={selectedNode} />
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            <Summary action={action} />
+            <OverallResult action={action} />
+            <Conclusion action={action} />
+            <Name action={action} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Scope selectedNode={selectedNode} />
-            <Platform selectedNode={selectedNode} />
-            <Command selectedNode={selectedNode} prefix={prefix} />
-            <Artifacts selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
+            <Scope action={action} />
+            <Platform action={action} />
+            <Command action={action} prefix={prefix} />
+            <Artifacts action={action} />
+            <Errors action={action} />
           </div>
         );
       };
 
-      const TestGroup = ({ selectedNode }) => {
+      const TestGroup = ({ action }) => {
         return (
           <div className="test-group-container">
-            <Name selectedNode={selectedNode} />
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            <Name action={action} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Errors selectedNode={selectedNode} />
+            <Errors action={action} />
           </div>
         );
       };
 
-      const TestStatus = ({ selectedNode, prefix }) => {
+      const TestStatus = ({ action, prefix }) => {
         return (
           <div className="test-status-container">
-            <Name selectedNode={selectedNode} />
-            <OverallResult selectedNode={selectedNode} />
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            <Name action={action} />
+            <OverallResult action={action} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Message selectedNode={selectedNode} />
-            <StackTrace selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
-            <Command selectedNode={selectedNode} prefix={prefix} />
-            <ImageComparison selectedNode={selectedNode} />
+            <Message action={action} />
+            <StackTrace action={action} />
+            <Errors action={action} />
+            <Command action={action} prefix={prefix} />
+            <ImageComparison action={action} />
           </div>
         );
       };
 
-      const Info = ({ selectedNode }) => {
+      const Info = ({ action }) => {
         return (
           <div>
-            <Message selectedNode={selectedNode} />
+            <Message action={action} />
           </div>
         );
       };
 
-      const LogEntry = ({ selectedNode }) => {
+      const LogEntry = ({ action }) => {
         return (
           <div>
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <Severity selectedNode={selectedNode} />
-            <Message selectedNode={selectedNode} />
-            <StackTrace selectedNode={selectedNode} />
-            <Line selectedNode={selectedNode} />
-            <File selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
-            <ProcessId selectedNode={selectedNode} />
+            <Severity action={action} />
+            <Message action={action} />
+            <StackTrace action={action} />
+            <Line action={action} />
+            <File action={action} />
+            <Errors action={action} />
+            <ProcessId action={action} />
           </div>
         );
       };
 
-      const MemoryLeaks = ({ selectedNode }) => {
+      const MemoryLeaks = ({ action }) => {
         return (
           <div>
-            <Phase selectedNode={selectedNode} />
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            <Phase action={action} />
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            <MemoryLabels selectedNode={selectedNode} />
-            <Errors selectedNode={selectedNode} />
-            <Artifacts selectedNode={selectedNode} />
-            <ProcessId selectedNode={selectedNode} />
+            <MemoryLabels action={action} />
+            <Errors action={action} />
+            <Artifacts action={action} />
+            <ProcessId action={action} />
           </div>
         );
       };
 
-      const Default = ({ selectedNode }) => {
+      const Default = ({ action }) => {
         return (
           <div>
-            {selectedNode.hasOwnProperty("name") ? (
-              <Name selectedNode={selectedNode} />
-            ) : null}
-            {selectedNode.hasOwnProperty("type") ? (
-              <Type selectedNode={selectedNode} />
-            ) : null}
-            {selectedNode.hasOwnProperty("duration") ? (
-              selectedNode.duration.length != 0 ? (
-                <Duration selectedNode={selectedNode} />
+            {action.hasOwnProperty("name") ? <Name action={action} /> : null}
+            {action.hasOwnProperty("type") ? <Type action={action} /> : null}
+            {action.hasOwnProperty("duration") ? (
+              action.duration.length != 0 ? (
+                <Duration action={action} />
               ) : null
             ) : null}
-            {selectedNode.hasOwnProperty("artifacts") &&
-            selectedNode.artifacts.length !== 0 ? (
-              <Artifacts selectedNode={selectedNode} />
+            {action.hasOwnProperty("artifacts") &&
+            action.artifacts.length !== 0 ? (
+              <Artifacts action={action} />
             ) : null}
-            {selectedNode.hasOwnProperty("errors") &&
-            selectedNode.errors.length !== 0 ? (
-              <Error selectedNode={selectedNode} />
+            {action.hasOwnProperty("errors") && action.errors.length !== 0 ? (
+              <Error action={action} />
             ) : null}
-            {selectedNode.hasOwnProperty("message") ? (
-              <Message selectedNode={selectedNode} />
+            {action.hasOwnProperty("message") ? (
+              <Message action={action} />
             ) : null}
-            <ProcessId selectedNode={selectedNode} />
+            <ProcessId action={action} />
           </div>
         );
       };
 
       //reusable components
 
-      const ProcessId = ({ selectedNode }) => {
+      const ProcessId = ({ action }) => {
         return (
           <div className="display-margin">
             <p>
               <span className="blue">Process id:</span>{" "}
-              <strong>{selectedNode.processId}</strong>
+              <strong>{action.processId}</strong>
             </p>
           </div>
         );
       };
 
-      const Name = ({ selectedNode }) => {
+      const Name = ({ action }) => {
         return (
           <div className="name display-margin">
             <span className="blue">Name:</span>{" "}
-            <strong className="selector">{selectedNode.name}</strong>
+            <strong className="selector">{action.name}</strong>
           </div>
         );
       };
 
-      const Path = ({ selectedNode }) => {
+      const Path = ({ action }) => {
         return (
           <div className="display-margin">
             <div className="blue">Path: </div>
-            <CopyToClipboard content={selectedNode.path} />
-            <span className="selector">{selectedNode.path}</span>
+            <CopyToClipboard content={action.path} />
+            <span className="selector">{action.path}</span>
           </div>
         );
       };
 
-      const Arguments = ({ selectedNode }) => {
+      const Arguments = ({ action }) => {
         return (
           <div className="display-margin">
             <div className="blue">Arguments: </div>
-            <CopyToClipboard content={selectedNode.arguments} />
-            <span className="selector">{selectedNode.arguments}</span>
+            <CopyToClipboard content={action.arguments} />
+            <span className="selector">{action.arguments}</span>
           </div>
         );
       };
 
-      const Errors = ({ selectedNode }) => {
-        if (selectedNode.errors.length !== 0) {
+      const Errors = ({ action }) => {
+        if (action.errors.length !== 0) {
           return (
             <div className="display-margin">
-              <div className="blue">Errors ({selectedNode.errors.length})</div>
-              {selectedNode.errors.map((error, idx) => (
+              <div className="blue">Errors ({action.errors.length})</div>
+              {action.errors.map((error, idx) => (
                 <div key={idx}>
                   <CopyToClipboard content={error} />
                   <span className="statusFail selector">{error}</span>
@@ -976,18 +966,18 @@
         return null;
       };
 
-      const Artifacts = ({ selectedNode }) => {
+      const Artifacts = ({ action }) => {
         if (
-          selectedNode.hasOwnProperty("artifacts") &&
-          selectedNode.artifacts.length !== 0
+          action.hasOwnProperty("artifacts") &&
+          action.artifacts.length !== 0
         ) {
           return (
             <div className="display-margin">
               <span className="blue">
-                Artifacts ({selectedNode.artifacts.length})
+                Artifacts ({action.artifacts.length})
               </span>
               <div className="artifact-div">
-                {selectedNode.artifacts.map((artifact) => (
+                {action.artifacts.map((artifact) => (
                   <div key={artifact}>
                     <i className="fas fa-paperclip" />
                     <a href={artifact} target="_blank">
@@ -1002,52 +992,51 @@
         return null;
       };
 
-      const Summary = ({ selectedNode }) => {
+      const Summary = ({ action }) => {
         return (
           <div className="display-margin summary-container  ">
             <div>
-              Run <strong>{selectedNode.summary.testsCount}</strong> test(s).{" "}
+              Run <strong>{action.summary.testsCount}</strong> test(s).{" "}
             </div>
             <div className="summary-results-container">
               <div>
-                Passed: <strong>{selectedNode.summary.successCount}</strong>
+                Passed: <strong>{action.summary.successCount}</strong>
               </div>
               <div>
-                Failed: <strong>{selectedNode.summary.failedCount}</strong>
+                Failed: <strong>{action.summary.failedCount}</strong>
               </div>
               <div>
                 Inconclusive:{" "}
-                <strong>{selectedNode.summary.inconclusiveCount}</strong>
+                <strong>{action.summary.inconclusiveCount}</strong>
               </div>
               <div>
-                Ignored: <strong>{selectedNode.summary.ignoredCount}</strong>
+                Ignored: <strong>{action.summary.ignoredCount}</strong>
               </div>
               <div>
-                Skipped: <strong>{selectedNode.summary.skippedCount}</strong>
+                Skipped: <strong>{action.summary.skippedCount}</strong>
               </div>
               <div>
-                Not runnable:{" "}
-                <strong>{selectedNode.summary.notRunCount}</strong>
+                Not runnable: <strong>{action.summary.notRunCount}</strong>
               </div>
             </div>
           </div>
         );
       };
 
-      const OverallResult = ({ selectedNode }) => {
-        if (selectedNode.type === "TestSession") {
+      const OverallResult = ({ action }) => {
+        if (action.type === "TestSession") {
           return (
             <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
-              {selectedNode.summary.success ? (
+              {action.summary.success ? (
                 <span className="statusSuccess">SUCCESS</span>
               ) : (
                 <span className="statusFail">FAIL</span>
               )}
             </div>
           );
-        } else if (selectedNode.type === "TestStatus") {
-          switch (selectedNode.state) {
+        } else if (action.type === "TestStatus") {
+          switch (action.state) {
             case 0:
               return (
                 <div className="display-margin">
@@ -1083,11 +1072,11 @@
             default:
               return null;
           }
-        } else if (selectedNode.type === "TestSuite") {
+        } else if (action.type === "TestSuite") {
           return (
             <div className="display-margin">
               <span className="blue">Overall results:</span>{" "}
-              {selectedNode.errors.length === 0 ? (
+              {action.errors.length === 0 ? (
                 <span className="statusSuccess">SUCCESS</span>
               ) : (
                 <span className="statusFail">FAIL</span>
@@ -1097,27 +1086,27 @@
         }
       };
 
-      const Conclusion = ({ selectedNode }) => {
-        if (selectedNode.type === "TestSession") {
+      const Conclusion = ({ action }) => {
+        if (action.type === "TestSession") {
           return (
             <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
-              {!selectedNode.summary.success ? (
+              {!action.summary.success ? (
                 <span className="statusFail">
-                  {selectedNode.summary.failureConclusion}
+                  {action.summary.failureConclusion}
                 </span>
               ) : (
                 <span className="statusSuccess">SUCCESS</span>
               )}
             </div>
           );
-        } else if (selectedNode.type === "TestSuite") {
+        } else if (action.type === "TestSuite") {
           return (
             <div className="display-margin">
               <span className="blue">Conclusion:</span>{" "}
               {
                 <span className="statusFail">
-                  {selectedNode.summary.failureReasons[2]}
+                  {action.summary.failureReasons[2]}
                 </span>
               }
             </div>
@@ -1127,45 +1116,46 @@
         }
       };
 
-      const Suites = ({ selectedNode }) => {
+      const Suites = ({ action }) => {
         return (
           <div className="display-margin">
             <span className="blue">Suites count:</span>{" "}
-            <strong>{selectedNode.summary.suitesCount}</strong>
+            <strong>{action.summary.suitesCount}</strong>
           </div>
         );
       };
 
-      const Command = ({ selectedNode, prefix }) => {
-        if (selectedNode.minimalCommandLine.length !== 0) {
+      const Command = ({ action, prefix }) => {
+        if (action.minimalCommandLine.length !== 0) {
           return (
             <div className="display-margin">
               <div className="blue">Command to run locally: </div>
-                  <CopyToClipboard content={prefix + selectedNode.minimalCommandLine.join(' ')} />
-                  <span className="selector">
-                    {prefix + selectedNode.minimalCommandLine.join(' ')}
-                  </span>
+              <CopyToClipboard
+                content={prefix + action.minimalCommandLine.join(" ")}
+              />
+              <span className="selector">
+                {prefix + action.minimalCommandLine.join(" ")}
+              </span>
             </div>
           );
         }
         return null;
       };
 
-      const Scope = ({ selectedNode }) => {
+      const Scope = ({ action }) => {
         return (
           <div className="display-margin">
-            <span className="blue">Scope:</span>{" "}
-            <strong>{selectedNode.scope}</strong>
+            <span className="blue">Scope:</span> <strong>{action.scope}</strong>
           </div>
         );
       };
 
-      const Platform = ({ selectedNode }) => {
-        if (selectedNode.platform !== null) {
+      const Platform = ({ action }) => {
+        if (action.platform !== null) {
           return (
             <div className="display-margin">
               <span className="blue">Platform:</span>{" "}
-              <strong>{selectedNode.platform}</strong>
+              <strong>{action.platform}</strong>
             </div>
           );
         }
@@ -1202,9 +1192,9 @@
         );
       };
 
-      const Message = ({ selectedNode }) => {
-        if (selectedNode.message.length !== 0) {
-          const message = selectedNode.message.split(/\r?\n/);
+      const Message = ({ action }) => {
+        if (action.message.length !== 0) {
+          const message = action.message.split(/\r?\n/);
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Message:</div>
@@ -1219,16 +1209,16 @@
         return null;
       };
 
-      const StackTrace = ({ selectedNode }) => {
+      const StackTrace = ({ action }) => {
         if (
-          selectedNode.hasOwnProperty("stackTrace2") &&
-          selectedNode.stackTrace2.length !== 0
+          action.hasOwnProperty("stackTrace2") &&
+          action.stackTrace2.length !== 0
         ) {
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Stack-trace:</div>
 
-              {selectedNode.stackTrace2.map((item, idx) => {
+              {action.stackTrace2.map((item, idx) => {
                 if (item.hasOwnProperty("parsed") && item.parsed === false) {
                   return <div key={idx}>{item.rawFrameString}</div>;
                 } else {
@@ -1245,67 +1235,67 @@
             </div>
           );
         } else if (
-          selectedNode.type === "LogEntry" &&
-          selectedNode.stacktrace.length !== 0
+          action.type === "LogEntry" &&
+          action.stacktrace.length !== 0
         ) {
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Stack-trace:</div>
-              <div className="selector">{selectedNode.stacktrace}</div>
+              <div className="selector">{action.stacktrace}</div>
             </div>
           );
-        } else if (selectedNode.stackTrace.length !== 0) {
+        } else if (action.stackTrace.length !== 0) {
           return (
             <div className="display-margin">
               <div className="blue bottom-space">Stack-trace:</div>
-              <div className="selector">{selectedNode.stackTrace}</div>
+              <div className="selector">{action.stackTrace}</div>
             </div>
           );
         }
         return null;
       };
 
-      const Severity = ({ selectedNode }) => {
+      const Severity = ({ action }) => {
         return (
           <div className="display-margin">
             <span className="blue">Severity: </span>
-            <span>{selectedNode.severity}</span>
+            <span>{action.severity}</span>
           </div>
         );
       };
 
-      const Line = ({ selectedNode }) => {
+      const Line = ({ action }) => {
         return (
           <div className="display-margin">
             <span className="blue">Line:</span>
-            <span>{selectedNode.line}</span>
+            <span>{action.line}</span>
           </div>
         );
       };
 
-      const File = ({ selectedNode }) => {
+      const File = ({ action }) => {
         return (
           <div className="display-margin">
             <div className="blue">File:</div>
-            <div className="selector">{selectedNode.file}</div>
+            <div className="selector">{action.file}</div>
           </div>
         );
       };
 
-      const Phase = ({ selectedNode }) => {
+      const Phase = ({ action }) => {
         return (
           <div className="display-margin">
             <span className="blue">Phase: </span>
-            <span>{selectedNode.phase}</span>
+            <span>{action.phase}</span>
           </div>
         );
       };
 
-      const MemoryLabels = ({ selectedNode }) => {
+      const MemoryLabels = ({ action }) => {
         return (
           <div className="display-margin">
             <div className="blue">Memory labels: </div>
-            {selectedNode.memoryLabels.map((label) =>
+            {action.memoryLabels.map((label) =>
               Object.keys(label).map((key, i) => (
                 <div key={i}>
                   <span>{key}</span> : <span>{label[key]}</span>
@@ -1316,13 +1306,13 @@
         );
       };
 
-      const BuildUrl = ({ selectedNode }) => {
-        if (selectedNode.buildUrl.length !== 0) {
+      const BuildUrl = ({ action }) => {
+        if (action.buildUrl.length !== 0) {
           return (
             <div className="display-margin">
               <span className="blue">Build URL:</span>
-              <a href={selectedNode.buildUrl} target="_blank">
-                {selectedNode.buildUrl}
+              <a href={action.buildUrl} target="_blank">
+                {action.buildUrl}
               </a>
             </div>
           );
@@ -1330,18 +1320,18 @@
         return null;
       };
 
-      const Type = ({ selectedNode }) => {
+      const Type = ({ action }) => {
         return (
           <div className="display-margin">
             <span className="blue">Type: </span>
-            <span>{selectedNode.type} </span>
+            <span>{action.type} </span>
           </div>
         );
       };
 
-      const Duration = ({ selectedNode }) => {
+      const Duration = ({ action }) => {
         const durationToTimeStr = (time) => {
-          if (selectedNode.hasOwnProperty("duration")) {
+          if (action.hasOwnProperty("duration")) {
             const date = new Date(time);
             const pad = (v, n = 2) => v.toString().padStart(n, "0");
             return `${pad(date.getUTCHours())}:${pad(
@@ -1352,15 +1342,15 @@
         return (
           <div className="display-margin">
             <span className="blue">Duration: </span>
-            <span>{durationToTimeStr(selectedNode.duration)} </span>
+            <span>{durationToTimeStr(action.duration)} </span>
           </div>
         );
       };
 
       // Image Comparison tool
-      const ImageComparison = ({ selectedNode }) => {
-        if (selectedNode.artifacts.length > 0) {
-          const images = selectedNode.artifacts;
+      const ImageComparison = ({ action }) => {
+        if (action.artifacts.length > 0) {
+          const images = action.artifacts;
           const [header, setHeader] = React.useState({
             index: 0,
             headersList: ["Rendered", "Expected", "Difference"],
