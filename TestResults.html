@@ -31,6 +31,16 @@
         return `${str.slice(0, number)} ... ${str.slice(-number, str.length)}`;
       };
 
+      const durationToTimeStr = (action, time) => {
+        if (action.hasOwnProperty("duration")) {
+          const date = new Date(time);
+          const pad = (v, n = 2) => v.toString().padStart(n, "0");
+          return `${pad(date.getUTCHours())}:${pad(date.getUTCMinutes())}:${pad(
+            date.getUTCSeconds()
+          )}:${pad(date.getUTCMilliseconds())}`;
+        }
+      };
+
       const App = () => {
         const [action, setAction] = React.useState(testData[0]);
         const [filters, setFilters] = React.useState([
@@ -229,16 +239,6 @@
           }
         };
 
-        const durationToTimeStr = (time) => {
-          if (node.hasOwnProperty("duration")) {
-            const date = new Date(time);
-            const pad = (v, n = 2) => v.toString().padStart(n, "0");
-            return `${pad(date.getUTCHours())}:${pad(
-              date.getUTCMinutes()
-            )}:${pad(date.getUTCSeconds())}:${pad(date.getUTCMilliseconds())}`;
-          }
-        };
-
         const shouldDisplayFailed = (filter) => {
           for (let i = 0; i < filter.length; ++i) {
             if (filter[i].value === "failed" && filter[i].isChecked === true) {
@@ -405,7 +405,9 @@
                 </span>
                 {showNode()}
               </div>
-              <div className="duration">{durationToTimeStr(node.duration)}</div>
+              <div className="duration">
+                {durationToTimeStr(node, node.duration)}
+              </div>
               <div className="artifacts">{showArtifacts()}</div>
             </div>
 
@@ -446,7 +448,6 @@
       };
 
       const DisplayActionsTree = ({ action, prefix }) => {
-        console.log(action);
         const getComponentToDisplay = () => {
           if (action.type === null) {
             return;
@@ -1330,19 +1331,10 @@
       };
 
       const Duration = ({ action }) => {
-        const durationToTimeStr = (time) => {
-          if (action.hasOwnProperty("duration")) {
-            const date = new Date(time);
-            const pad = (v, n = 2) => v.toString().padStart(n, "0");
-            return `${pad(date.getUTCHours())}:${pad(
-              date.getUTCMinutes()
-            )}:${pad(date.getUTCSeconds())}:${pad(date.getUTCMilliseconds())}`;
-          }
-        };
         return (
           <div className="display-margin">
             <span className="blue">Duration: </span>
-            <span>{durationToTimeStr(action.duration)} </span>
+            <span>{durationToTimeStr(action, action.duration)} </span>
           </div>
         );
       };
