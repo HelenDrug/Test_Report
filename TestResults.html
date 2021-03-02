@@ -31,9 +31,9 @@
         return `${str.slice(0, number)} ... ${str.slice(-number, str.length)}`;
       };
 
-      const durationToTimeStr = (action, time) => {
+      const durationToTimeStr = (action) => {
         if (action.hasOwnProperty("duration")) {
-          const date = new Date(time);
+          const date = new Date(action.duration);
           const pad = (v, n = 2) => v.toString().padStart(n, "0");
           return `${pad(date.getUTCHours())}:${pad(date.getUTCMinutes())}:${pad(
             date.getUTCSeconds()
@@ -51,7 +51,7 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const updateAction = (childAction) => {
+        const handleActionChange = (childAction) => {
           setAction({ ...childAction });
         };
 
@@ -77,8 +77,8 @@
                 </div>
                 <div>
                   <ActionsTree
-                    testData={testData}
-                    updateAction={updateAction}
+                    action={testData}
+                    handleActionChange={handleActionChange}
                     filter={filters}
                   />
                 </div>
@@ -144,8 +144,8 @@
         );
       };
 
-      const ActionsTree = ({ updateAction, testData, filter }) => {
-        const [nodes, setNodes] = React.useState(testData);
+      const ActionsTree = ({ handleActionChange, action, filter }) => {
+        const [nodes, setNodes] = React.useState(action);
 
         const getChildNodes = (node) => {
           return node.children.map((node) => nodes[node.index]);
@@ -175,7 +175,7 @@
               getChildNodes={getChildNodes}
               onToggle={onToggle}
               hasChildren={hasChildren}
-              updateAction={updateAction}
+              handleActionChange={handleActionChange}
               filter={filter}
             />
           </div>
@@ -187,7 +187,7 @@
         getChildNodes,
         onToggle,
         hasChildren,
-        updateAction,
+        handleActionChange,
         filter,
       }) => {
         const getCarretStyle = (node) => {
@@ -317,7 +317,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateAction={updateAction}
+                handleActionChange={handleActionChange}
                 filter={filter}
               />
             );
@@ -339,7 +339,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateAction={updateAction}
+                handleActionChange={handleActionChange}
                 filter={filter}
               />
             );
@@ -360,7 +360,7 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                updateAction={updateAction}
+                handleActionChange={handleActionChange}
                 filter={filter}
               />
             );
@@ -384,7 +384,7 @@
                   getChildNodes={getChildNodes}
                   onToggle={onToggle}
                   hasChildren={hasChildren}
-                  updateAction={updateAction}
+                  handleActionChange={handleActionChange}
                   filter={filter}
                 />
               );
@@ -398,16 +398,14 @@
               <div
                 className="node-title"
                 role="button"
-                onClick={() => updateAction(node)}
+                onClick={() => handleActionChange(node)}
               >
                 <span className="toggle" onClick={() => onToggle(node)}>
                   {getCarretStyle(node)}
                 </span>
                 {showNode()}
               </div>
-              <div className="duration">
-                {durationToTimeStr(node, node.duration)}
-              </div>
+              <div className="duration">{durationToTimeStr(node)}</div>
               <div className="artifacts">{showArtifacts()}</div>
             </div>
 
@@ -436,7 +434,7 @@
                         getChildNodes={getChildNodes}
                         onToggle={onToggle}
                         hasChildren={hasChildren}
-                        updateAction={updateAction}
+                        handleActionChange={handleActionChange}
                         filter={filter}
                       />
                     );
@@ -1334,7 +1332,7 @@
         return (
           <div className="display-margin">
             <span className="blue">Duration: </span>
-            <span>{durationToTimeStr(action, action.duration)} </span>
+            <span>{durationToTimeStr(action)} </span>
           </div>
         );
       };
