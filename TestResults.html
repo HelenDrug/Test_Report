@@ -51,8 +51,8 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const handleActionChange = (childAction) => {
-          setAction({ ...childAction });
+        const handleActionChange = (newAction) => {
+          setAction({ ...newAction });
         };
 
         const handleFilterChange = (newFilters) => {
@@ -446,6 +446,7 @@
       };
 
       const DisplayActionsTree = ({ action, prefix }) => {
+        console.log(action);
         const getComponentToDisplay = () => {
           if (action.type === null) {
             return;
