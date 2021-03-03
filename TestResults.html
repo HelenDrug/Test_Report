@@ -51,7 +51,7 @@
 
         const prefix = testData[0].utrPrefix + " ";
 
-        const handleActionChange = (newAction) => {
+        const handleActionSelect = (newAction) => {
           setAction({ ...newAction });
         };
 
@@ -78,7 +78,7 @@
                 <div>
                   <ActionsTree
                     action={testData}
-                    handleActionChange={handleActionChange}
+                    onActionSelect={handleActionSelect}
                     filter={filters}
                   />
                 </div>
@@ -144,11 +144,19 @@
         );
       };
 
-      const ActionsTree = ({ handleActionChange, action, filter }) => {
+      const ActionsTree = ({ onActionSelect, action, filter }) => {
         const [nodes, setNodes] = React.useState(action);
+        const [activeNodeIndex, setActiveNodeIndex] = React.useState(0);
 
         const getChildNodes = (node) => {
           return node.children.map((node) => nodes[node.index]);
+        };
+
+        const handleActionClick = (node) => {
+          if (activeNodeIndex !== node.index) {
+            setActiveNodeIndex(node.index);
+            onActionSelect(node);
+          }
         };
 
         const hasChildren = (node) => {
@@ -175,8 +183,9 @@
               getChildNodes={getChildNodes}
               onToggle={onToggle}
               hasChildren={hasChildren}
-              handleActionChange={handleActionChange}
+              onActionSelect={handleActionClick}
               filter={filter}
+              activeIndex={activeNodeIndex}
             />
           </div>
         );
@@ -187,8 +196,9 @@
         getChildNodes,
         onToggle,
         hasChildren,
-        handleActionChange,
+        onActionSelect,
         filter,
+        activeIndex,
       }) => {
         const getCarretStyle = (node) => {
           if (!hasChildren(node)) {
@@ -317,8 +327,9 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                handleActionChange={handleActionChange}
+                onActionSelect={onActionSelect}
                 filter={filter}
+                activeIndex={activeIndex}
               />
             );
           } else {
@@ -339,8 +350,9 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                handleActionChange={handleActionChange}
+                onActionSelect={onActionSelect}
                 filter={filter}
+                activeIndex={activeIndex}
               />
             );
           } else {
@@ -360,8 +372,9 @@
                 getChildNodes={getChildNodes}
                 onToggle={onToggle}
                 hasChildren={hasChildren}
-                handleActionChange={handleActionChange}
+                onActionSelect={onActionSelect}
                 filter={filter}
+                activeIndex={activeIndex}
               />
             );
           } else {
@@ -384,21 +397,26 @@
                   getChildNodes={getChildNodes}
                   onToggle={onToggle}
                   hasChildren={hasChildren}
-                  handleActionChange={handleActionChange}
-                  filter={filter}
+                  onActionSelect={onActionSelect}
+                  activeIndex={activeIndex}
                 />
               );
             }
           }
         };
 
+        let nodeClasses = "node-container";
+        if (activeIndex === node.index) {
+          nodeClasses += " active-node";
+        }
+
         return (
           <>
-            <div className="node-container">
+            <div className={nodeClasses}>
               <div
                 className="node-title"
                 role="button"
-                onClick={() => handleActionChange(node)}
+                onClick={() => onActionSelect(node)}
               >
                 <span className="toggle" onClick={() => onToggle(node)}>
                   {getCarretStyle(node)}
@@ -434,8 +452,9 @@
                         getChildNodes={getChildNodes}
                         onToggle={onToggle}
                         hasChildren={hasChildren}
-                        handleActionChange={handleActionChange}
+                        onActionSelect={onActionSelect}
                         filter={filter}
+                        activeIndex={activeIndex}
                       />
                     );
                   }
